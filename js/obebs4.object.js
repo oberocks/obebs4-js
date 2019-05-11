@@ -38,7 +38,7 @@ const OBEBS4 = function () {
                     elem.appendChild(nestedElem[i]);
                 }
             } else {
-                // if it's not an array (and is just a single element) then attach it
+                // if it's not an array (and is just a single element) then append the element
                 elem.appendChild(nestedElem);
             }
         }
