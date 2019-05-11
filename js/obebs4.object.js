@@ -2,31 +2,49 @@
 const OBEBS4 = function () {
     this.version = '0.0.1',
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
-        let elem = document.createElement(elemType);
+        // initialize the returned element as a var
+        let elem;
+        // check for a passed element tag
+        if (elemType) {
+            // create the element
+            elem = document.createElement(elemType);
+        } else { console.log('ERROR: An element (tag) type must be passed as the first argument.') }
+        // check for passed element text
         if (elemText) {
+            // if passed, then create a text node and append it to the returned element
             let node = document.createTextNode(elemText);
             elem.appendChild(node);
         }
+        // check for passed object of html attribute key/value pairs
         if (attributes) {
+            // check that the argument is an object and is not null
             if (typeof attributes === 'object' && attributes !== null) {
+                // loop through the object
                 for (var attr in attributes) {
                     if (attributes.hasOwnProperty(attr)) {
+                        // set the attribute and value
                         elem.setAttribute(attr, attributes[attr]);
                     }
                 }
             }
         }
+        // check for passed element array
         if (nestedElem) {
+            // check if the passed argument is an array
             if (Array.isArray(nestedElem)) {
+                // loop through the array
                 for (var i = 0; i < nestedElem.length; i++) {
+                    // append each as a child element
                     elem.appendChild(nestedElem[i]);
                 }
             } else {
+                // if it's not an array (and is just a single element) then attach it
                 elem.appendChild(nestedElem);
             }
         }
+        // return the element
         return elem;
-    }
+    }    
 };
 
 
