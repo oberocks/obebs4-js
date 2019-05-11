@@ -1,6 +1,6 @@
 
 const OBEBS4 = function () {
-    this.version = '0.0.1',
+    this.version = '0.0.2',
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         // initialize the returned element as a var
         let elem;
