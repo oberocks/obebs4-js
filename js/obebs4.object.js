@@ -52,30 +52,6 @@ const OBEBS4 = function () {
 let obebs4 = new OBEBS4();
 console.log(obebs4.version);
 
-
-console.log('----------------');
-
-
-/*
-console.log('----------------');
-
-let span = obebs4.element('span', 'text-danger', 'Span Text Here!');
-
-let div = obebs4.element(
-    'div',
-    'text-lg text-primary',
-    'This is my div! ',
-    {
-        "id" : "test-id",
-        "data-value" : "test-id-value"
-    },
-    span
-);
-
-target.appendChild(div);
-*/
-
-
 let h_1 = obebs4.element('h3', 'First Headline');
 let hr_1 = obebs4.element('hr', false, {'class' : 'border-success'});
 let p_1 = obebs4.element('p', 'This is the first sample paragraph.');
