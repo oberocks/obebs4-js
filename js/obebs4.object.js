@@ -1,6 +1,6 @@
 
 const OBEBS4 = function () {
-    this.version = '0.0.2',
+    this.version = '0.0.3',
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         // initialize the returned element as a var
         let elem;
@@ -10,7 +10,7 @@ const OBEBS4 = function () {
             elem = document.createElement(elemType);
         } else { console.log('ERROR: An element (tag) type must be passed as the first argument.') }
         // check for passed element text
-        if (elemText) {
+        if (elemText && elemText.length > 0) {
             // if passed, then create a text node and append it to the returned element
             let node = document.createTextNode(elemText);
             elem.appendChild(node);
@@ -53,11 +53,11 @@ let obebs4 = new OBEBS4();
 console.log(obebs4.version);
 
 let h_1 = obebs4.element('h3', 'First Headline');
-let hr_1 = obebs4.element('hr', false, {'class' : 'border-success'});
+let hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
 let p_1 = obebs4.element('p', 'This is the first sample paragraph.');
 
 let h_2 = obebs4.element('h3', 'Second Headline');
-let hr_2 = obebs4.element('hr', false, {'class' : 'border-success'});
+let hr_2 = obebs4.element('hr', '', {'class' : 'border-success'});
 let p_2 = obebs4.element('p', 'This is the second sample paragraph.');
 
 let column_1 = obebs4.element('div', false, {'class' : 'col-md-6'}, [h_1, hr_1, p_1]);
