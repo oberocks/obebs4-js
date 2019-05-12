@@ -54,7 +54,7 @@ const OBEBS4 = function () {
 
     this.articles = {
         columns : {
-            single : function (settingsObj = false, nestedElem = false) {
+            one : function (settingsObj = false, nestedElem = false) {
                 let settings = {
                     classes : {
                         article : 'container-fluid py-5',
@@ -124,7 +124,7 @@ console.log(obebs4.version);
 const target = document.getElementById('obebs4-app');
 
 
-// first section
+// Example section using OBEBS4.element()
 
 let h_1 = obebs4.element('h3', 'First Headline');
 let hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
@@ -146,9 +146,24 @@ let container_fluid = obebs4.element('div', false, {'class' : 'container-fluid b
 target.appendChild(container_fluid);
 
 
-// article section
+// Example article section using OBEBS4.articles.columns.one()
 
-let articleSettings = {};
-let article = obebs4.articles.columns.single();
-
+let article = obebs4.articles.columns.one();
 target.appendChild(article);
+
+
+let article_2_settings = {
+    classes : {
+        article : 'container-fluid bg-primary text-light py-5',
+        container : 'container',
+        row : 'row justify-content-center',
+        col : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
+    }
+};
+let article_2_h_1 = obebs4.element('h3', 'First Headline', {'class' : 'text-shadow'});
+let article_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
+let article_2_p_1 = obebs4.element('p', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.');
+let article_2_p_2 = obebs4.element('p', 'Interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.', {'class' : 'lead p-3'});
+let article_2_p_3 = obebs4.element('p', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.');
+let article_2 = obebs4.articles.columns.one(article_2_settings, [article_2_h_1, article_2_hr_1, article_2_p_1, article_2_p_2, article_2_p_3]);
+target.appendChild(article_2);
