@@ -52,7 +52,7 @@ const OBEBS4 = function () {
     this.version = '0.0.3',
     this.laurem = {
         headlines : [
-            'Lorem Opsum Dolor Sit',
+            'Lorem Ipsum Dolor Sit',
             'Quisque Feugiat Hendrerit',
             'Mauris Ut Nulla Id Libero',
             'Sed Bibendum Nisi A Est Semper'
