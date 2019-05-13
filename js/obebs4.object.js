@@ -41,22 +41,36 @@ var extend = function () {
 
 };
 
+// Helper function to get random index for an array length
+// from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomIndex(arrayLength) {
+    return Math.floor(Math.random() * Math.floor(arrayLength));
+}
+
 const OBEBS4 = function () {
     this.version = '0.0.3',
     this.laurem = {
-        headlines = {
-            one : 'Lorem Ipsum',
-            two : 'Dolor Sit Amet',
-            three : 'Consectetur Adipiscing',
-            four : 'Pellentesque Ornare Justo'
-        },
-        paragraphs = {
-            one : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.',
-            two : '',
-            three : '',
-            four : ''
-        }
-    }
+        headlines : [
+            'Lorem Ipsum Dolar',
+            'Aenean Viverra Nulla',
+            'Sed Aliquam Vel Nunc',
+            'Donec Efficitur Blandit'
+        ],
+        paragraphs : [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.',
+            'Aenean viverra nulla ac ante maximus, at aliquet risus finibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur tincidunt ultricies sapien. Vestibulum metus nulla, scelerisque sed risus ac, ullamcorper lobortis magna. Etiam nec mollis velit.',
+            'Sed aliquam vel nunc at cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus commodo quis ante sit amet semper. Nunc facilisis mi dignissim semper hendrerit. Sed ornare sapien in nulla porttitor faucibus.',
+            'Donec efficitur blandit sapien, eget ultricies turpis interdum rhoncus. Integer vitae laoreet nulla, ut consectetur purus. In vel iaculis tellus, vitae iaculis lacus. Curabitur vitae pharetra ipsum, vitae efficitur diam. Donec mollis urna eget semper convallis.'
+        ]
+    },
+    this.randomHeadline = function () {
+        let index = getRandomIndex(this.laurem.headlines.length);
+        return this.laurem.headlines[index];
+    },
+    this.randomParagraph = function () {
+        let index = getRandomIndex(this.laurem.paragraphs.length);
+        return this.laurem.paragraphs[index];
+    },
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
         // initialize the returned element as a var
@@ -107,7 +121,6 @@ const OBEBS4 = function () {
         // return the element
         return elem;
     },
-
     this.articles = {
         columns : {
             one : function (settingsObj = false, nestedElem = false) {
@@ -120,7 +133,7 @@ const OBEBS4 = function () {
                     },
                     content : {
                         default : {
-                            headline : 'Lorem Ipsum',
+                            headline : 'Laurem Ipsum',
                             paragraph : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.'
                         }
                     }
@@ -219,11 +232,11 @@ let article_2_settings = {
     }
 };
 
-let article_2_h_1 = obebs4.element('h3', 'First Headline', {'class' : 'text-shadow'});
+let article_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
-let article_2_p_1 = obebs4.element('p', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.');
+let article_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
 let article_2_p_2 = obebs4.element('p', 'Interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.', {'class' : 'lead p-3 border-left border-yellow border-width-5'});
-let article_2_p_3 = obebs4.element('p', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.');
+let article_2_p_3 = obebs4.element('p', obebs4.randomParagraph());
 
 let article_2 = obebs4.articles.columns.one(
     article_2_settings,
