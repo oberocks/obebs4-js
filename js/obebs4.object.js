@@ -1,6 +1,62 @@
 
+// Helper function to merge user setings into obebs4 settings
+// from: https://gomakethings.com/vanilla-javascript-version-of-jquery-extend/
+// Pass in the objects to merge as arguments.
+// For a deep extend, set the first argument to `true`.
+var extend = function () {
+
+	// Variables
+	var extended = {};
+	var deep = false;
+	var i = 0;
+	var length = arguments.length;
+
+	// Check if a deep merge
+	if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+		deep = arguments[0];
+		i++;
+	}
+
+	// Merge the object into the extended object
+	var merge = function (obj) {
+		for ( var prop in obj ) {
+			if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+				// If deep merge and property is an object, merge properties
+				if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+					extended[prop] = extend( true, extended[prop], obj[prop] );
+				} else {
+					extended[prop] = obj[prop];
+				}
+			}
+		}
+	};
+
+	// Loop through each object and conduct a merge
+	for ( ; i < length; i++ ) {
+		var obj = arguments[i];
+		merge(obj);
+	}
+
+	return extended;
+
+};
+
 const OBEBS4 = function () {
     this.version = '0.0.3',
+    this.laurem = {
+        headlines = {
+            one : 'Lorem Ipsum',
+            two : 'Dolor Sit Amet',
+            three : 'Consectetur Adipiscing',
+            four : 'Pellentesque Ornare Justo'
+        },
+        paragraphs = {
+            one : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.',
+            two : '',
+            three : '',
+            four : ''
+        }
+    }
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
         // initialize the returned element as a var
@@ -69,18 +125,21 @@ const OBEBS4 = function () {
                         }
                     }
                 };
+                let extendedSettings = settings;
                 if (settingsObj) {
-                    const returnedTarget = Object.assign(settings, settingsObj);
+                    extendedSettings = extend(true, settings, settingsObj);
+                    console.log('extendedSettings:');
+                    console.log(extendedSettings);
                 }
                 // initialize the returned element as a var
                 let article = document.createElement('article');
-                article.classList = settings.classes.article;
+                article.classList = extendedSettings.classes.article;
                 let container = document.createElement('div');
-                container.classList = settings.classes.container;
+                container.classList = extendedSettings.classes.container;
                 let row = document.createElement('div');
-                row.classList = settings.classes.row;
+                row.classList = extendedSettings.classes.row;
                 let col = document.createElement('div');
-                col.classList = settings.classes.col;
+                col.classList = extendedSettings.classes.col;
                 // check for passed element array
                 if (nestedElem) {
                     // check if the passed argument is an array
@@ -96,11 +155,11 @@ const OBEBS4 = function () {
                     }
                 } else {
                     let h = document.createElement('h1');
-                    let h_txt = document.createTextNode(settings.content.default.headline);
+                    let h_txt = document.createTextNode(extendedSettings.content.default.headline);
                     h.appendChild(h_txt);
                     col.appendChild(h);
                     let p = document.createElement('p');
-                    let p_txt = document.createTextNode(settings.content.default.paragraph);
+                    let p_txt = document.createTextNode(extendedSettings.content.default.paragraph);
                     p.appendChild(p_txt);
                     col.appendChild(p);
                 }
@@ -155,7 +214,6 @@ target.appendChild(article);
 let article_2_settings = {
     classes : {
         article : 'container-fluid bg-primary text-light py-5',
-        container : 'container',
         row : 'row justify-content-center',
         col : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
     }
