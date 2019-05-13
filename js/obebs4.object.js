@@ -51,16 +51,16 @@ const OBEBS4 = function () {
     this.version = '0.0.3',
     this.laurem = {
         headlines : [
-            'Lorem Ipsum Dolar',
-            'Aenean Viverra Nulla',
-            'Sed Aliquam Vel Nunc',
-            'Donec Efficitur Blandit'
+            'Lorem Opsum Dolor Sit',
+            'Quisque Feugiat Hendrerit',
+            'Mauris Ut Nulla Id Libero',
+            'Sed Bibendum Nisi A Est Semper'
         ],
         paragraphs : [
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.',
-            'Aenean viverra nulla ac ante maximus, at aliquet risus finibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur tincidunt ultricies sapien. Vestibulum metus nulla, scelerisque sed risus ac, ullamcorper lobortis magna. Etiam nec mollis velit.',
-            'Sed aliquam vel nunc at cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus commodo quis ante sit amet semper. Nunc facilisis mi dignissim semper hendrerit. Sed ornare sapien in nulla porttitor faucibus.',
-            'Donec efficitur blandit sapien, eget ultricies turpis interdum rhoncus. Integer vitae laoreet nulla, ut consectetur purus. In vel iaculis tellus, vitae iaculis lacus. Curabitur vitae pharetra ipsum, vitae efficitur diam. Donec mollis urna eget semper convallis.'
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.',
+            'Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.',
+            'Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.',
+            'Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.'
         ]
     },
     this.randomHeadline = function () {
@@ -132,7 +132,7 @@ const OBEBS4 = function () {
                         col : 'col col-sm-10 col-md-8 col-lg-7 col-xl-6'
                     },
                     content : {
-                        default : {
+                        laurem : {
                             headline : 'Laurem Ipsum',
                             paragraph : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.'
                         }
@@ -168,11 +168,11 @@ const OBEBS4 = function () {
                     }
                 } else {
                     let h = document.createElement('h1');
-                    let h_txt = document.createTextNode(extendedSettings.content.default.headline);
+                    let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
                     h.appendChild(h_txt);
                     col.appendChild(h);
                     let p = document.createElement('p');
-                    let p_txt = document.createTextNode(extendedSettings.content.default.paragraph);
+                    let p_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
                     p.appendChild(p_txt);
                     col.appendChild(p);
                 }
@@ -218,11 +218,13 @@ let container_fluid = obebs4.element('div', false, {'class' : 'container-fluid b
 target.appendChild(container_fluid);
 
 
-// Example article section using OBEBS4.articles.columns.one()
+// Example article section using a default OBEBS4.articles.columns.one()
 
 let article = obebs4.articles.columns.one();
 target.appendChild(article);
 
+
+// Example article section using a customized OBEBS4.articles.columns.one()
 
 let article_2_settings = {
     classes : {
