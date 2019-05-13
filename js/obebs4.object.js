@@ -48,6 +48,7 @@ function getRandomIndex(arrayLength) {
 }
 
 const OBEBS4 = function () {
+    let self = this;
     this.version = '0.0.3',
     this.laurem = {
         headlines : [
@@ -61,6 +62,12 @@ const OBEBS4 = function () {
             'Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.',
             'Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.',
             'Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.'
+        ],
+        quotes : [
+            'Nulla ac turpis id arcu cursus condimentum eget vel ante.',
+            'Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis.',
+            'In eget felis risus. Nullam at tincidunt tellus, non fermentum enim.',
+            'Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst.'
         ]
     },
     this.randomHeadline = function () {
@@ -70,6 +77,10 @@ const OBEBS4 = function () {
     this.randomParagraph = function () {
         let index = getRandomIndex(this.laurem.paragraphs.length);
         return this.laurem.paragraphs[index];
+    },
+    this.randomQuote = function () {
+        let index = getRandomIndex(this.laurem.quotes.length);
+        return this.laurem.quotes[index];
     },
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
@@ -133,8 +144,8 @@ const OBEBS4 = function () {
                     },
                     content : {
                         laurem : {
-                            headline : 'Laurem Ipsum',
-                            paragraph : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare justo iaculis lacus facilisis, in volutpat diam luctus. Sed diam ipsum, laoreet eu lobortis a, interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.'
+                            headline : self.randomHeadline(),
+                            paragraph : self.randomParagraph()
                         }
                     }
                 };
@@ -224,7 +235,7 @@ let article = obebs4.articles.columns.one();
 target.appendChild(article);
 
 
-// Example article section using a customized OBEBS4.articles.columns.one()
+// Example article section using a customized settings for OBEBS4.articles.columns.one() (and random strings from the laurem sub-object)
 
 let article_2_settings = {
     classes : {
@@ -237,7 +248,7 @@ let article_2_settings = {
 let article_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
-let article_2_p_2 = obebs4.element('p', 'Interdum vel nunc. Sed vitae nulla id sem mattis rhoncus.', {'class' : 'lead p-3 border-left border-yellow border-width-5'});
+let article_2_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
 let article_2_p_3 = obebs4.element('p', obebs4.randomParagraph());
 
 let article_2 = obebs4.articles.columns.one(
