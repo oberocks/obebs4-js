@@ -49,7 +49,7 @@ function getRandomIndex(arrayLength) {
 
 const OBEBS4 = function () {
     let self = this;
-    this.version = '0.0.3',
+    this.version = '0.0.4',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
