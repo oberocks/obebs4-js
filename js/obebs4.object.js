@@ -49,7 +49,7 @@ function getRandomIndex(arrayLength) {
 
 const OBEBS4 = function () {
     let self = this;
-    this.version = '0.0.4',
+    this.version = '0.0.5',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -134,7 +134,8 @@ const OBEBS4 = function () {
     },
     this.articles = {
         columns : {
-            one : function (settingsObj = false, nestedElem = false) {
+            single : function (settingsObj = false, nestedElem = false) {
+                
                 let settings = {
                     classes : {
                         article : 'container-fluid py-5',
@@ -149,10 +150,12 @@ const OBEBS4 = function () {
                         }
                     }
                 };
+
                 let extendedSettings = settings;
                 if (settingsObj) {
                     extendedSettings = extend(true, settings, settingsObj);
                 }
+
                 // initialize the returned element as a var
                 let article = document.createElement('article');
                 article.classList = extendedSettings.classes.article;
@@ -162,6 +165,7 @@ const OBEBS4 = function () {
                 row.classList = extendedSettings.classes.row;
                 let col = document.createElement('div');
                 col.classList = extendedSettings.classes.column;
+
                 // check for passed element array
                 if (nestedElem) {
                     // check if the passed argument is an array
@@ -176,6 +180,7 @@ const OBEBS4 = function () {
                         col.appendChild(nestedElem);
                     }
                 } else {
+                    // if nothing was passed, then generate default placeholder content and attach it
                     let h = document.createElement('h1');
                     let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
                     h.appendChild(h_txt);
@@ -185,21 +190,24 @@ const OBEBS4 = function () {
                     p.appendChild(p_txt);
                     col.appendChild(p);
                 }
+
                 // append elements
                 row.appendChild(col);
                 container.appendChild(row);
                 article.appendChild(container);
+
                 // return the article elements
                 return article;
+
             },
-            two : function (settingsObj = false, columnOneNested = false, columnTwoNested = false) {
+            multi : function (settingsObj = false, columnsArrays = false) {
+                
                 let settings = {
                     classes : {
                         article : 'container-fluid py-5',
                         container : 'container',
                         row : 'row justify-content-center',
-                        columnOne : 'col col-md-6',
-                        columnTwo : 'col col-md-6'
+                        column : 'col col-md-6'
                     },
                     content : {
                         laurem : {
@@ -208,10 +216,12 @@ const OBEBS4 = function () {
                         }
                     }
                 };
+
                 let extendedSettings = settings;
                 if (settingsObj) {
                     extendedSettings = extend(true, settings, settingsObj);
                 }
+
                 // initialize the returned element as a var
                 let article = document.createElement('article');
                 article.classList = extendedSettings.classes.article;
@@ -219,63 +229,81 @@ const OBEBS4 = function () {
                 container.classList = extendedSettings.classes.container;
                 let row = document.createElement('div');
                 row.classList = extendedSettings.classes.row;
-                let columnOne = document.createElement('div');
-                columnOne.classList = extendedSettings.classes.columnOne;
-                let columnTwo = document.createElement('div');
-                columnTwo.classList = extendedSettings.classes.columnTwo;
-                // check for passed element array for column one
-                if (columnOneNested) {
+
+                // check for passed element array
+                if (columnsArrays) {
+                    
                     // check if the passed argument is an array
-                    if (Array.isArray(columnOneNested)) {
+                    if (Array.isArray(columnsArrays)) {
+                        
                         // loop through the array
-                        for (var i = 0; i < columnOneNested.length; i++) {
-                            // append each as a child element
-                            columnOne.appendChild(columnOneNested[i]);
+                        for (var i = 0; i < columnsArrays.length; i++) {
+                            
+                            // create a column
+                            let column = document.createElement('div');
+                            
+                            // set the column classes conditionally
+                            if (Array.isArray(extendedSettings.classes.column)) {
+                                column.classList = extendedSettings.classes.column[i];
+                            } else {
+                                column.classList = extendedSettings.classes.column;
+                            }
+                            
+                            // check if the passed argument is an array
+                            if (Array.isArray(columnsArrays[i])) {
+                                
+                                // loop through the array
+                                for (var j = 0; j < columnsArrays[i].length; j++) {
+                                    // append each item to the column
+                                    column.appendChild(columnsArrays[i][j]);
+                                }
+
+                            } else {
+                                
+                                // append items
+                                column.appendChild(columnsArrays[i]);
+
+                            }
+
+                            // append the column to the row
+                            row.appendChild(column);
+                            
                         }
+
                     } else {
+                        
                         // if it's not an array (and is just a single element) then append the element
-                        columnOne.appendChild(columnOneNested);
+                        let column = document.createElement('div');
+                        column.classList = extendedSettings.classes.column;
+                        column.appendChild(columnsArrays);
+                        row.appendChild(column);
+
                     }
+
                 } else {
+                    
+                    // if nothing was passed, then generate default placeholder content and attach it
+                    let column = document.createElement('div');
+                    column.classList = extendedSettings.classes.column;
                     let h = document.createElement('h1');
                     let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
                     h.appendChild(h_txt);
-                    columnOne.appendChild(h);
+                    column.appendChild(h);
                     let p = document.createElement('p');
                     let p_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
                     p.appendChild(p_txt);
-                    columnOne.appendChild(p);
+                    column.appendChild(p);
+                    row.appendChild(column);
+
                 }
-                // check for passed element array for column one
-                if (columnTwoNested) {
-                    // check if the passed argument is an array
-                    if (Array.isArray(columnTwoNested)) {
-                        // loop through the array
-                        for (var i = 0; i < columnTwoNested.length; i++) {
-                            // append each as a child element
-                            columnTwo.appendChild(columnTwoNested[i]);
-                        }
-                    } else {
-                        // if it's not an array (and is just a single element) then append the element
-                        columnTwo.appendChild(columnTwoNested);
-                    }
-                } else {
-                    let h = document.createElement('h1');
-                    let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
-                    h.appendChild(h_txt);
-                    columnTwo.appendChild(h);
-                    let p = document.createElement('p');
-                    let p_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
-                    p.appendChild(p_txt);
-                    columnTwo.appendChild(p);
-                }
+
                 // append elements
-                row.appendChild(columnOne);
-                row.appendChild(columnTwo);
                 container.appendChild(row);
                 article.appendChild(container);
+
                 // return the article elements
                 return article;
+
             }
         }
     }
@@ -288,6 +316,8 @@ let obebs4 = new OBEBS4();
 console.log(obebs4.version);
 
 const target = document.getElementById('obebs4-app');
+
+
 
 
 // Example section using OBEBS4.element()
@@ -312,13 +342,17 @@ let container_fluid = obebs4.element('div', false, {'class' : 'container-fluid b
 target.appendChild(container_fluid);
 
 
-// Example article section using a default OBEBS4.articles.columns.one()
 
-let article = obebs4.articles.columns.one();
+
+// Example article section using a default OBEBS4.articles.columns.single()
+
+let article = obebs4.articles.columns.single();
 target.appendChild(article);
 
 
-// Example article section using a customized settings for OBEBS4.articles.columns.one() (and random placeholder strings from the laurem sub-object)
+
+
+// Example article section using a customized settings for OBEBS4.articles.columns.single() (and random placeholder strings from the laurem sub-object)
 
 let article_2_settings = {
     classes : {
@@ -334,7 +368,7 @@ let article_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
 let article_2_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
 let article_2_p_3 = obebs4.element('p', obebs4.randomParagraph());
 
-let article_2 = obebs4.articles.columns.one(
+let article_2 = obebs4.articles.columns.single(
     article_2_settings,
     [
         article_2_h_1,
@@ -349,7 +383,51 @@ target.appendChild(article_2);
 
 
 
-// Example article section using a default OBEBS4.articles.columns.two()
+// Example article section using a default OBEBS4.articles.columns.multi()
 
-let article_3 = obebs4.articles.columns.two();
+let article_3 = obebs4.articles.columns.multi();
 target.appendChild(article_3);
+
+
+
+
+// Example article section using an OBEBS4.articles.columns.multi() function with custom content
+
+let article_4_settings = {
+    classes : {
+        column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
+    }
+};
+
+let article_4_col_1_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_4_col_1_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
+let article_4_col_1_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+let article_4_col_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_4_col_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-danger'});
+let article_4_col_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+let article_4_col_3_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_4_col_3_hr_1 = obebs4.element('hr', '', {'class' : 'border-cyan'});
+let article_4_col_3_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+let article_4 = obebs4.articles.columns.multi(
+    article_4_settings,
+    [
+        [
+            article_4_col_1_h_1,
+            article_4_col_1_hr_1,
+            article_4_col_1_p_1
+        ],[
+            article_4_col_2_h_1,
+            article_4_col_2_hr_1,
+            article_4_col_2_p_1
+        ],[
+            article_4_col_3_h_1,
+            article_4_col_3_hr_1,
+            article_4_col_3_p_1
+        ]
+    ]
+);
+
+target.appendChild(article_4);
