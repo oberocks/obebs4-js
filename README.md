@@ -7,13 +7,18 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 
 ## Table of Contents
 
-* [XXXXXXX](#project-color-wheel)
+* [Installation](#installation)
+* [The Global Object](#the-global-object)
     * [XXXXXXX](#list-of-color-wheel-colors)
 
 
 ---
 
 
-## Project Color Wheel
+## Installation
 
-To work with the OBE:BS4 Design System, it's important to understand the system's "color wheel." Before we dive in, let's cover why a color wheel was necessary to begin with!
+There are two basic ways...
+
+## The Global Object
+
+(Coming Soon!)
