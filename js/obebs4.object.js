@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.0.12',
+    this.version = '0.0.13',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -248,7 +248,7 @@ const OBEBS4 = function () {
         },
         nav : {
             navbar : {
-                basic : function (settingsObj = false, brandElementsArray = false, linkArrays = false) {
+                classic : function (settingsObj = false, brandElementsArray = false, linkArrays = false) {
                     
                     let settings = {
                         classes : {
@@ -350,15 +350,19 @@ const target = document.getElementById('obebs4-app');
 
 // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON AND OFF BECAUSE OBE DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
-// Example of a default navbar section using OBEBS4.content.nav.navbar.basic()
+// Example of a default navbar section using OBEBS4.content.nav.navbar.classic()
 /*
-let navbar_1 = obebs4.content.nav.navbar.basic();
+let navbar_1 = obebs4.content.nav.navbar.classic();
 target.appendChild(navbar_1);
 */
 
-// Example of a default navbar section with links using OBEBS4.content.nav.navbar.basic()
+// Example of a customized navbar section using OBEBS4.content.nav.navbar.classic()
+var navbar_2_img_size = 30;
+var navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
+navbar_2_img.alt = 'Brand Icon Image';
+navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
 let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand', 'href' : '#'});
-let navbar_2 = obebs4.content.nav.navbar.basic(false, navbar_2_brand_anchor);
+let navbar_2 = obebs4.content.nav.navbar.classic(false, [navbar_2_img, navbar_2_brand_anchor]);
 target.appendChild(navbar_2);
 
 
