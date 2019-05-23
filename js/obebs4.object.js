@@ -1,7 +1,7 @@
 
 const OBEBS4 = function () {
     let self = this;
-    this.version = '0.0.8',
+    this.version = '0.0.9',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -247,26 +247,59 @@ const OBEBS4 = function () {
             container.appendChild(row);
             article.appendChild(container);
     
-            // return the article elements
+            // return all article elements
             return article;
     
         },
-        navbar : function (settingsObj = false, columnsArrays = false) {
-                
-            let settings = {
-                classes : {
-                    nav : 'navbar fixed-top navbar-dark bg-dark',
-                    brand : 'navbar-brand',
-                    row : 'row justify-content-center',
-                    column : 'col col-md-6'
-                },
-                content : {
-                    laurem : {
-                        brand : self.randomBrand()
+        nav : {
+            navbar : {
+                basic : function (settingsObj = false, brandObj = false, linkArrays = false) {
+                    
+                    let settings = {
+                        classes : {
+                            nav : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
+                            brand : 'navbar-brand'
+                        },
+                        content : {
+                            laurem : {
+                                brand : self.randomBrand()
+                            }
+                        }
+                    };
+            
+                    let extendedSettings = settings;
+                    if (settingsObj) {
+                        extendedSettings = self.extend(true, settings, settingsObj);
                     }
+            
+                    // initialize the returned element as a var
+                    let nav = document.createElement('nav');
+                    nav.classList = extendedSettings.classes.nav;
+            
+                    // check for passed brandName string
+                    if (brandObj) {
+                        // check if passed value is a string
+                        /*if (typeof brandName === 'string' || brandName instanceof String) {
+                            let a = document.createElement('a');
+                            a.setAttribute('href', '#');
+                            a.classList = extendedSettings.classes.brand;
+                        } else {
+                            //
+                        }*/
+                    } else {
+                        let a = document.createElement('a');
+                        a.setAttribute('href', '#');
+                        a.classList = extendedSettings.classes.brand;
+                        let a_txt = document.createTextNode(extendedSettings.content.laurem.brand);
+                        a.appendChild(a_txt);
+                        nav.appendChild(a);
+                    }
+            
+                    // return all nav elements
+                    return nav;
+        
                 }
-            };
-
+            }
         }
     }
 
@@ -302,13 +335,21 @@ const target = document.getElementById('obebs4-app');
 
 
 
+// Example of a default navbar section using OBEBS4.content.nav.navbar.basic()
+
+let navbar_1 = obebs4.content.nav.navbar.basic();
+target.appendChild(navbar_1);
+
+
+
+
 // Example of a manually built section using OBEBS4.element()
 
-let article_0_h_1 = obebs4.element('h3', 'First Headline');
+let article_0_h_1 = obebs4.element('h3', 'First Headline', {'class' : 'pt-5'});
 let article_0_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_0_p_1 = obebs4.element('p', 'This is the first sample paragraph.');
 
-let article_0_h_2 = obebs4.element('h3', 'Second Headline');
+let article_0_h_2 = obebs4.element('h3', 'Second Headline', {'class' : 'pt-5'});
 let article_0_hr_2 = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_0_p_2 = obebs4.element('p', 'This is the second sample paragraph.');
 
@@ -319,7 +360,7 @@ let article_0_row = obebs4.element('div', false, {'class' : 'row justify-content
 
 let article_0_container = obebs4.element('div', false, {'class' : 'container'}, article_0_row);
 
-let article_0_container_fluid = obebs4.element('div', false, {'class' : 'container-fluid bg-dark text-light py-5'}, article_0_container);
+let article_0_container_fluid = obebs4.element('div', false, {'class' : 'container-fluid bg-primary text-light py-5'}, article_0_container);
 
 target.appendChild(article_0_container_fluid);
 
@@ -338,7 +379,7 @@ target.appendChild(article_1);
 
 let article_2_settings = {
     classes : {
-        article : 'container-fluid bg-primary text-light py-5',
+        article : 'container-fluid bg-danger text-white py-5',
         row : 'row justify-content-center',
         column : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
     }
