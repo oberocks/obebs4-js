@@ -1,7 +1,7 @@
 
 const OBEBS4 = function () {
     let self = this;
-    this.version = '0.0.7',
+    this.version = '0.0.8',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -20,6 +20,12 @@ const OBEBS4 = function () {
             'Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis.',
             'In eget felis risus. Nullam at tincidunt tellus, non fermentum enim.',
             'Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst.'
+        ],
+        brands : [
+            'Laurem Ipsum',
+            'Suspendisse',
+            'Nulla Ac Magna',
+            'Aliquam Vulputate'
         ]
     },
     this.extend = function () {
@@ -80,6 +86,10 @@ const OBEBS4 = function () {
     this.randomQuote = function () {
         let index = self.getRandomIndex(this.laurem.quotes.length);
         return this.laurem.quotes[index];
+    },
+    this.randomBrand = function () {
+        let index = self.getRandomIndex(this.laurem.brands.length);
+        return this.laurem.brands[index];
     },
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
@@ -240,6 +250,23 @@ const OBEBS4 = function () {
             // return the article elements
             return article;
     
+        },
+        navbar : function (settingsObj = false, columnsArrays = false) {
+                
+            let settings = {
+                classes : {
+                    nav : 'navbar fixed-top navbar-dark bg-dark',
+                    brand : 'navbar-brand',
+                    row : 'row justify-content-center',
+                    column : 'col col-md-6'
+                },
+                content : {
+                    laurem : {
+                        brand : self.randomBrand()
+                    }
+                }
+            };
+
         }
     }
 
