@@ -9,7 +9,7 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 
 * [Installation](#installation)
 * [The Global Object](#the-global-object)
-    * [XXXXXXX](#list-of-color-wheel-colors)
+  * [XXXXXXX](#list-of-color-wheel-colors)
 
 
 ---
