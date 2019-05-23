@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.0.10',
+    this.version = '0.0.11',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -27,6 +27,11 @@ const OBEBS4 = function () {
             'Suspendisse',
             'Nulla Ac Magna',
             'Aliquam Vulputate'
+        ],
+        navlinks : [
+            'Home',
+            'About',
+            'Contact'
         ]
     },
     this.extend = function () {
@@ -166,12 +171,9 @@ const OBEBS4 = function () {
             }
     
             // initialize the returned element as a var
-            let article = document.createElement('article');
-            article.classList = extendedSettings.classes.article;
-            let container = document.createElement('div');
-            container.classList = extendedSettings.classes.container;
-            let row = document.createElement('div');
-            row.classList = extendedSettings.classes.row;
+            let article = self.element('article', false, {'class' : extendedSettings.classes.article});
+            let container = self.element('div', false, {'class' : extendedSettings.classes.container});
+            let row = self.element('div', false, {'class' : extendedSettings.classes.row});
     
             // check for passed element array
             if (columnsArrays) {
@@ -183,7 +185,7 @@ const OBEBS4 = function () {
                     for (var i = 0; i < columnsArrays.length; i++) {
                         
                         // create a column
-                        let column = document.createElement('div');
+                        let column = self.element('div');
                         
                         // set the column classes conditionally
                         if (Array.isArray(extendedSettings.classes.column)) {
@@ -216,8 +218,7 @@ const OBEBS4 = function () {
                 } else {
                     
                     // if it's not an array (and is just a single element) then append the element
-                    let column = document.createElement('div');
-                    column.classList = extendedSettings.classes.column;
+                    let column = self.element('div', false, {'class' : extendedSettings.classes.column});
                     column.appendChild(columnsArrays);
                     row.appendChild(column);
     
@@ -226,19 +227,12 @@ const OBEBS4 = function () {
             } else {
                 
                 // if nothing was passed, then generate default placeholder content and attach it
-                let column = document.createElement('div');
-                column.classList = extendedSettings.classes.column;
-                let h = document.createElement('h1');
-                let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
-                h.appendChild(h_txt);
+                let column = self.element('div', false, {'class' : extendedSettings.classes.column});
+                let h = self.element('h1', extendedSettings.content.laurem.headline, {'class' : extendedSettings.classes.column});
                 column.appendChild(h);
-                let p1 = document.createElement('p');
-                let p1_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
-                p1.appendChild(p1_txt);
+                let p1 = self.element('p', extendedSettings.content.laurem.paragraph);
                 column.appendChild(p1);
-                let p2 = document.createElement('p');
-                let p2_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
-                p2.appendChild(p2_txt);
+                let p2 = self.element('p', extendedSettings.content.laurem.paragraph);
                 column.appendChild(p2);
                 row.appendChild(column);
     
@@ -288,11 +282,10 @@ const OBEBS4 = function () {
                             //
                         }*/
                     } else {
-                        let a = document.createElement('a');
-                        a.setAttribute('href', '#');
-                        a.classList = extendedSettings.classes.brand;
-                        let a_txt = document.createTextNode(extendedSettings.content.laurem.brand);
-                        a.appendChild(a_txt);
+                        let a = self.element('a', extendedSettings.content.laurem.brand, {
+                            'class' : extendedSettings.classes.brand,
+                            'href' : '#'
+                        });
                         nav.appendChild(a);
                     }
             
