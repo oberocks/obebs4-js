@@ -49,7 +49,7 @@ function getRandomIndex(arrayLength) {
 
 const OBEBS4 = function () {
     let self = this;
-    this.version = '0.0.5',
+    this.version = '0.0.6',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -306,6 +306,117 @@ const OBEBS4 = function () {
 
             }
         }
+    },
+    this.content = {
+        article : function (settingsObj = false, columnsArrays = false) {
+                
+            let settings = {
+                classes : {
+                    article : 'container-fluid py-5',
+                    container : 'container',
+                    row : 'row justify-content-center',
+                    column : 'col col-md-6'
+                },
+                content : {
+                    laurem : {
+                        headline : self.randomHeadline(),
+                        paragraph : self.randomParagraph()
+                    }
+                }
+            };
+    
+            let extendedSettings = settings;
+            if (settingsObj) {
+                extendedSettings = extend(true, settings, settingsObj);
+            }
+    
+            // initialize the returned element as a var
+            let article = document.createElement('article');
+            article.classList = extendedSettings.classes.article;
+            let container = document.createElement('div');
+            container.classList = extendedSettings.classes.container;
+            let row = document.createElement('div');
+            row.classList = extendedSettings.classes.row;
+    
+            // check for passed element array
+            if (columnsArrays) {
+                
+                // check if the passed argument is an array
+                if (Array.isArray(columnsArrays)) {
+                    
+                    // loop through the array
+                    for (var i = 0; i < columnsArrays.length; i++) {
+                        
+                        // create a column
+                        let column = document.createElement('div');
+                        
+                        // set the column classes conditionally
+                        if (Array.isArray(extendedSettings.classes.column)) {
+                            column.classList = extendedSettings.classes.column[i];
+                        } else {
+                            column.classList = extendedSettings.classes.column;
+                        }
+                        
+                        // check if the passed argument is an array
+                        if (Array.isArray(columnsArrays[i])) {
+                            
+                            // loop through the array
+                            for (var j = 0; j < columnsArrays[i].length; j++) {
+                                // append each item to the column
+                                column.appendChild(columnsArrays[i][j]);
+                            }
+    
+                        } else {
+                            
+                            // append items
+                            column.appendChild(columnsArrays[i]);
+    
+                        }
+    
+                        // append the column to the row
+                        row.appendChild(column);
+                        
+                    }
+    
+                } else {
+                    
+                    // if it's not an array (and is just a single element) then append the element
+                    let column = document.createElement('div');
+                    column.classList = extendedSettings.classes.column;
+                    column.appendChild(columnsArrays);
+                    row.appendChild(column);
+    
+                }
+    
+            } else {
+                
+                // if nothing was passed, then generate default placeholder content and attach it
+                let column = document.createElement('div');
+                column.classList = extendedSettings.classes.column;
+                let h = document.createElement('h1');
+                let h_txt = document.createTextNode(extendedSettings.content.laurem.headline);
+                h.appendChild(h_txt);
+                column.appendChild(h);
+                let p1 = document.createElement('p');
+                let p1_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
+                p1.appendChild(p1_txt);
+                column.appendChild(p1);
+                let p2 = document.createElement('p');
+                let p2_txt = document.createTextNode(extendedSettings.content.laurem.paragraph);
+                p2.appendChild(p2_txt);
+                column.appendChild(p2);
+                row.appendChild(column);
+    
+            }
+    
+            // append elements
+            container.appendChild(row);
+            article.appendChild(container);
+    
+            // return the article elements
+            return article;
+    
+        }
     }
 
 };
@@ -346,7 +457,14 @@ target.appendChild(container_fluid);
 
 // Example article section using a default OBEBS4.articles.columns.single()
 
+// using old method
+/*
 let article = obebs4.articles.columns.single();
+target.appendChild(article);
+*/
+
+// using new method
+let article = obebs4.content.article();
 target.appendChild(article);
 
 
