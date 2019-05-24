@@ -132,15 +132,18 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ```javascript
 // OBEBS4.element() span tag example
 let span = obebs4.element('span', 'This is the text for my span!');
+console.log(span);
 
 // OBEBS4.element() parent with single child div tags example
 let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
+console.log(parent);
 
 // OBEBS4.element() parent with multiple child div tags example
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
+console.log(parent);
 
 // OBEBS4.element() content section example
 let headline = obebs4.element('h1', 'My Section Headline');
@@ -150,6 +153,7 @@ let placeholder_paragraph = obebs4.element('p', obebs4.laurem.paragraphs[obebs4.
 let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
 let row = obebs4.element('section', false, { 'class' : 'row justify-content-center' }, [column]);
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
+console.log(section);
 ```
 
 **OBEBS4.content.article()**:
