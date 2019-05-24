@@ -163,7 +163,9 @@ obebs4.laurem.navlinks = ["Home", "Products", "Services", "Contact"];
 
 The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object. Here's an example of each method, again using our initialized example:
 
-**OBEBS4.extend()**: _Merges two objects into a single object, taking the values of the second object over the first. Set the first argument to `true` for deep merging._
+#### **OBEBS4.extend()**: 
+
+_Merges two objects into a single object, taking the values of the second object over the first. Set the first argument to `true` for deep merging._
 
 ```javascript
 let defaults = {
