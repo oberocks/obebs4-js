@@ -112,7 +112,7 @@ const target = document.getElementById('obebs4-app');
 
 The core goal for the OBE:BS4 JavaScript Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
 
-Each OBE:BS4 JavaScript Markup Factory method automatically generates default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
+Many of the OBE:BS4 JavaScript Markup Factory methods automatically generate default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
 
 Varying content has always been the bane of CMS-based web projects and implementations. This system allows for a much more complex CMS design premise than anything that exists in the market today. ;)
 
