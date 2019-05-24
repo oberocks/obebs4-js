@@ -252,7 +252,7 @@ const OBEBS4 = function () {
                 
                 let settings = {
                     classes : {
-                        nav : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
+                        navbar : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
                         brand : 'navbar-brand',
                         navigation : '',
                         links : '',
@@ -271,7 +271,7 @@ const OBEBS4 = function () {
                 }
         
                 // initialize the returned element as a var
-                let nav = self.element('nav', false, {'class' : extendedSettings.classes.nav});
+                let nav = self.element('nav', false, {'class' : extendedSettings.classes.navbar});
         
                 // check for passed brandElementsArray
                 if (brandElementsArray) {
@@ -361,7 +361,7 @@ target.appendChild(navbar_1);
 // Example of a customized navbar section using OBEBS4.content.navbar.basic()
 let navbar_2_settings = {
     classes : {
-        nav : 'navbar justify-content-start fixed-top navbar-dark bg-dark box-shadow-sm'
+        navbar : 'navbar justify-content-start fixed-top navbar-dark bg-dark box-shadow-sm'
     }
 };
 var navbar_2_img_size = 30;
