@@ -11,9 +11,9 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 * [The Global Object](#the-global-object)
 * [Initialization](#initialization)
 * [Workflow](#workflow)
+    * [Object Content Methods](#object-content-methods)
     * [Placeholder Content](#placeholder-content)
     * [Object Utility Methods](#object-utility-methods)
-    * [Object Content Methods](#object-content-methods)
 
 
 ---
@@ -98,6 +98,22 @@ So before we're 100% ready to create, we'll just assign our content output eleme
 const target = document.getElementById('obebs4-app');
 ```
 
+### Object Content Methods
+
+(Intro Coming Soon)
+
+**OBEBS4.element()**:
+(Coming Soon)
+
+**OBEBS4.element()**:
+(Coming Soon)
+
+**OBEBS4.content.article()**:
+(Coming Soon)
+
+**OBEBS4.content.nav.navbar.basic()**:
+(Coming Soon)
+
 ### Placeholder Content
 
 The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use both manually for placeholder issues as well as default content for any unspecified/uncustomized markup generating methods.
@@ -171,20 +187,4 @@ console.log('Random Headline Index: ' + randomHeadlineIndex);
 (Coming Soon)
 
 **OBEBS4.randomBrand()**:
-(Coming Soon)
-
-### Object Content Methods
-
-(Intro Coming Soon)
-
-**OBEBS4.element()**:
-(Coming Soon)
-
-**OBEBS4.element()**:
-(Coming Soon)
-
-**OBEBS4.content.article()**:
-(Coming Soon)
-
-**OBEBS4.content.nav.navbar.basic()**:
 (Coming Soon)
