@@ -11,9 +11,12 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 * [The Global Object](#the-global-object)
 * [Initialization](#initialization)
 * [Workflow](#workflow)
-    * [Object Content Methods](#object-content-methods)
-    * [Object Placeholder Content](#object-placeholder-content)
-    * [Object Utility Methods](#object-utility-methods)
+    * [OBE:BS4 Content Methods](#object-content-methods)
+        * [.element()](#obebs4element)
+        * [.content.article()](#obebs4contentarticle)
+        * [.navbar.basic()](#obebs4navbarbasic)
+    * [OBE:BS4 Placeholder Content](#object-placeholder-content)
+    * [OBE:BS4 Utility Methods](#object-utility-methods)
         * [.extend()](#obebs4extend)
         * [.getRandomIndex()](#obebs4getrandomindex)
         * [.randomHeadline()](#obebs4randomheadline)
@@ -107,10 +110,39 @@ const target = document.getElementById('obebs4-app');
 
 ### Object Content Methods
 
-(Intro Coming Soon)
+The core goal for the OBE:BS4 JavaScript Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
 
-**OBEBS4.element()**:
-(Coming Soon)
+Each OBE:BS4 JavaScript Markup Factory method automatically generates default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
+
+Varying content has always been the bane of CMS-based web projects and implementations. This system allows for a much more complex CMS design premise than anything that exists in the market today. ;)
+
+But that's not all! This system was also designed with empathy for the hardcore developer. Because with that skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... but without all the code repitition those projects end-up having.
+
+#### OBEBS4.element()
+
+_Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
+
+> Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+> ----- | --------- | -------- | -------------------------- | -------------
+> 1 | HTML Tag | YES | string | This does not have to be a valid HTML5 value!
+> 2 | Text Node Content | NO | string, boolean | This parameter IS REQUIRED if using any xxxx or xxxx params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value.
+> 3 | Element Attributes | NO | object, boolean | This parameter IS REQUIRED if using the next xxxxx param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
+> 4 | Child Element(s) | NO | element node, array (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array.
+
+```javascript
+// OBEBS4.element() span tag example
+let span = obebs4.element('span', 'This is the text for my span!');
+
+// OBEBS4.element() parent with single child div tags example
+let child = obebs4.element('div', 'This is the child element!');
+let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
+
+// OBEBS4.element() parent with multiple child div tags example
+let child_1 = obebs4.element('div', 'This is the 1st child element!');
+let child_2 = obebs4.element('div', 'This is the 2nd child element!');
+let child_3 = obebs4.element('div', 'This is the 3rd child element!');
+let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2, child_3]);
+```
 
 **OBEBS4.content.article()**:
 (Coming Soon)
