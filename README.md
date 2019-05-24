@@ -195,7 +195,7 @@ console.log(obebs4.laurem.headlines[index]);
 
 #### OBEBS4.randomHeadline()
 
-_Returns a "random" headline string from the `obebs4.laurem.headlines` array._
+_Returns a "random" headline string from the `OBEBS4.laurem.headlines` array._
 
 ```javascript
 let headline = obebs4.randomHeadline();
@@ -204,7 +204,7 @@ console.log(headline);
 
 #### OBEBS4.randomParagraph()
 
-_Returns a "random" paragraph string from the `obebs4.laurem.paragraphs` array._
+_Returns a "random" paragraph string from the `OBEBS4.laurem.paragraphs` array._
 
 ```javascript
 let paragraph = obebs4.randomParagraph();
@@ -213,7 +213,7 @@ console.log(paragraph);
 
 #### OBEBS4.randomQuote()
 
-_Returns a "random" quote string from the `obebs4.laurem.quotes` array._
+_Returns a "random" quote string from the `OBEBS4.laurem.quotes` array._
 
 ```javascript
 let quote = obebs4.randomQuote();
@@ -222,7 +222,7 @@ console.log(quote);
 
 #### OBEBS4.randomBrand()
 
-_Returns a "random" brand name string from the `obebs4.laurem.brands` array._
+_Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
 
 ```javascript
 let brandname = obebs4.randomBrand();
