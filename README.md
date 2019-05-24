@@ -89,6 +89,7 @@ For sake of brevity and before digging in, let's assume the following boilerplat
 Keeping the boilerplate markup above in mind, we want to focus on our content output element:
 
 ```html
+<!-- Content Output Element -->
 <div id="obebs4-app"></div>
 ```
 
