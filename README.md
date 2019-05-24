@@ -145,7 +145,7 @@ let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
 console.log(parent);
 
-// OBEBS4.element() content section example
+// OBEBS4.element() content section example (using a combination of techniques to exemplify syntatic options)
 let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
 let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
