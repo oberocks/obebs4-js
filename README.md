@@ -74,6 +74,7 @@ For sake of brevity and before digging in, let's assume the following boilerplat
 
     <body>
 
+        <!-- Content Output Element -->
         <div id="obebs4-app"></div>
 
         <!-- JavaScript -->
@@ -105,16 +106,16 @@ This means you can get content design ideas on a page incredibly quickly, while 
 
 But... what if your project or team doesn't want to use Latin words as placeholder text?!
 
-In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.laurem` object. This object has the following properties, all of which should be arrays of as many different strings as your project/team neads. Here's a list of the  `OBEBS4.laurem` object's string array properties:
+In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.laurem` object. This object has several properties, all of which should be an array of different string values. Here's a list of the  `OBEBS4.laurem` object's properties:
 
 ```javascript
 const OBEBS4 = function () {
     this.laurem = {
-        headlines : [...],
-        paragraphs : [...],
-        quotes : [...],
-        brands : [...],
-        navlinks : [...]
+        headlines : [...],  // Expects an array of strings
+        paragraphs : [...], // Expects an array of strings
+        quotes : [...],     // Expects an array of strings
+        brands : [...],     // Expects an array of strings
+        navlinks : [...]    // Expects an array of strings
     },
     ...
 };
@@ -124,22 +125,30 @@ So, going with our initialized example, we could change the `OBEBS4.laurem` obje
 
 ```javascript
 obebs4.laurem.headlines = ["My Custom Headline", "Another Custom One", "A Final Custom Headline"];
+```
+```javascript
 obebs4.laurem.paragraphs = [
     "Tingling of the spine prime number billions upon billions explorations vanquish the impossible as a patch of light. Made in the interiors of collapsing stars dream of the mind's eye astonishment bits of moving fluff with pretty stories for which there's little good evidence encyclopaedia galactica.",
     "Stirred by starlight across the centuries Jean-François Champollion science as a patch of light gathered by gravity. Tingling of the spine citizens of distant epochs paroxysm of global death rich in mystery from which we spring circumnavigated. Rings of Uranus brain is the seed of intelligence extraordinary claims require extraordinary evidence emerged into consciousness encyclopaedia galactica network of wormholes. "
 ];
+```
+```javascript
 obebs4.laurem.quotes = [
     "Tingling of the spine prime number billions upon billions.",
     "Rings of Uranus brain is the seed of intelligence extraordinary claims.",
     "Hearts of the stars hundreds of thousands emerged into consciousness cosmic ocean at the edge of forever."
 ];
+```
+```javascript
 obebs4.laurem.brands = ["My Project"];
+```
+```javascript
 obebs4.laurem.navlinks = ["Home", "Products", "Services", "Contact"];
 ```
 
 ### Object Utility Methods
 
-The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work just like they're used by the OBEBS4 object. Here's an example of each method, again using our initialized example:
+The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object. Here's an example of each method, again using our initialized example:
 
 **OBEBS4.getRandomIndex()**:
 
@@ -150,23 +159,18 @@ console.log('Random Headline Index: ' + randomHeadlineIndex);
 ```
 
 **OBEBS4.getRandomIndex()**:
-
 (Coming Soon)
 
 **OBEBS4.randomHeadline()**:
-
 (Coming Soon)
 
 **OBEBS4.randomParagraph()**:
-
 (Coming Soon)
 
 **OBEBS4.randomQuote()**:
-
 (Coming Soon)
 
 **OBEBS4.randomBrand()**:
-
 (Coming Soon)
 
 ### Object Content Methods
@@ -174,17 +178,13 @@ console.log('Random Headline Index: ' + randomHeadlineIndex);
 (Intro Coming Soon)
 
 **OBEBS4.element()**:
-
 (Coming Soon)
 
 **OBEBS4.element()**:
-
 (Coming Soon)
 
 **OBEBS4.content.article()**:
-
 (Coming Soon)
 
 **OBEBS4.content.nav.navbar.basic()**:
-
 (Coming Soon)
