@@ -163,22 +163,56 @@ obebs4.laurem.navlinks = ["Home", "Products", "Services", "Contact"];
 
 The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object. Here's an example of each method, again using our initialized example:
 
-**OBEBS4.getRandomIndex()**:
+**OBEBS4.extend()**: _Merges two objects into a single object, taking the values of the second object over the first. Set the first argument to `true` for deep merging._
 
 ```javascript
-let myHeadlines = obebs4.laurem.headlines;
-let randomHeadlineIndex = obebs4.getRandomIndex(myHeadlines.length);
-console.log('Random Headline Index: ' + randomHeadlineIndex);
+let defaults = {
+    classes : {
+        article : 'container-fluid'
+    }
+};
+
+let myDefaults = {
+    classes : {
+        article : 'container-fluid py-5'
+    }
+};
+
+let merged = obebs4.extend(true, defaults, myDefaults);
+console.log(merged);
 ```
 
-**OBEBS4.randomHeadline()**:
-(Coming Soon)
+**OBEBS4.getRandomIndex()**: _Returns a "random" interger between 0 and a passed array `.length` value._
 
-**OBEBS4.randomParagraph()**:
-(Coming Soon)
+```javascript
+let index = obebs4.getRandomIndex(obebs4.laurem.headlines.length);
+console.log(obebs4.laurem.headlines[index]);
+```
 
-**OBEBS4.randomQuote()**:
-(Coming Soon)
+**OBEBS4.randomHeadline()**: _Returns a "random" headline string from the `obebs4.laurem.headlines` array._
 
-**OBEBS4.randomBrand()**:
-(Coming Soon)
+```javascript
+let headline = obebs4.randomHeadline();
+console.log(headline);
+```
+
+**OBEBS4.randomParagraph()**: _Returns a "random" paragraph string from the `obebs4.laurem.paragraphs` array._
+
+```javascript
+let paragraph = obebs4.randomParagraph();
+console.log(paragraph);
+```
+
+**OBEBS4.randomQuote()**: _Returns a "random" quote string from the `obebs4.laurem.quotes` array._
+
+```javascript
+let quote = obebs4.randomQuote();
+console.log(quote);
+```
+
+**OBEBS4.randomBrand()**: _Returns a "random" brand name string from the `obebs4.laurem.brands` array._
+
+```javascript
+let brandname = obebs4.randomBrand();
+console.log(brandname);
+```
