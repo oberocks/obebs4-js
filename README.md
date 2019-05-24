@@ -122,12 +122,12 @@ But that's not all! This system was also designed with empathy for the hardcore 
 
 _Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
 
-> Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
-> ----- | --------- | -------- | -------------------------- | -------------
-> 1 | HTML Tag | YES | `string` | This does not have to be a valid HTML5 value!
-> 2 | Text Node Content | NO | `string` or `boolean` | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value.
-> 3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
-> 4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
+Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | HTML Tag | YES | `string` | This does not have to be a valid HTML5 value!
+2 | Text Node Content | NO | `string` or `boolean` | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value.
+3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
+4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
 
 ```javascript
 // OBEBS4.element() span tag example
