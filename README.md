@@ -122,7 +122,7 @@ This means you can get content design ideas on a page incredibly quickly, while 
 
 But... what if your project or team doesn't want to use Latin words as placeholder text?!
 
-In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.laurem` object. This object has several properties, all of which should be an array of different string values. Here's a list of the  `OBEBS4.laurem` object's properties:
+In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.laurem` object. This object has several properties, all of which should be an array of unique string values. Here's a list of the `OBEBS4.laurem` object's properties:
 
 ```javascript
 const OBEBS4 = function () {
@@ -173,9 +173,6 @@ let myHeadlines = obebs4.laurem.headlines;
 let randomHeadlineIndex = obebs4.getRandomIndex(myHeadlines.length);
 console.log('Random Headline Index: ' + randomHeadlineIndex);
 ```
-
-**OBEBS4.getRandomIndex()**:
-(Coming Soon)
 
 **OBEBS4.randomHeadline()**:
 (Coming Soon)
