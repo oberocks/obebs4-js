@@ -14,6 +14,7 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
     * [Object Content Methods](#object-content-methods)
     * [Object Placeholder Content](#object-placeholder-content)
     * [Object Utility Methods](#object-utility-methods)
+        * [OBEBS4.extend()](#obebs4extend)
 
 
 ---
