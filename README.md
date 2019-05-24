@@ -124,10 +124,10 @@ _Returns a singleton element or a singleton parent element (with child elements)
 
 > Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 > ----- | --------- | -------- | -------------------------- | -------------
-> 1 | HTML Tag | YES | string | This does not have to be a valid HTML5 value!
-> 2 | Text Node Content | NO | string, boolean | This parameter IS REQUIRED if using any xxxx or xxxx params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value.
-> 3 | Element Attributes | NO | object, boolean | This parameter IS REQUIRED if using the next xxxxx param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
-> 4 | Child Element(s) | NO | element node, array (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array.
+> 1 | HTML Tag | YES | `string` | This does not have to be a valid HTML5 value!
+> 2 | Text Node Content | NO | `string` or `boolean` | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value.
+> 3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
+> 4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
 
 ```javascript
 // OBEBS4.element() span tag example
@@ -140,8 +140,16 @@ let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
 // OBEBS4.element() parent with multiple child div tags example
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
-let child_3 = obebs4.element('div', 'This is the 3rd child element!');
-let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2, child_3]);
+let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
+
+// OBEBS4.element() content section example
+let headline = obebs4.element('h1', 'My Section Headline');
+let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
+let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
+let placeholder_paragraph = obebs4.element('p', obebs4.laurem.paragraphs[obebs4.getRandomIndex(obebs4.laurem.paragraphs.length)]);
+let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
+let row = obebs4.element('section', false, { 'class' : 'row justify-content-center' }, [column]);
+let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
 ```
 
 **OBEBS4.content.article()**:
