@@ -15,6 +15,12 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
     * [Object Placeholder Content](#object-placeholder-content)
     * [Object Utility Methods](#object-utility-methods)
         * [OBEBS4.extend()](#obebs4extend)
+        * [OBEBS4.getRandomIndex()](#obebs4getrandomindex)
+        * [OBEBS4.randomHeadline()](#obebs4getrandomheadline)
+        * [OBEBS4.randomParagraph()](#obebs4getrandomparagraph)
+        * [OBEBS4.randomQuote()](#obebs4getrandomquote)
+        * [OBEBS4.randomBrand()](#obebs4getrandombrand)
+        
 
 
 ---
