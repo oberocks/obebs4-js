@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.0.14',
+    this.version = '0.0.15',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
