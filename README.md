@@ -12,7 +12,7 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 * [Initialization](#initialization)
 * [Workflow](#workflow)
     * [Object Content Methods](#object-content-methods)
-    * [Placeholder Content](#placeholder-content)
+    * [Object Placeholder Content](#object-placeholder-content)
     * [Object Utility Methods](#object-utility-methods)
 
 
@@ -114,7 +114,7 @@ const target = document.getElementById('obebs4-app');
 **OBEBS4.content.nav.navbar.basic()**:
 (Coming Soon)
 
-### Placeholder Content
+### Object Placeholder Content
 
 The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use both manually for placeholder issues as well as default content for any unspecified/uncustomized markup generating methods.
 
