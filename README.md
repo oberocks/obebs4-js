@@ -105,9 +105,6 @@ const target = document.getElementById('obebs4-app');
 **OBEBS4.element()**:
 (Coming Soon)
 
-**OBEBS4.element()**:
-(Coming Soon)
-
 **OBEBS4.content.article()**:
 (Coming Soon)
 
