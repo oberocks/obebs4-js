@@ -111,7 +111,7 @@ const target = document.getElementById('obebs4-app');
 **OBEBS4.content.article()**:
 (Coming Soon)
 
-**OBEBS4.content.nav.navbar.basic()**:
+**OBEBS4.content.navbar.basic()**:
 (Coming Soon)
 
 ### Object Placeholder Content

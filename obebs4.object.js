@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.0.15',
+    this.version = '0.0.16',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -246,72 +246,74 @@ const OBEBS4 = function () {
             return article;
     
         },
-        nav : {
-            navbar : {
-                basic : function (settingsObj = false, brandElementsArray = false, linkArrays = false) {
-                    
-                    let settings = {
-                        classes : {
-                            nav : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
-                            brand : 'navbar-brand'
-                        },
-                        content : {
-                            laurem : {
-                                brand : self.randomBrand()
-                            }
+        nav : {},
+        navbar : {
+            basic : function (settingsObj = false, brandElementsArray = false, linkArrays = false) {
+                
+                let settings = {
+                    classes : {
+                        nav : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
+                        brand : 'navbar-brand',
+                        navigation : '',
+                        links : '',
+                        dropdowns : ''
+                    },
+                    content : {
+                        laurem : {
+                            brand : self.randomBrand()
                         }
-                    };
-            
-                    let extendedSettings = settings;
-                    if (settingsObj) {
-                        extendedSettings = self.extend(true, settings, settingsObj);
                     }
-            
-                    // initialize the returned element as a var
-                    let nav = self.element('nav', false, {'class' : extendedSettings.classes.nav});
-            
-                    // check for passed brandElementsArray
-                    if (brandElementsArray) {
+                };
+        
+                let extendedSettings = settings;
+                if (settingsObj) {
+                    extendedSettings = self.extend(true, settings, settingsObj);
+                }
+        
+                // initialize the returned element as a var
+                let nav = self.element('nav', false, {'class' : extendedSettings.classes.nav});
+        
+                // check for passed brandElementsArray
+                if (brandElementsArray) {
+                    
+                    // check if the passed argument is an array
+                    if (Array.isArray(brandElementsArray)) {
                         
-                        // check if the passed argument is an array
-                        if (Array.isArray(brandElementsArray)) {
-                            
-                            // if it is an array, then loop through the array
-                            for (var i = 0; i < brandElementsArray.length; i++) {
-                                // and attach each element
-                                nav.appendChild(brandElementsArray[i]);
-                            }
-
-                        } else {
-                            
-                            // if it's not an array, then just attach the passed element
-                            nav.appendChild(brandElementsArray);
-                            
+                        // if it is an array, then loop through the array
+                        for (var i = 0; i < brandElementsArray.length; i++) {
+                            // and attach each element
+                            nav.appendChild(brandElementsArray[i]);
                         }
-                        
-                        // check if passed value is a string
-                        /*if (typeof brandName === 'string' || brandName instanceof String) {
-                            let a = document.createElement('a');
-                            a.setAttribute('href', '#');
-                            a.classList = extendedSettings.classes.brand;
-                        } else {
-                            //
-                        }*/
 
                     } else {
                         
-                        let a = self.element('a', extendedSettings.content.laurem.brand, {
-                            'class' : extendedSettings.classes.brand,
-                            'href' : '#'
-                        });
-                        nav.appendChild(a);
-
+                        // if it's not an array, then just attach the passed element
+                        nav.appendChild(brandElementsArray);
+                        
                     }
-            
-                    // return all nav elements
-                    return nav;
-        
+                    
+                    // check if passed value is a string
+                    /*if (typeof brandName === 'string' || brandName instanceof String) {
+                        let a = document.createElement('a');
+                        a.setAttribute('href', '#');
+                        a.classList = extendedSettings.classes.brand;
+                    } else {
+                        //
+                    }*/
+
+                } else {
+                    
+                    let a = self.element('a', extendedSettings.content.laurem.brand, {
+                        'class' : extendedSettings.classes.brand,
+                        'href' : '#'
+                    });
+                    nav.appendChild(a);
+
                 }
+        
+                // return all nav elements
+                return nav;
+    
             }
         }
     }
@@ -350,13 +352,13 @@ const target = document.getElementById('obebs4-app');
 
 // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON AND OFF BECAUSE OBE DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
-// Example of a default navbar section using OBEBS4.content.nav.navbar.basic()
+// Example of a default navbar section using OBEBS4.content.navbar.basic()
 /*
-let navbar_1 = obebs4.content.nav.navbar.basic();
+let navbar_1 = obebs4.content.navbar.basic();
 target.appendChild(navbar_1);
 */
 
-// Example of a customized navbar section using OBEBS4.content.nav.navbar.basic()
+// Example of a customized navbar section using OBEBS4.content.navbar.basic()
 let navbar_2_settings = {
     classes : {
         nav : 'navbar justify-content-start fixed-top navbar-dark bg-dark box-shadow-sm'
@@ -367,7 +369,7 @@ var navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
 navbar_2_img.alt = 'Brand Icon Image';
 navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
 let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
-let navbar_2 = obebs4.content.nav.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor]);
+let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor]);
 target.appendChild(navbar_2);
 
 
