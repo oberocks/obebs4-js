@@ -144,8 +144,8 @@ let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
 target.appendChild(parent);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <div class="p-3">
     <span>This is the child element!</span>
 </div>
@@ -158,8 +158,8 @@ let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
 target.appendChild(parent);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <div class="p-3">
     <div>This is the 1st child element!</div>
     <div>This is the 2nd child element!</div>
@@ -177,8 +177,8 @@ let row = obebs4.element('section', false, { 'class' : 'row justify-content-cent
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
 target.appendChild(section);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <section class="container py-5">
     <div class="row">
         <div class="col-md-9 col-lg-6">
@@ -208,8 +208,8 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 let article = obebs4.content.article();
 target.appendChild(article);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -254,8 +254,8 @@ let article = obebs4.content.article(
 );
 target.appendChild(article);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid bg-primary text-white py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -314,8 +314,8 @@ let article = obebs4.content.article(
 );
 target.appendChild(article);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -342,6 +342,8 @@ _This example generates and appends the following Markup to your target element_
 #### OBEBS4.content.navbar.basic()
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
+
+(Examples Coming Soon!)
 
 ### Object Placeholder Content
 
