@@ -395,7 +395,7 @@ obebs4.laurem.navlinks = ["Home", "Products", "Services", "Contact"];
 
 ### Object Utility Methods
 
-The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object. Here's an example of each method, again using our initialized example:
+The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
 
 #### OBEBS4.extend()
 
