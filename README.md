@@ -131,8 +131,13 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ##### OBEBS4.element() `<span>` Tag Example:
 ```javascript
 let span = obebs4.element('span', 'This is the text for my span!');
-console.log(span);
+target.appendChild(span);
 ```
+Which generates and appends the following Markup to your target element:
+```html
+<span>This is the text for my span!</span>
+```
+
 ##### OBEBS4.element() Parent & Single Child `<div>` Tags Example:
 ```javascript
 let child = obebs4.element('div', 'This is the child element!');
