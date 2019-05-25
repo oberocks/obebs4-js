@@ -165,12 +165,42 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
 
 > IMPORTANT TIP:
-> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns!
-> In this use case, the settings column option can be either a `string` or an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes. This means that the columns settings array [0] string will be applied to the child element nodes array [0], and so fourth for each column you specify!
+> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns! In this use case, the settings column option needs to be an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes your are passing into the method. This means that the columns settings array string at index [0] will be applied to the child element nodes array at index [0], and so fourth for each column of content you specify!
 
 ```javascript
 // OBEBS4.content.article() default example
 let article = obebs4.content.article();
+console.log(article);
+
+// OBEBS4.content.article() example using customized settings (and random placeholder strings from the laurem sub-object)
+
+// STEP 1: customized CSS class settings object
+let settings = {
+    classes : {
+        article : 'container-fluid bg-primary text-white py-5',
+        row : 'row justify-content-center',
+        column : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
+    }
+};
+
+// STEP 2: generating content element nodes
+let article_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_hr = obebs4.element('hr', '', {'class' : 'border-success'});
+let article_p_1 = obebs4.element('p', obebs4.randomParagraph());
+let article_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
+let article_p_3 = obebs4.element('p', obebs4.randomParagraph());
+
+// STEP 3: calling the method
+let article = obebs4.content.article(
+    settings,
+    [
+        article_h,
+        article_hr,
+        article_p_1,
+        article_p_2,
+        article_p_3
+    ]
+);
 console.log(article);
 ```
 
