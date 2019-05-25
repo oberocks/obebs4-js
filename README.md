@@ -30,7 +30,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 
 ## Installation
 
-To start working with the OBE:BS4 JavaScript Markup Factory & Methods, you'll want to:
+To start working with the OBE:BS4 JavaScript Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
 1. Download this project as a .zip file, and unzip the file
 1. Add the file `obebs4.object.js` to your local/live site directory as needed
 1. Include the file on your page(s) as you would any other external JS file
