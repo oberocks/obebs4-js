@@ -399,7 +399,7 @@ target.appendChild(article_0_container_fluid);
 
 
 
-// Example article section using a default OBEBS4.articles.columns.single()
+// Example article section using a default OBEBS4.content.article()
 
 let article_1 = obebs4.content.article();
 target.appendChild(article_1);
@@ -407,7 +407,7 @@ target.appendChild(article_1);
 
 
 
-// Example article section using a customized settings for OBEBS4.articles.columns.single() (and random placeholder strings from the laurem sub-object)
+// Example article section using a customized settings for OBEBS4.content.article() (and random placeholder strings from the laurem sub-object)
 
 let article_2_settings = {
     classes : {
@@ -438,7 +438,7 @@ target.appendChild(article_2);
 
 
 
-// Example article section using an OBEBS4.articles.columns.multi() function with custom content
+// Example article section using an OBEBS4.content.article() function with custom content
 
 let article_3_settings = {
     classes : {
