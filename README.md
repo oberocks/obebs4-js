@@ -128,18 +128,18 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
 4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
 
-##### OBEBS4.element() `<span>` Tag Example
+##### OBEBS4.element() `<span>` Tag Example:
 ```javascript
 let span = obebs4.element('span', 'This is the text for my span!');
 console.log(span);
 ```
-
+##### OBEBS4.element() Parent & Single Child `<div>` Tags Example:
 ```javascript
-// OBEBS4.element() parent with single child div tags example
 let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
 console.log(parent);
-
+```
+```javascript
 // OBEBS4.element() parent with multiple child div tags example
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
