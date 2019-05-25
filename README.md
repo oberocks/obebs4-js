@@ -58,7 +58,7 @@ console.log(obebs4.version);
 
 The OBE:BS4 JavaScript Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
 
-When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBE:BS4 JavaScript Markup Factory & Methods become both a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a basis for an SPA without any shadow DOM.
+When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBE:BS4 JavaScript Markup Factory & Methods becomes a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a super-lean base library for an SPA (without any shadow DOM requirements).
 
 For sake of brevity and before digging in, let's assume the following boilerplate HTML is being used:
 
