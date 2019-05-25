@@ -166,7 +166,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 
 > IMPORTANT TIP:
 > When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns!
-> In this use case, the settings column option can be either a `string` or an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes. This will apply each generated column you've specified with element nodes with the CSS classes you specify in the settings column option! 
+> In this use case, the settings column option can be either a `string` or an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes. This means that the columns settings array [0] index classes string will be applied to the [0] child element nodes array of element nodes, and so fourth!
 
 ```javascript
 // OBEBS4.content.article() default example
