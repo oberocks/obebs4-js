@@ -173,7 +173,7 @@ let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
 let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
 let placeholder_paragraph = obebs4.element('p', obebs4.laurem.paragraphs[obebs4.getRandomIndex(obebs4.laurem.paragraphs.length)]);
 let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
-let row = obebs4.element('section', false, { 'class' : 'row justify-content-center' }, [column]);
+let row = obebs4.element('div', false, { 'class' : 'row justify-content-center' }, [column]);
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
 target.appendChild(section);
 ```
