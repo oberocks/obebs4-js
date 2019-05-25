@@ -171,7 +171,9 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 // OBEBS4.content.article() default example
 let article = obebs4.content.article();
 console.log(article);
+```
 
+```javascript
 // OBEBS4.content.article() example using customized settings (and random placeholder strings from the laurem sub-object)
 
 // STEP 1: customized CSS class settings object
