@@ -133,8 +133,8 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 let span = obebs4.element('span', 'This is the text for my span!');
 target.appendChild(span);
 ```
-_This example generates and appends the following Markup to your target element_:
 ```html
+<!-- This example generates and appends the following Markup to your target element: -->
 <span>This is the text for my span!</span>
 ```
 
