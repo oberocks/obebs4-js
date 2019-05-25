@@ -14,7 +14,7 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
     * [OBE:BS4 Content Methods](#object-content-methods)
         * [.element()](#obebs4element)
         * [.content.article()](#obebs4contentarticle)
-        * [.navbar.basic()](#obebs4navbarbasic)
+        * [.content.navbar.basic()](#obebs4contentnavbarbasic)
     * [OBE:BS4 Placeholder Content](#object-placeholder-content)
     * [OBE:BS4 Utility Methods](#object-utility-methods)
         * [.extend()](#obebs4extend)
@@ -31,8 +31,7 @@ A JavaScript library to compliment any OBE:BS4 project with dynamically generate
 ## Installation
 
 To start working with the OBE:BS4 JavaScript Markup Factory & Methods, you'll want to:
-1. Download this project as a .zip file
-1. Unpack the .zip file
+1. Download this project as a .zip file, and unzip the file
 1. Add the file `obebs4.object.js` to your local/live site directory as needed
 1. Include the file on your page(s) as you would any other external JS file
 
@@ -57,9 +56,9 @@ console.log(obebs4.version);
 
 ## Workflow
 
-The OBE:BS4 JavaScript Markup Factory & Methods were designed to render both default content sections (with randomized placeholder text content) and complex nested content - all through vanilla JavaScript code.
+The OBE:BS4 JavaScript Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
 
-When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBE:BS4 JavaScript Markup Factory & Methods become both a powerful rapid prototyping tool, as well as a performant AJAX response DOM library for dynamic production sites.
+When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBE:BS4 JavaScript Markup Factory & Methods become both a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a basis for an SPA without any shadow DOM.
 
 For sake of brevity and before digging in, let's assume the following boilerplate HTML is being used:
 
@@ -114,9 +113,9 @@ The core goal for the OBE:BS4 JavaScript Markup Factory & Methods, is to facilit
 
 Many of the OBE:BS4 JavaScript Markup Factory methods automatically generate default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
 
-Varying content has always been the bane of CMS-based web projects and implementations. This system allows for a much more complex CMS design premise than anything that exists in the market today. ;)
+This system allows for a signifigantly more customizable CMS design premise/execution compared to anything that exists in the market today. ;)
 
-But that's not all! This system was also designed with empathy for the hardcore developer. Because with that skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... but without all the code repitition those projects end-up having.
+But that's not all! This system was also designed with empathy for front end developers. Because with an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans a lot of the code repitition those projects end-up having.
 
 #### OBEBS4.element()
 
@@ -156,11 +155,23 @@ let section = obebs4.element('section', false, { 'class' : 'container py-5' }, r
 console.log(section);
 ```
 
-**OBEBS4.content.article()**:
-(Coming Soon)
+#### OBEBS4.content.article()
 
-**OBEBS4.content.navbar.basic()**:
-(Coming Soon)
+_Returns a parent element (with child elements), according to the options that are passed into the method._
+
+Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | Settings | NO | `structured object` | This does not have to be a valid HTML5 value!
+
+```javascript
+// OBEBS4.content.article() default example
+let article = obebs4.content.article();
+console.log(article);
+```
+
+#### OBEBS4.content.navbar.basic()
+
+_Returns a parent element (with child elements), according to the options that are passed into the method._
 
 ### Object Placeholder Content
 
