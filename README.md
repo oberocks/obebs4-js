@@ -139,14 +139,15 @@ let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
 console.log(parent);
 ```
+##### OBEBS4.element() Parent & Multiple Child `<div>` Tags Example:
 ```javascript
-// OBEBS4.element() parent with multiple child div tags example
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
 console.log(parent);
-
-// OBEBS4.element() content section example (using a combination of techniques to exemplify syntatic options)
+```
+##### OBEBS4.element() Parent & Multiple Child `<div>` Tags (With Advanced Syntactic Sugar) Example:
+```javascript
 let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
 let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
@@ -169,16 +170,14 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 > IMPORTANT TIP:
 > When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns! In this use case, the settings column option needs to be an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes your are passing into the method. This means that the columns settings array string at index [0] will be applied to the child element nodes array at index [0], and so fourth for each column of content you specify!
 
+##### OBEBS4.content.article() Default (Prototyping) Example:
 ```javascript
-// OBEBS4.content.article() default example
 let article = obebs4.content.article();
 console.log(article);
 ```
-
+##### OBEBS4.content.article() Example (With Random Placeholder Content Examples):
 ```javascript
-// OBEBS4.content.article() example using customized settings (and random placeholder strings from the laurem sub-object)
-
-// STEP 1: customize the CSS classes settings object
+// STEP 1: Customize the CSS classes settings object
 let settings = {
     classes : {
         article : 'container-fluid bg-primary text-white py-5',
@@ -187,14 +186,14 @@ let settings = {
     }
 };
 
-// STEP 2: generate content element nodes
+// STEP 2: Generate content element nodes
 let article_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_hr = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_p_1 = obebs4.element('p', obebs4.randomParagraph());
 let article_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
 let article_p_3 = obebs4.element('p', obebs4.randomParagraph());
 
-// STEP 3: call the method and pass in the settings and content nodes
+// STEP 3: Call the method (passing in structured settings and a content nodes array)
 let article = obebs4.content.article(
     settings,
     [
@@ -207,18 +206,16 @@ let article = obebs4.content.article(
 );
 console.log(article);
 ```
-
+##### OBEBS4.content.article() Multi-Column Example:
 ```javascript
-// OBEBS4.content.article() multi-column example
-
-// STEP 1: customize the CSS classes settings object
+// STEP 1: Customize the CSS classes settings object
 let settings = {
     classes : {
         column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
     }
 };
 
-// STEP 2: generate content element nodes
+// STEP 2: Generate content element nodes
 let article_col_1_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_col_1_hr = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_col_1_p = obebs4.element('p', obebs4.randomParagraph());
@@ -231,7 +228,7 @@ let article_col_3_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : '
 let article_col_3_hr = obebs4.element('hr', '', {'class' : 'border-cyan'});
 let article_col_3_p = obebs4.element('p', obebs4.randomParagraph());
 
-// STEP 3: call the method and pass in the settings and content node arrays
+// STEP 3: Call the method (passing in structured settings and all content nodes arrays)
 let article = obebs4.content.article(
     settings,
     [
