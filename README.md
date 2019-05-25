@@ -176,7 +176,7 @@ console.log(article);
 ```javascript
 // OBEBS4.content.article() example using customized settings (and random placeholder strings from the laurem sub-object)
 
-// STEP 1: customized CSS class settings object
+// STEP 1: customize the CSS classes settings object
 let settings = {
     classes : {
         article : 'container-fluid bg-primary text-white py-5',
@@ -185,14 +185,14 @@ let settings = {
     }
 };
 
-// STEP 2: generating content element nodes
+// STEP 2: generate content element nodes
 let article_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_hr = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_p_1 = obebs4.element('p', obebs4.randomParagraph());
 let article_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
 let article_p_3 = obebs4.element('p', obebs4.randomParagraph());
 
-// STEP 3: calling the method
+// STEP 3: call the method and pass in the settings and content nodes
 let article = obebs4.content.article(
     settings,
     [
@@ -201,6 +201,48 @@ let article = obebs4.content.article(
         article_p_1,
         article_p_2,
         article_p_3
+    ]
+);
+console.log(article);
+```
+
+```javascript
+// OBEBS4.content.article() multi-column example
+
+let settings = {
+    classes : {
+        column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
+    }
+};
+
+let article_col_1_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_col_1_hr = obebs4.element('hr', '', {'class' : 'border-success'});
+let article_col_1_p = obebs4.element('p', obebs4.randomParagraph());
+
+let article_col_2_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_col_2_hr = obebs4.element('hr', '', {'class' : 'border-danger'});
+let article_col_2_p = obebs4.element('p', obebs4.randomParagraph());
+
+let article_col_3_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+let article_col_3_hr = obebs4.element('hr', '', {'class' : 'border-cyan'});
+let article_col_3_p = obebs4.element('p', obebs4.randomParagraph());
+
+let article = obebs4.content.article(
+    settings,
+    [
+        [
+            article_col_1_h,
+            article_col_1_hr,
+            article_col_1_p
+        ],[
+            article_col_2_h,
+            article_col_2_hr,
+            article_col_2_p
+        ],[
+            article_col_3_h,
+            article_col_3_hr,
+            article_col_3_p
+        ]
     ]
 );
 console.log(article);
