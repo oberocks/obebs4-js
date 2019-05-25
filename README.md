@@ -161,7 +161,8 @@ _Returns a parent element (with child elements), according to the options that a
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Settings | NO | `structured object` | This does not have to be a valid HTML5 value!
+1 | Settings | NO | `object` (structured) | xxxxxx
+2 | Array(s) of Child Nodes | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | xxxxxx
 
 ```javascript
 // OBEBS4.content.article() default example
