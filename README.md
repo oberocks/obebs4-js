@@ -209,12 +209,14 @@ console.log(article);
 ```javascript
 // OBEBS4.content.article() multi-column example
 
+// STEP 1: customize the CSS classes settings object
 let settings = {
     classes : {
         column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
     }
 };
 
+// STEP 2: generate content element nodes
 let article_col_1_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
 let article_col_1_hr = obebs4.element('hr', '', {'class' : 'border-success'});
 let article_col_1_p = obebs4.element('p', obebs4.randomParagraph());
@@ -227,6 +229,7 @@ let article_col_3_h = obebs4.element('h3', obebs4.randomHeadline(), {'class' : '
 let article_col_3_hr = obebs4.element('hr', '', {'class' : 'border-cyan'});
 let article_col_3_p = obebs4.element('p', obebs4.randomParagraph());
 
+// STEP 3: call the method and pass in the settings and content node arrays
 let article = obebs4.content.article(
     settings,
     [
