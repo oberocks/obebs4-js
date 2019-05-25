@@ -133,7 +133,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 let span = obebs4.element('span', 'This is the text for my span!');
 target.appendChild(span);
 ```
-Which generates and appends the following Markup to your target element:
+_This example generates and appends the following Markup to your target element_:
 ```html
 <span>This is the text for my span!</span>
 ```
@@ -142,15 +142,30 @@ Which generates and appends the following Markup to your target element:
 ```javascript
 let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
-console.log(parent);
+target.appendChild(parent);
 ```
+_This example generates and appends the following Markup to your target element_:
+```html
+<div class="p-3">
+    <span>This is the child element!</span>
+</div>
+```
+
 ##### OBEBS4.element() Parent & Multiple Child `<div>` Tags Example:
 ```javascript
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
-console.log(parent);
+target.appendChild(parent);
 ```
+_This example generates and appends the following Markup to your target element_:
+```html
+<div class="p-3">
+    <div>This is the 1st child element!</div>
+    <div>This is the 2nd child element!</div>
+</div>
+```
+
 ##### OBEBS4.element() Parent & Multiple Child `<div>` Tags (With Advanced Syntactic Sugar) Example:
 ```javascript
 let headline = obebs4.element('h1', 'My Section Headline');
@@ -160,7 +175,20 @@ let placeholder_paragraph = obebs4.element('p', obebs4.laurem.paragraphs[obebs4.
 let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
 let row = obebs4.element('section', false, { 'class' : 'row justify-content-center' }, [column]);
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
-console.log(section);
+target.appendChild(section);
+```
+_This example generates and appends the following Markup to your target element_:
+```html
+<section class="container py-5">
+    <div class="row">
+        <div class="col-md-9 col-lg-6">
+            <h1>My Section Headline</h1>
+            <hr class="border-primary" />
+            <p class="lead">This is my new section's lead paragraph!</p>
+            <p>Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.</p>
+        </div>
+    </div>
+</section>
 ```
 
 #### OBEBS4.content.article()
@@ -178,9 +206,24 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ##### OBEBS4.content.article() Default (Prototyping) Example:
 ```javascript
 let article = obebs4.content.article();
-console.log(article);
+target.appendChild(article);
 ```
-##### OBEBS4.content.article() Example (With Random Placeholder Content Examples):
+_This example generates and appends the following Markup to your target element_:
+```html
+<article class="container-fluid py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-6">
+                <h1>Mauris Ut Nulla Id Libero</h1>
+                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
+                <p>Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.</p>
+            </div>
+        </div>
+    </div>
+</article>
+```
+
+##### OBEBS4.content.article() Example (With Custom CSS Classes & Manually Implemented Placeholder Content Examples):
 ```javascript
 // STEP 1: Customize the CSS classes settings object
 let settings = {
@@ -209,8 +252,25 @@ let article = obebs4.content.article(
         article_p_3
     ]
 );
-console.log(article);
+target.appendChild(article);
 ```
+_This example generates and appends the following Markup to your target element_:
+```html
+<article class="container-fluid bg-primary text-white py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-sm-10 col-md-9 col-lg-8 col-xl-7">
+                <h3 class="text-shadow">Mauris Ut Nulla Id Libero</h3>
+                <hr class="border-success" />
+                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
+                <p class="lead p-3 border-left border-yellow border-width-5">Nulla ac turpis id arcu cursus condimentum eget vel ante.</p>
+                <p>Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.</p>
+            </div>
+        </div>
+    </div>
+</article>
+```
+
 ##### OBEBS4.content.article() Multi-Column Example:
 ```javascript
 // STEP 1: Customize the CSS classes settings object
@@ -252,7 +312,31 @@ let article = obebs4.content.article(
         ]
     ]
 );
-console.log(article);
+target.appendChild(article);
+```
+_This example generates and appends the following Markup to your target element_:
+```html
+<article class="container-fluid py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-3">
+                <h1 class="text-shadow">Mauris Ut Nulla Id Libero</h1>
+                <hr class="border-success" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.</p>
+            </div>
+            <div class="col col-md-3">
+                <h1 class="text-shadow">Lorem Ipsum Dolor Sit</h1>
+                <hr class="border-danger" />
+                <p>Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.</p>
+            </div>
+            <div class="col col-md-3">
+                <h1 class="text-shadow">Sed Bibendum Nisi A Est Semper</h1>
+                <hr class="border-cyan" />
+                <p>Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.</p>
+            </div>
+        </div>
+    </div>
+</article>
 ```
 
 #### OBEBS4.content.navbar.basic()
