@@ -1,5 +1,5 @@
 # OBE:BS4 JavaScript Markup Factory & Methods
-A JavaScript library to compliment any OBE:BS4 project with dynamically generated markup requirements.
+A JavaScript library to compliment any OBE:BS4 project with either dynamically generated markup requirements, or a need for rapid prototyping.
 
 
 ---
