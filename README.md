@@ -101,7 +101,7 @@ Keeping the boilerplate markup above in mind, we want to focus on our content ou
 <div id="obebs4-app"></div>
 ```
 
-So before we're 100% ready to create, we'll just assign our content output element to a variable:
+In order to be 100% ready to create, next we'll assign our content output element to a variable for script access:
 
 ```javascript
 const target = document.getElementById('obebs4-app');
