@@ -161,8 +161,12 @@ _Returns a parent element (with child elements), according to the options that a
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Settings | NO | `object` (structured) | xxxxxx
-2 | Array(s) of Child Nodes | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | xxxxxx
+1 | Settings | NO | `object` (structured) | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { laurem : { headline : '...', paragraph : '...' } } };
+2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
+
+> IMPORTANT TIP:
+> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns!
+> In this use case, the settings column option can be either a `string` or an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes. This will apply each generated column you've specified with element nodes with the CSS classes you specify in the settings column option! 
 
 ```javascript
 // OBEBS4.content.article() default example
