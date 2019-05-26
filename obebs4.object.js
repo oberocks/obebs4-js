@@ -34,6 +34,10 @@ const OBEBS4 = function () {
             'Link Three'
         ]
     },
+    this.isElement = function (el) {
+        // FROM: http://stackoverflow.com/a/36894871/1204556
+        return el instanceof Element || el instanceof HTMLDocument;  
+    },
     this.extend = function () {
 
         // Helper function to merge user setings into obebs4 settings
@@ -264,12 +268,14 @@ const OBEBS4 = function () {
         },
         // nav : {},
         navbar : {
-            basic : function (settingsObj = false, brandElementsArray = false, navigationLinkArray = false) {
+            basic : function (settingsObj = false, brandElementsArray = false, navigationLinksArray = false) {
                 
                 let settings = {
                     classes : {
                         navbar : 'navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
                         brand : 'navbar-brand',
+                        toggler : 'navbar-toggler',
+                        icon : 'navbar-toggler-icon',
                         collapse : 'collapse navbar-collapse',
                         list : 'navbar-nav',
                         item : 'nav-item',
@@ -293,6 +299,7 @@ const OBEBS4 = function () {
                 let extendedSettings = settings;
                 if (settingsObj) {
                     extendedSettings = self.extend(true, settings, settingsObj);
+                    console.log(extendedSettings);
                 }
         
                 // initialize the returned element as a var
@@ -336,13 +343,61 @@ const OBEBS4 = function () {
 
                 }
 
-                // check for passed navigationLinkArray
-                if (navigationLinkArray) {
+
+                //
+                // START prepare basic navigation elements
+                //
+
+                    // create the collapse button elements
+                    let collapse_btn_icon = self.element('span', false, {'class' : extendedSettings.classes.icon});
+                    let collapse_btn = self.element('button', false, {
+                        'class' : extendedSettings.classes.toggler,
+                        'type' : 'button',
+                        'data-toggle' : 'collapse',
+                        'data-target' : '#' + extendedSettings.ids.collapse,
+                        'aria-controls' : extendedSettings.ids.collapse,
+                        'aria-expanded' : 'false',
+                        'aria-label' : extendedSettings.content.aria.collapse.label
+                    }, collapse_btn_icon);
+
+                    // create the collapse navigation wrapper elements
+                    let listParent = self.element('ul', false, {'class' : extendedSettings.classes.list});
+                    let collapseElem = self.element('div', false, {
+                        'class' : extendedSettings.classes.collapse,
+                        'id' : extendedSettings.ids.collapse
+                    }, listParent);
+
+                //
+                // END prepare basic navigation elements
+                //
+
+
+                // check for passed navigationLinksArray
+                if (navigationLinksArray) {
+
+                    // append the collapse btn
+                    nav.appendChild(collapse_btn);
                     
                     // check if the passed argument is an array
-                    if (Array.isArray(navigationLinkArray)) {
+                    if (Array.isArray(navigationLinksArray)) {
                         
-                        //
+                        // loop through the passed array
+                        for (var i = 0; i < navigationLinksArray.length; i++) {
+                            
+                            // check the array item is an element node
+                            if (self.isElement(navigationLinksArray[i])) {
+                                
+                                // and attach each element
+                                let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray[i]);
+                                listParent.appendChild(li);
+                                
+                            } else {
+
+                                //
+
+                            }
+
+                        }
 
                     } else {
                         
@@ -353,40 +408,16 @@ const OBEBS4 = function () {
                 } else {
                     
                     // if nothing was passed, then create default placeholder content
-                    
-                    // create the collapse button elements, and append them
-                    let icon = self.element('span', false, {'class' : 'navbar-toggler-icon'});
-                    let btn = self.element('button', false, {
-                        'class' : 'navbar-toggler',
-                        'type' : 'button',
-                        'data-toggle' : 'collapse',
-                        'data-target' : '#' + extendedSettings.ids.collapse,
-                        'aria-controls' : extendedSettings.ids.collapse,
-                        'aria-expanded' : 'false',
-                        'aria-label' : extendedSettings.content.aria.collapse.label
-                    }, icon);
-                    nav.appendChild(btn);
 
-                    // force jQuery to "see" the dynamically created elements (for BS4 collapse functionality to work)
-                    // FROM: https://stackoverflow.com/questions/26421401/bootstrap-collapse-not-working-when-creating-dyanmically
-                    /*$(btn).on('click', function(e){
-                        var $_target =  $(e.currentTarget);
-                        var $_panelBody = $_target.find('#' + extendedSettings.ids.collapse);
-                        if($_panelBody){
-                          $_panelBody.collapse('toggle')
-                        }
-                    });*/
-
-                    // create the collapse navigation elements
-                    let listParent = self.element('ul', false, {'class' : extendedSettings.classes.list});
-                    let collapseElem = self.element('div', false, {
-                        'class' : extendedSettings.classes.collapse,
-                        'id' : extendedSettings.ids.collapse
-                    }, listParent);
+                    // append the collapse btn
+                    nav.appendChild(collapse_btn);
                     
                     // loop through default placeholder laurem.navigation array, and generate + append each as a list item with an anchor child
                     for (var i = 0; i < self.laurem.navigation.length; i++) {
-                        let a = self.element('a', self.laurem.navigation[i], {'class' : extendedSettings.classes.link});
+                        let a = self.element('a', self.laurem.navigation[i], {
+                            'class' : extendedSettings.classes.link,
+                            'href' : '#'
+                        });
                         let li = self.element('li', false, {'class' : extendedSettings.classes.item}, a);
                         listParent.appendChild(li);
                     }
@@ -437,32 +468,36 @@ const target = document.getElementById('obebs4-app');
 // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON AND OFF BECAUSE OBE DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
 // Example of a default navbar section using OBEBS4.content.navbar.basic()
-
+/*
 let navbar_1 = obebs4.content.navbar.basic();
 target.appendChild(navbar_1);
-
+*/
 
 // Example of a customized navbar section using OBEBS4.content.navbar.basic()
 
-/*
+
 // settings
 let navbar_2_settings = {
     classes : {
-        navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
+        navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
+        toggler : 'navbar-toggler ml-auto'
     }
 };
 // brand content
-var navbar_2_img_size = 30;
-var navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
+let navbar_2_img_size = 30;
+let navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
 navbar_2_img.alt = 'Brand Icon Image';
 navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
 let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
 // nav content
-var xxxxx = '';
+let link_1 = obebs4.element('a', 'My Link 1', {'class' : 'nav-link', 'href' : '#'});
+let link_2 = obebs4.element('a', 'My Link 2', {'class' : 'nav-link', 'href' : '#'});
+let link_3 = obebs4.element('a', 'My Link 3', {'class' : 'nav-link', 'href' : '#'});
+let link_4 = obebs4.element('a', 'My Link 4', {'class' : 'nav-link', 'href' : '#'});
 // generate final parent elem with children and append
-let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor]);
+let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3, link_4]);
 target.appendChild(navbar_2);
-*/
+
 
 
 
