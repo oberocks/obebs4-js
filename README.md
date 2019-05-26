@@ -17,13 +17,13 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
         * [.content.navbar.basic()](#obebs4contentnavbarbasic)
     * [OBE:BS4 Placeholder Content](#object-placeholder-content)
     * [OBE:BS4 Utility Methods](#object-utility-methods)
-        * [.isElement()](#obebs4iselement)
         * [.extend()](#obebs4extend)
         * [.getRandomIndex()](#obebs4getrandomindex)
         * [.randomHeadline()](#obebs4randomheadline)
         * [.randomParagraph()](#obebs4randomparagraph)
         * [.randomQuote()](#obebs4randomquote)
         * [.randomBrand()](#obebs4randombrand)
+        * [.isElement()](#obebs4iselement)
 
 
 ---
@@ -421,15 +421,6 @@ obebs4.laurem.navigation = ["Home", "Products", "Services", "Contact"];
 
 The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
 
-#### OBEBS4.isElement()
-
-_Checks if an element is a JavaScript Element Node Object (generally for use inside the OBEBS4 object, to check for validity before appending an element to another element node._)
-
-```javascript
-let div = obebs4.element('div');
-console.log(obebs4.isElement(div)); // returns/logs: true
-```
-
 #### OBEBS4.extend()
 
 _Merges two objects into a single object, taking the values of the second object over the first. Set the first argument to `true` for deep merging._
@@ -494,4 +485,13 @@ _Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
 ```javascript
 let brandname = obebs4.randomBrand();
 console.log(brandname);
+```
+
+#### OBEBS4.isElement()
+
+_Checks if an element is a JavaScript Element Node Object (generally for use inside the OBEBS4 object, to check for validity before appending an element to another element node._)
+
+```javascript
+let div = obebs4.element('div');
+console.log(obebs4.isElement(div)); // returns/logs: true
 ```
