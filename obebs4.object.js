@@ -189,7 +189,16 @@ const OBEBS4 = function () {
                         
                         // set the column classes conditionally
                         if (Array.isArray(extendedSettings.classes.column)) {
-                            column.classList = extendedSettings.classes.column[i];
+                            
+                            // check if the classes for this column are specified
+                            if (extendedSettings.classes.column[i]) {
+                                // if so use the value
+                                column.classList = extendedSettings.classes.column[i];
+                            } else {
+                                // if not use the last item in the array
+                                column.classList = extendedSettings.classes.column[ extendedSettings.classes.column.length - 1 ];
+                            }
+                            
                         } else {
                             column.classList = extendedSettings.classes.column;
                         }
@@ -253,6 +262,8 @@ const OBEBS4 = function () {
                 let settings = {
                     classes : {
                         navbar : 'navbar fixed-top navbar-dark bg-dark box-shadow-sm',
+                        left : '',
+                        right : '',
                         brand : 'navbar-brand',
                         navigation : '',
                         links : '',
@@ -364,11 +375,15 @@ let navbar_2_settings = {
         navbar : 'navbar justify-content-start fixed-top navbar-dark bg-dark box-shadow-sm'
     }
 };
+// 
 var navbar_2_img_size = 30;
 var navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
 navbar_2_img.alt = 'Brand Icon Image';
 navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
 let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
+
+
+
 let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor]);
 target.appendChild(navbar_2);
 

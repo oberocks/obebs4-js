@@ -200,8 +200,30 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 1 | Settings | NO | `object` (structured) | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { laurem : { headline : '...', paragraph : '...' } } };`
 2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
 
+```javascript
+// These are the OBEBS4.content.article() default settings
+let settings = {
+    classes : {
+        article : 'container-fluid py-5',
+        container : 'container',
+        row : 'row justify-content-center',
+        column : 'col col-md-6'
+    },
+    content : {
+        laurem : {
+            headline : self.randomHeadline(),
+            paragraph : self.randomParagraph()
+        }
+    }
+};
+```
+
 > IMPORTANT TIP:
-> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns! In this use case, the settings column option needs to be an `array` of strings. The length of this array **SHOULD ALWAYS** match the length of the array of arrays of child element nodes you are passing into the method. This means that the columns settings array string at index [0] will be applied to the child element nodes array at index [0], and so fourth for each column of content you specify!
+> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns! In this use case, the `settings.classes.column` option needs to be an `array` of strings, where each string contains the CSS classes for each column.
+>
+>The length of this array **SHOULD ALWAYS** match the length of the array (of arrays of child element nodes) you are passing into the method. This means that the `settings.classes.column` string at index [0] will be applied to the array of child element nodes at index [0], and so on for each column of content you specify!
+>
+>That said, if the arrays of child nodes is longer than the array of column class strings, the factory will apply the last item in the class strings array to all subsequent element columns.
 
 ##### OBEBS4.content.article() Default (Prototyping) Example:
 ```javascript
@@ -347,7 +369,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 ### Object Placeholder Content
 
-The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use both manually for placeholder issues as well as default content for any unspecified/uncustomized markup generating methods.
+The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use when iterating.
 
 This means you can get content design ideas on a page incredibly quickly, while also having different placeholder strings showing up each time you reload the page, since each string is randomly determined at run time. This was done to allow anyone to "see" how content layout decisions are impacted by different content string lengths, specifically for responsive design content issues.
 
