@@ -218,8 +218,8 @@ let settings = {
 };
 ```
 
-> IMPORTANT TIP:
-> When using the OBEBS4.content.article() method, the structure of the settings is strict whenever using the method for multiple columns! In this use case, the `settings.classes.column` option needs to be an `array` of strings, where each string contains the CSS classes for each column.
+> MULTIPLE COLUMNS TIP:
+> When using the OBEBS4.content.article() method to generate a multi-column article, the structure of the settings is strict! In this use case, the `settings.classes.column` option needs to be an `array` of strings, where each string contains the CSS classes for each column.
 >
 >The length of this array **SHOULD ALWAYS** match the length of the array (of arrays of child element nodes) you are passing into the method. This means that the `settings.classes.column` string at index [0] will be applied to the array of child element nodes at index [0], and so on for each column of content you specify!
 >
