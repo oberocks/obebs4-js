@@ -11,20 +11,20 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 * [The Global Object](#the-global-object)
 * [Initialization](#initialization)
 * [Workflow](#workflow)
-    * [OBE:BS4 Content Methods](#object-content-methods)
-        * [.element()](#obebs4element)
-        * [.content.article()](#obebs4contentarticle)
-        * [.content.navbar.basic()](#obebs4contentnavbarbasic)
-    * [OBE:BS4 Placeholder Content](#object-placeholder-content)
-    * [OBE:BS4 Utility Methods](#object-utility-methods)
-        * [.extend()](#obebs4extend)
-        * [.getRandomIndex()](#obebs4getrandomindex)
-        * [.isElement()](#obebs4iselement)
-        * [.isString()](#obebs4isstring)
-        * [.randomBrand()](#obebs4randombrand)
-        * [.randomHeadline()](#obebs4randomheadline)
-        * [.randomParagraph()](#obebs4randomparagraph)
-        * [.randomQuote()](#obebs4randomquote)
+* [OBE:BS4 Content Methods](#object-content-methods)
+    * [.element()](#obebs4element)
+    * [.content.article()](#obebs4contentarticle)
+    * [.content.navbar.basic()](#obebs4contentnavbarbasic)
+* [OBE:BS4 Placeholder Content](#object-placeholder-content)
+* [OBE:BS4 Utility Methods](#object-utility-methods)
+    * [.extend()](#obebs4extend)
+    * [.getRandomIndex()](#obebs4getrandomindex)
+    * [.isElement()](#obebs4iselement)
+    * [.isString()](#obebs4isstring)
+    * [.randomBrand()](#obebs4randombrand)
+    * [.randomHeadline()](#obebs4randomheadline)
+    * [.randomParagraph()](#obebs4randomparagraph)
+    * [.randomQuote()](#obebs4randomquote)
 
 
 ---
@@ -109,7 +109,7 @@ In order to be 100% ready to create, next we'll assign our content output elemen
 const target = document.getElementById('obebs4-app');
 ```
 
-### Object Content Methods
+## Object Content Methods
 
 The core goal for the OBE:BS4 JavaScript Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
 
@@ -119,7 +119,7 @@ This system allows for a signifigantly more customizable CMS design premise/exec
 
 But that's not all! This system was also designed with empathy for front end developers. Because with an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans a lot of the code repitition those projects end-up having.
 
-#### OBEBS4.element()
+### OBEBS4.element()
 
 _Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
 
@@ -130,7 +130,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
 4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
 
-##### OBEBS4.element() `<span>` Tag Example:
+#### OBEBS4.element() `<span>` Tag Example:
 ```javascript
 let span = obebs4.element('span', 'This is the text for my span!');
 target.appendChild(span);
@@ -140,7 +140,7 @@ target.appendChild(span);
 <span>This is the text for my span!</span>
 ```
 
-##### OBEBS4.element() Parent & Single Child `<div>` Tags Example:
+#### OBEBS4.element() Parent & Single Child `<div>` Tags Example:
 ```javascript
 let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
@@ -153,7 +153,7 @@ target.appendChild(parent);
 </div>
 ```
 
-##### OBEBS4.element() Parent & Multiple Child `<div>` Tags Example:
+#### OBEBS4.element() Parent & Multiple Child `<div>` Tags Example:
 ```javascript
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
@@ -168,7 +168,7 @@ target.appendChild(parent);
 </div>
 ```
 
-##### OBEBS4.element() Parent & Multiple Child `<div>` Tags (With Advanced Syntactic Sugar) Example:
+#### OBEBS4.element() Parent & Multiple Child `<div>` Tags (With Advanced Syntactic Sugar) Example:
 ```javascript
 let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
@@ -193,7 +193,7 @@ target.appendChild(section);
 </section>
 ```
 
-#### OBEBS4.content.article()
+### OBEBS4.content.article()
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
 
@@ -228,7 +228,7 @@ let settings = {
 >
 >That said, if the arrays of child nodes is longer than the array of column class strings, the factory will apply the last item in the class strings array to all subsequent element columns.
 
-##### OBEBS4.content.article() Default (Prototyping) Example:
+#### OBEBS4.content.article() Default (Prototyping) Example:
 ```javascript
 let article = obebs4.content.article();
 target.appendChild(article);
@@ -248,7 +248,7 @@ target.appendChild(article);
 </article>
 ```
 
-##### OBEBS4.content.article() Example (With Custom CSS Classes & Manually Implemented Placeholder Content Examples):
+#### OBEBS4.content.article() Example (With Custom CSS Classes & Manually Implemented Placeholder Content Examples):
 ```javascript
 // STEP 1: Customize the CSS classes settings object
 let settings = {
@@ -296,7 +296,7 @@ target.appendChild(article);
 </article>
 ```
 
-##### OBEBS4.content.article() Multi-Column Example:
+#### OBEBS4.content.article() Multi-Column Example:
 ```javascript
 // STEP 1: Customize the CSS classes settings object
 let settings = {
@@ -364,13 +364,13 @@ target.appendChild(article);
 </article>
 ```
 
-#### OBEBS4.content.navbar.basic()
+### OBEBS4.content.navbar.basic()
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
 
 (Examples Coming Soon!)
 
-### Object Placeholder Content
+## Object Placeholder Content
 
 The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use when iterating.
 
@@ -418,11 +418,11 @@ obebs4.laurem.brands = ["My Project"];
 obebs4.laurem.navigation = ["Home", "Products", "Services", "Contact"];
 ```
 
-### Object Utility Methods
+## Object Utility Methods
 
 The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
 
-#### OBEBS4.extend()
+### OBEBS4.extend()
 
 _Merges two objects into a single object, taking the values of the second object over the first. Set the first argument to `true` for deep merging._
 
@@ -443,7 +443,7 @@ let merged = obebs4.extend(true, defaults, myDefaults);
 console.log(merged);
 ```
 
-#### OBEBS4.getRandomIndex()
+### OBEBS4.getRandomIndex()
 
 _Returns a "random" interger between 0 and a passed array `.length` value._
 
@@ -452,7 +452,7 @@ let index = obebs4.getRandomIndex(obebs4.laurem.headlines.length);
 console.log(obebs4.laurem.headlines[index]);
 ```
 
-#### OBEBS4.isElement()
+### OBEBS4.isElement()
 
 _Checks if an element is a JavaScript Element Node Object (generally for use inside the OBEBS4 object, to check for validity before appending an element to another element node.)_
 
@@ -461,7 +461,7 @@ let div = obebs4.element('div');
 console.log(obebs4.isElement(div)); // returns/logs: true
 ```
 
-#### OBEBS4.isString()
+### OBEBS4.isString()
 
 _Checks if an passed value is a valid string or a JavaScript String Object string._
 
@@ -470,7 +470,7 @@ let div = obebs4.element('div');
 console.log(obebs4.isElement(div)); // returns/logs: true
 ```
 
-#### OBEBS4.randomBrand()
+### OBEBS4.randomBrand()
 
 _Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
 
@@ -479,7 +479,7 @@ let brandname = obebs4.randomBrand();
 console.log(brandname);
 ```
 
-#### OBEBS4.randomHeadline()
+### OBEBS4.randomHeadline()
 
 _Returns a "random" headline string from the `OBEBS4.laurem.headlines` array._
 
@@ -488,7 +488,7 @@ let headline = obebs4.randomHeadline();
 console.log(headline);
 ```
 
-#### OBEBS4.randomParagraph()
+### OBEBS4.randomParagraph()
 
 _Returns a "random" paragraph string from the `OBEBS4.laurem.paragraphs` array._
 
@@ -497,7 +497,7 @@ let paragraph = obebs4.randomParagraph();
 console.log(paragraph);
 ```
 
-#### OBEBS4.randomQuote()
+### OBEBS4.randomQuote()
 
 _Returns a "random" quote string from the `OBEBS4.laurem.quotes` array._
 
