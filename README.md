@@ -222,7 +222,7 @@ let settings = {
 >
 > When using the OBEBS4.content.article() method to generate a multi-column article, the structure of the settings is strict! In this use case, the `settings.classes.column` option needs to be an `array` of strings, where each string contains the CSS classes for each column.
 >
->The length of this array **SHOULD ALWAYS** match the length of the array (of arrays of child element nodes) you are passing into the method. This means that the `settings.classes.column` string at index [0] will be applied to the array of child element nodes at index [0], and so on for each column of content you specify!
+>The length of this array **SHOULD** match the length of the array (of arrays of child element nodes) you are passing into the method. This means that the `settings.classes.column` string at index [0] will be applied to the array of child element nodes at index [0], and so on for each column of content you specify!
 >
 >That said, if the arrays of child nodes is longer than the array of column class strings, the factory will apply the last item in the class strings array to all subsequent element columns.
 
@@ -385,7 +385,7 @@ const OBEBS4 = function () {
         paragraphs : [...], // Expects an array of strings
         quotes : [...],     // Expects an array of strings
         brands : [...],     // Expects an array of strings
-        navlinks : [...]    // Expects an array of strings
+        navigation : [...]  // Expects an array of strings
     },
     ...
 };
@@ -413,7 +413,7 @@ obebs4.laurem.quotes = [
 obebs4.laurem.brands = ["My Project"];
 ```
 ```javascript
-obebs4.laurem.navlinks = ["Home", "Products", "Services", "Contact"];
+obebs4.laurem.navigation = ["Home", "Products", "Services", "Contact"];
 ```
 
 ### Object Utility Methods
