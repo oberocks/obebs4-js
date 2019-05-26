@@ -479,7 +479,8 @@ target.appendChild(navbar_1);
 let navbar_2_settings = {
     classes : {
         navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
-        toggler : 'navbar-toggler ml-auto'
+        toggler : 'navbar-toggler ml-auto',
+        list : 'navbar-nav ml-auto'
     }
 };
 // brand content
