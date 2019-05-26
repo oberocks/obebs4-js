@@ -21,10 +21,10 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
         * [.getRandomIndex()](#obebs4getrandomindex)
         * [.isElement()](#obebs4iselement)
         * [.isString()](#obebs4isstring)
+        * [.randomBrand()](#obebs4randombrand)
         * [.randomHeadline()](#obebs4randomheadline)
         * [.randomParagraph()](#obebs4randomparagraph)
         * [.randomQuote()](#obebs4randomquote)
-        * [.randomBrand()](#obebs4randombrand)
 
 
 ---
@@ -470,6 +470,15 @@ let div = obebs4.element('div');
 console.log(obebs4.isElement(div)); // returns/logs: true
 ```
 
+#### OBEBS4.randomBrand()
+
+_Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
+
+```javascript
+let brandname = obebs4.randomBrand();
+console.log(brandname);
+```
+
 #### OBEBS4.randomHeadline()
 
 _Returns a "random" headline string from the `OBEBS4.laurem.headlines` array._
@@ -495,13 +504,4 @@ _Returns a "random" quote string from the `OBEBS4.laurem.quotes` array._
 ```javascript
 let quote = obebs4.randomQuote();
 console.log(quote);
-```
-
-#### OBEBS4.randomBrand()
-
-_Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
-
-```javascript
-let brandname = obebs4.randomBrand();
-console.log(brandname);
 ```
