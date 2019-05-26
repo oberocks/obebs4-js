@@ -34,10 +34,6 @@ const OBEBS4 = function () {
             'Link Three'
         ]
     },
-    this.isElement = function (el) {
-        // FROM: http://stackoverflow.com/a/36894871/1204556
-        return el instanceof Element || el instanceof HTMLDocument;  
-    },
     this.extend = function () {
 
         // Helper function to merge user setings into obebs4 settings
@@ -84,6 +80,13 @@ const OBEBS4 = function () {
         // Helper function to get random index for an array length
         // from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
         return Math.floor(Math.random() * Math.floor(arrayLength));
+    },
+    this.isElement = function (el) {
+        // FROM: http://stackoverflow.com/a/36894871/1204556
+        return el instanceof Element || el instanceof HTMLDocument;  
+    },
+    this.isString = function (str) {
+        return typeof str === 'string' || str instanceof String;  
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -322,15 +325,6 @@ const OBEBS4 = function () {
                         nav.appendChild(brandElementsArray);
                         
                     }
-                    
-                    // check if passed value is a string
-                    /*if (typeof brandName === 'string' || brandName instanceof String) {
-                        let a = document.createElement('a');
-                        a.setAttribute('href', '#');
-                        a.classList = extendedSettings.classes.brand;
-                    } else {
-                        //
-                    }*/
 
                 } else {
                     
