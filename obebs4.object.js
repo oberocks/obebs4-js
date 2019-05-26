@@ -299,7 +299,6 @@ const OBEBS4 = function () {
                 let extendedSettings = settings;
                 if (settingsObj) {
                     extendedSettings = self.extend(true, settings, settingsObj);
-                    console.log(extendedSettings);
                 }
         
                 // initialize the returned element as a var
@@ -391,19 +390,20 @@ const OBEBS4 = function () {
                                 let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray[i]);
                                 listParent.appendChild(li);
                                 
-                            } else {
-
-                                //
-
-                            }
+                            } else { console.log("ERROR: Expected an element node object. Please check your .content.navbar.basic() method's array item (at index: " + i + ") to fix this issue. For now, this array item was skipped! :(") }
 
                         }
 
                     } else {
                         
-                        //
+                        // and attach each element
+                        let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray);
+                        listParent.appendChild(li);
                         
                     }
+
+                    // and append all to the return element
+                    nav.appendChild(collapseElem);
 
                 } else {
                     
@@ -475,7 +475,6 @@ target.appendChild(navbar_1);
 
 // Example of a customized navbar section using OBEBS4.content.navbar.basic()
 
-
 // settings
 let navbar_2_settings = {
     classes : {
@@ -493,9 +492,8 @@ let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar
 let link_1 = obebs4.element('a', 'My Link 1', {'class' : 'nav-link', 'href' : '#'});
 let link_2 = obebs4.element('a', 'My Link 2', {'class' : 'nav-link', 'href' : '#'});
 let link_3 = obebs4.element('a', 'My Link 3', {'class' : 'nav-link', 'href' : '#'});
-let link_4 = obebs4.element('a', 'My Link 4', {'class' : 'nav-link', 'href' : '#'});
 // generate final parent elem with children and append
-let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3, link_4]);
+let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3]);
 target.appendChild(navbar_2);
 
 
