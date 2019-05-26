@@ -489,9 +489,9 @@ navbar_2_img.alt = 'Brand Icon Image';
 navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
 let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
 // nav content
-let link_1 = obebs4.element('a', 'My Link 1', {'class' : 'nav-link', 'href' : '#'});
-let link_2 = obebs4.element('a', 'My Link 2', {'class' : 'nav-link', 'href' : '#'});
-let link_3 = obebs4.element('a', 'My Link 3', {'class' : 'nav-link', 'href' : '#'});
+let link_1 = obebs4.element('a', 'Home', {'class' : 'nav-link', 'href' : '#'});
+let link_2 = obebs4.element('a', 'About', {'class' : 'nav-link', 'href' : '#'});
+let link_3 = obebs4.element('a', 'Contact', {'class' : 'nav-link', 'href' : '#'});
 // generate final parent elem with children and append
 let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3]);
 target.appendChild(navbar_2);
