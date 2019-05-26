@@ -427,7 +427,7 @@ _Checks if an element is a JavaScript Element Node Object (generally for use ins
 
 ```javascript
 let div = obebs4.element('div');
-console.log(obebs4.isElement(div)); // returns 'true'
+console.log(obebs4.isElement(div)); // returns/logs: true
 ```
 
 #### OBEBS4.extend()
