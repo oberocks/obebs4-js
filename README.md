@@ -10,8 +10,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 * [Installation](#installation)
 * [The Global Object](#the-global-object)
 * [Initialization](#initialization)
-* [Workflow](#workflow)
-    * [Console Errors](#console-errors)
+* [Getting Started](#getting-started)
 * [OBE:BS4 Content Methods](#object-content-methods)
     * [.element()](#obebs4element)
     * [.content.article()](#obebs4contentarticle)
@@ -26,6 +25,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
     * [.randomHeadline()](#obebs4randomheadline)
     * [.randomParagraph()](#obebs4randomparagraph)
     * [.randomQuote()](#obebs4randomquote)
+* [Console Errors](#console-errors)
 
 
 ---
@@ -57,7 +57,7 @@ A quick way to check that everything is working after inialization, is to `conso
 console.log(obebs4.version);
 ```
 
-## Workflow
+## Getting Started
 
 The OBE:BS4 JavaScript Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
 
@@ -109,20 +109,6 @@ In order to be 100% ready to create, next we'll assign our content output elemen
 ```javascript
 const target = document.getElementById('obebs4-app');
 ```
-
-### Console Errors
-
-The OBE:BS4 JavaScript Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
-
-All of the errors use a standard `console.error()` method to log the issue to your browser's console. In cases where arrays of items were passed as arguments, the error will let you know the specific index where the problem can be found. Otherwise, the error will let you know the method name and the argument that triggered the error.
-
-Also, in most modern browser's you are usually able to expand the custom error message block in the console log, to reveal a `console.trace()` output that allows you to trace the error back to the offending line in your code. 
-
-Console Errors have been tested in Chrome (74.0.3729.169), Firefox (65.0.1), Opera (60.0.3255.109), and Safari (12.1.1) browsers.
-
->
->**DON'T FORGET**: ALL JAVASCRIPT ARRAY INDEXES START AT `[0]`!
->
 
 ## Object Content Methods
 
@@ -520,3 +506,17 @@ _Returns a "random" quote string from the `OBEBS4.placeholders.quotes` array._
 let quote = obebs4.randomQuote();
 console.log(quote);
 ```
+
+### Console Errors
+
+The OBE:BS4 JavaScript Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
+
+All of the errors use a standard `console.error()` method to log the issue to your browser's console. In cases where arrays of items were passed as arguments, the error will let you know the specific index where the problem can be found. Otherwise, the error will let you know the method name and the argument that triggered the error.
+
+Also, in most modern browser's you are usually able to expand the custom error message block in the console log, to reveal a `console.trace()` output that allows you to trace the error back to the offending line in your code. 
+
+Console Errors have been tested in Chrome (74.0.3729.169), Firefox (65.0.1), Opera (60.0.3255.109), and Safari (12.1.1) browsers.
+
+>
+>**DON'T FORGET**: All JavaScript array indexes start at `[0]`!
+>
