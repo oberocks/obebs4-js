@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.1',
+    this.version = '0.1.2',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -89,7 +89,7 @@ const OBEBS4 = function () {
         return typeof str === 'string' || str instanceof String;  
     },
     this.logElementError = function () {
-        console.error("OBEBS4 ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the OBEBS4.element() method!");
+        console.error("OBEBS4 ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the .element() method!");
     },
     this.logElementNodeError = function (functionName, arrayItemIndex) {
         console.error("OBEBS4 ERROR: Element array items are required to be element node objects. Please check your " + functionName + " method's array item (at index: " + arrayItemIndex + ") to fix this issue. For now, this array item was skipped! :(");
