@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.4',
+    this.version = '0.1.5',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -89,10 +89,10 @@ const OBEBS4 = function () {
         return typeof str === 'string' || str instanceof String;  
     },
     this.logElementError = function () {
-        console.error("OBEBS4 JS ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the .element() method!");
+        console.error("OBEBS4.JS ERROR: The .element() method requires a string argument (intended to define a dynamically generated element tag!)");
     },
     this.logNodeError = function (string) {
-        console.error("OBEBS4 JS ERROR: Element array items must be element node objects. Please check your " + functionName + " to fix this issue.");
+        console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + functionName + ".");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -268,14 +268,34 @@ const OBEBS4 = function () {
                             
                             // loop through the array
                             for (var j = 0; j < columnsArrays[i].length; j++) {
-                                // append each item to the column
-                                column.appendChild(columnsArrays[i][j]);
+                                
+                                // check the array item is an element node
+                                if (self.isElementNode(columnsArrays[i][j])) {
+                                    
+                                    // and attach each element
+                                    column.appendChild(columnsArrays[i][j]);
+                                    
+                                } else {
+
+                                    self.logNodeError('.content.article() (2nd argument) at index: [' + i + '][' + j + ']');
+
+                                }
+
                             }
     
                         } else {
                             
-                            // append items
-                            column.appendChild(columnsArrays[i]);
+                            // check the array item is an element node
+                            if (self.isElementNode(columnsArrays[i])) {
+                                    
+                                // and attach each element
+                                column.appendChild(columnsArrays[i]);
+                                
+                            } else {
+
+                                self.logNodeError('.content.article() (2nd argument) at index: [' + i + ']');
+
+                            }
     
                         }
     
@@ -286,10 +306,19 @@ const OBEBS4 = function () {
     
                 } else {
                     
-                    // if it's not an array (and is just a single element) then append the element
-                    let column = self.element('div', false, {'class' : extendedSettings.classes.column});
-                    column.appendChild(columnsArrays);
-                    row.appendChild(column);
+                    // check the array item is an element node
+                    if (self.isElementNode(columnsArrays)) {
+                                    
+                        // and attach each element
+                        let column = self.element('div', false, {'class' : extendedSettings.classes.column});
+                        column.appendChild(columnsArrays);
+                        row.appendChild(column);
+                        
+                    } else {
+
+                        self.logNodeError('.content.article() (2nd argument)');
+
+                    }
     
                 }
     
