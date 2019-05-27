@@ -97,6 +97,9 @@ const OBEBS4 = function () {
     this.logNodeError = function (string) {
         console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + string + ".");
     },
+    this.logSettingsError = function (string) {
+        console.error("OBEBS4.JS ERROR: Settings for methods must be valid JavaScript objects. Please update your " + string + ".");
+    },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
         return this.laurem.headlines[index];
