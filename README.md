@@ -20,6 +20,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
     * [.extend()](#obebs4extend)
     * [.getRandomIndex()](#obebs4getrandomindex)
     * [.isElementNode()](#obebs4iselementnode)
+    * [.isObject()](#obebs4isobject)
     * [.isString()](#obebs4isstring)
     * [.randomBrand()](#obebs4randombrand)
     * [.randomHeadline()](#obebs4randomheadline)
@@ -460,6 +461,19 @@ _Checks if an element is a JavaScript Element Node Object (generally for use ins
 ```javascript
 let div = obebs4.element('div');
 console.log(obebs4.isElementNode(div)); // returns/logs: true
+```
+
+### OBEBS4.isObject()
+
+_Checks if an passed value is a valid JavaScript Object._
+
+```javascript
+let object = {
+    classes : {
+        brand : 'navbar-brand'
+    }
+};
+console.log(obebs4.isObject(object)); // returns/logs: true
 ```
 
 ### OBEBS4.isString()
