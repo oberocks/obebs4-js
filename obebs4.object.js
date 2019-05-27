@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.8',
+    this.version = '0.2.0',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -98,7 +98,7 @@ const OBEBS4 = function () {
         console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + string + ".");
     },
     this.logSettingsError = function (string) {
-        console.error("OBEBS4.JS ERROR: Settings for methods must be valid JavaScript objects. Please update your " + string + ".");
+        console.error("OBEBS4.JS ERROR: Settings for methods must be valid JavaScript objects. Please update your " + string + " so your settings can be applied.");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -146,17 +146,23 @@ const OBEBS4 = function () {
         if (attributes) {
             
             // check that the argument is an object and is not null
-            if (typeof attributes === 'object' && attributes !== null) {
+            if (self.isObject(attributes)) {
                 
                 // loop through the object
                 for (var attr in attributes) {
                     
                     if (attributes.hasOwnProperty(attr)) {
+                        
                         // set the attribute and value
                         elem.setAttribute(attr, attributes[attr]);
+
                     }
 
                 }
+
+            } else {
+
+                self.logSettingsError(".element()'s 3rd argument");
 
             }
 
@@ -179,7 +185,7 @@ const OBEBS4 = function () {
                         
                     } else {
 
-                        self.logNodeError('.element() (4th argument) at index: [' + i + ']');
+                        self.logNodeError(".element()'s 4th argument at index: [" + i + "]");
 
                     }
 
@@ -195,7 +201,7 @@ const OBEBS4 = function () {
                     
                 } else {
 
-                    self.logNodeError('.element() (4th argument)');
+                    self.logNodeError(".element()'s 4th argument");
 
                 }
 
@@ -226,7 +232,19 @@ const OBEBS4 = function () {
     
             let extendedSettings = settings;
             if (settingsObj) {
-                extendedSettings = self.extend(true, settings, settingsObj);
+                
+                // check that the argument is an object and is not null
+                if (self.isObject(settingsObj)) {
+                    
+                    // merge the two settings objects
+                    extendedSettings = self.extend(true, settings, settingsObj);
+
+                } else {
+                    
+                    self.logSettingsError(".content.article()'s 1st argument");
+
+                }
+
             }
     
             // initialize the returned element as a var
@@ -283,7 +301,7 @@ const OBEBS4 = function () {
                                     
                                 } else {
 
-                                    self.logNodeError('.content.article() (2nd argument) at index: [' + i + '][' + j + ']');
+                                    self.logNodeError(".content.article()'s 2nd argument at index: [" + i + "][" + j + "]");
 
                                 }
 
@@ -299,7 +317,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logNodeError('.content.article() (2nd argument) at index: [' + i + ']');
+                                self.logNodeError(".content.article()'s 2nd argument at index: [" + i + "]");
 
                             }
     
@@ -322,7 +340,7 @@ const OBEBS4 = function () {
                         
                     } else {
 
-                        self.logNodeError('.content.article() (2nd argument)');
+                        self.logNodeError(".content.article()'s 2nd argument");
 
                     }
     
@@ -382,7 +400,19 @@ const OBEBS4 = function () {
         
                 let extendedSettings = settings;
                 if (settingsObj) {
-                    extendedSettings = self.extend(true, settings, settingsObj);
+                    
+                    // check that the argument is an object and is not null
+                    if (self.isObject(settingsObj)) {
+                        
+                        // merge the two settings objects
+                        extendedSettings = self.extend(true, settings, settingsObj);
+
+                    } else {
+                        
+                        self.logSettingsError(".content.navbar.basic()'s 1st argument");
+
+                    }
+                    
                 }
         
                 // initialize the returned element as a var
@@ -405,7 +435,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logNodeError('.content.navbar.basic() (2nd argument) at index: [' + i + ']');
+                                self.logNodeError(".content.navbar.basic()'s 2nd argument at index: [" + i + "]");
 
                             }
 
@@ -421,7 +451,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logNodeError('.content.navbar.basic() (2nd argument)');
+                            self.logNodeError(".content.navbar.basic()'s 2nd argument");
 
                         }
                         
@@ -487,7 +517,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logNodeError('.content.navbar.basic() (3rd argument) at index: [' + i + ']');
+                                self.logNodeError(".content.navbar.basic()'s 3rd argument at index: [" + i + "]");
 
                             }
 
@@ -504,7 +534,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logNodeError('.content.navbar.basic() (3rd argument)');
+                            self.logNodeError(".content.navbar.basic()'s 3rd argument");
 
                         }
                         
