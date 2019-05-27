@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.5',
+    this.version = '0.1.6',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -92,7 +92,7 @@ const OBEBS4 = function () {
         console.error("OBEBS4.JS ERROR: The .element() method requires a string argument (intended to define a dynamically generated element tag!)");
     },
     this.logNodeError = function (string) {
-        console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + functionName + ".");
+        console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + string + ".");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -708,8 +708,3 @@ let article_3 = obebs4.content.article(
 );
 
 target.appendChild(article_3);
-
-
-
-// TEMP - testing for error-based methods!
-let test1 = obebs4.element();
