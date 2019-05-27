@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.6',
+    this.version = '0.1.7',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -89,7 +89,7 @@ const OBEBS4 = function () {
         return typeof str === 'string' || str instanceof String;  
     },
     this.logElementError = function () {
-        console.error("OBEBS4.JS ERROR: The .element() method requires a string argument (intended to define a dynamically generated element tag!)");
+        console.error("OBEBS4.JS ERROR: The .element() method requires a valid string argument to define a dynamically generated element tag!");
     },
     this.logNodeError = function (string) {
         console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + string + ".");

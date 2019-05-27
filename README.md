@@ -112,9 +112,13 @@ const target = document.getElementById('obebs4-app');
 
 ### Console Errors
 
-The OBE:BS4 JavaScript Markup Factory & Methods has built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
+The OBE:BS4 JavaScript Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
 
-All of the errors use a standard `console.error()` method to log the issue to a browser's console. In cases where arrays of items were passed as arguments, the error will let you know the specific index where the problem can be found. Also, in most modern browser's you are usually able to expand the error in the console log, to trace the error back to the offending line in your code.
+All of the errors use a standard `console.error()` method to log the issue to your browser's console. In cases where arrays of items were passed as arguments, the error will let you know the specific index where the problem can be found. Otherwise, the error will let you know the method name and the argument that triggered the error.
+
+Also, in most modern browser's you are usually able to expand the custom error message block in the console log, to reveal a `console.trace()` output that allows you to trace the error back to the offending line in your code. 
+
+Console Errors have been tested in Chrome (74.0.3729.169), Firefox (65.0.1), Opera (60.0.3255.109), and Safari (12.1.1) browsers.
 
 >
 >**DON'T FORGET**: ALL JAVASCRIPT ARRAY INDEXES START AT `[0]`!
