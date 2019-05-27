@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.2',
+    this.version = '0.1.3',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -89,10 +89,10 @@ const OBEBS4 = function () {
         return typeof str === 'string' || str instanceof String;  
     },
     this.logElementError = function () {
-        console.error("OBEBS4 ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the .element() method!");
+        console.error("OBEBS4 JS ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the .element() method!");
     },
-    this.logElementNodeError = function (functionName, arrayItemIndex) {
-        console.error("OBEBS4 ERROR: Element array items are required to be element node objects. Please check your " + functionName + " method's array item (at index: " + arrayItemIndex + ") to fix this issue. For now, this array item was skipped! :(");
+    this.logNodeError = function (functionName, arrayItemIndex) {
+        console.error("OBEBS4 JS ERROR: Element array items must be element node objects. Please check your " + functionName + " at index: [" + arrayItemIndex + "] to fix this issue.");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -350,7 +350,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logElementNodeError('.content.navbar.basic() [second argument]', i);
+                                self.logNodeError('.content.navbar.basic() [second argument]', i);
 
                             }
 
@@ -366,7 +366,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logElementNodeError('.content.navbar.basic() [second argument]', '0');
+                            self.logNodeError('.content.navbar.basic() [second argument]', '0');
 
                         }
                         
@@ -432,7 +432,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logElementNodeError('.content.navbar.basic()', i);
+                                self.logNodeError('.content.navbar.basic()', i);
 
                             }
 
@@ -449,7 +449,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logElementNodeError('.content.navbar.basic() [third argument]', '0');
+                            self.logNodeError('.content.navbar.basic() [third argument]', '0');
 
                         }
                         
