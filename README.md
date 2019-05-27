@@ -188,7 +188,7 @@ target.appendChild(parent);
 let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
 let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
-let placeholder_paragraph = obebs4.element('p', obebs4.laurem.paragraphs[obebs4.getRandomIndex(obebs4.laurem.paragraphs.length)]);
+let placeholder_paragraph = obebs4.element('p', obebs4.placeholders.paragraphs[obebs4.getRandomIndex(obebs4.placeholders.paragraphs.length)]);
 let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
 let row = obebs4.element('div', false, { 'class' : 'row justify-content-center' }, [column]);
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
@@ -214,7 +214,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Settings | NO | `object` (structured) | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { laurem : { headline : '...', paragraph : '...' } } };`
+1 | Settings | NO | `object` (structured) | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { placeholders : { headline : '...', paragraph : '...' } } };`
 2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
 
 ```javascript
@@ -227,7 +227,7 @@ let settings = {
         column : 'col col-md-6'
     },
     content : {
-        laurem : {
+        placeholders : {
             headline : self.randomHeadline(),
             paragraph : self.randomParagraph()
         }
@@ -387,17 +387,17 @@ _Returns a parent element (with child elements), according to the options that a
 
 ## Object Placeholder Content
 
-The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Laurem Ipsum strings to use when iterating.
+The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Lorem Ipsum strings to use when iterating.
 
 This means you can get content design ideas on a page incredibly quickly, while also having different placeholder strings showing up each time you reload the page, since each string is randomly determined at run time. This was done to allow anyone to "see" how content layout decisions are impacted by different content string lengths, specifically for responsive design content issues.
 
 But... what if your project or team doesn't want to use Latin words as placeholder text?!
 
-In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.laurem` object. This object has several properties, all of which should be an array of unique string values. Here's a list of the `OBEBS4.laurem` object's properties:
+In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.placeholders` object. This object has several properties, all of which should be an array of unique string values. Here's a list of the `OBEBS4.placeholders` object's properties:
 
 ```javascript
 const OBEBS4 = function () {
-    this.laurem = {
+    this.placeholders = {
         headlines : [...],  // Expects an array of strings
         paragraphs : [...], // Expects an array of strings
         quotes : [...],     // Expects an array of strings
@@ -408,29 +408,29 @@ const OBEBS4 = function () {
 };
 ```
 
-So, going with our initialized example, we could change the `OBEBS4.laurem` object's array values like so:
+So, going with our initialized example, we could change the `OBEBS4.placeholders` object's array values like so:
 
 ```javascript
-obebs4.laurem.headlines = ["My Custom Headline", "Another Custom One", "A Final Custom Headline"];
+obebs4.placeholders.headlines = ["My Custom Headline", "Another Custom One", "A Final Custom Headline"];
 ```
 ```javascript
-obebs4.laurem.paragraphs = [
+obebs4.placeholders.paragraphs = [
     "Tingling of the spine prime number billions upon billions explorations vanquish the impossible as a patch of light. Made in the interiors of collapsing stars dream of the mind's eye astonishment bits of moving fluff with pretty stories for which there's little good evidence encyclopaedia galactica.",
     "Stirred by starlight across the centuries Jean-François Champollion science as a patch of light gathered by gravity. Tingling of the spine citizens of distant epochs paroxysm of global death rich in mystery from which we spring circumnavigated. Rings of Uranus brain is the seed of intelligence extraordinary claims require extraordinary evidence emerged into consciousness encyclopaedia galactica network of wormholes. "
 ];
 ```
 ```javascript
-obebs4.laurem.quotes = [
+obebs4.placeholders.quotes = [
     "Tingling of the spine prime number billions upon billions.",
     "Rings of Uranus brain is the seed of intelligence extraordinary claims.",
     "Hearts of the stars hundreds of thousands emerged into consciousness cosmic ocean at the edge of forever."
 ];
 ```
 ```javascript
-obebs4.laurem.brands = ["My Project"];
+obebs4.placeholders.brands = ["My Project"];
 ```
 ```javascript
-obebs4.laurem.navigation = ["Home", "Products", "Services", "Contact"];
+obebs4.placeholders.navigation = ["Home", "Products", "Services", "Contact"];
 ```
 
 ## Object Utility Methods
@@ -463,8 +463,8 @@ console.log(merged);
 _Returns a "random" interger between 0 and a passed array `.length` value._
 
 ```javascript
-let index = obebs4.getRandomIndex(obebs4.laurem.headlines.length);
-console.log(obebs4.laurem.headlines[index]);
+let index = obebs4.getRandomIndex(obebs4.placeholders.headlines.length);
+console.log(obebs4.placeholders.headlines[index]);
 ```
 
 ### OBEBS4.isElementNode()
@@ -487,7 +487,7 @@ console.log(obebs4.isString(string)); // returns/logs: true
 
 ### OBEBS4.randomBrand()
 
-_Returns a "random" brand name string from the `OBEBS4.laurem.brands` array._
+_Returns a "random" brand name string from the `OBEBS4.placeholders.brands` array._
 
 ```javascript
 let brandname = obebs4.randomBrand();
@@ -496,7 +496,7 @@ console.log(brandname);
 
 ### OBEBS4.randomHeadline()
 
-_Returns a "random" headline string from the `OBEBS4.laurem.headlines` array._
+_Returns a "random" headline string from the `OBEBS4.placeholders.headlines` array._
 
 ```javascript
 let headline = obebs4.randomHeadline();
@@ -505,7 +505,7 @@ console.log(headline);
 
 ### OBEBS4.randomParagraph()
 
-_Returns a "random" paragraph string from the `OBEBS4.laurem.paragraphs` array._
+_Returns a "random" paragraph string from the `OBEBS4.placeholders.paragraphs` array._
 
 ```javascript
 let paragraph = obebs4.randomParagraph();
@@ -514,7 +514,7 @@ console.log(paragraph);
 
 ### OBEBS4.randomQuote()
 
-_Returns a "random" quote string from the `OBEBS4.laurem.quotes` array._
+_Returns a "random" quote string from the `OBEBS4.placeholders.quotes` array._
 
 ```javascript
 let quote = obebs4.randomQuote();

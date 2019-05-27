@@ -2,8 +2,8 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.2.0',
-    this.laurem = {
+    this.version = '1.0.0',
+    this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
             'Quisque Feugiat Hendrerit',
@@ -23,7 +23,7 @@ const OBEBS4 = function () {
             'Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst.'
         ],
         brands : [
-            'Laurem Ipsum',
+            'Lorem Ipsum',
             'Suspendisse',
             'Nulla Ac Magna',
             'Aliquam Vulputate'
@@ -101,20 +101,20 @@ const OBEBS4 = function () {
         console.error("OBEBS4.JS ERROR: Settings for methods must be valid JavaScript objects. Please update your " + string + " so your settings can be applied.");
     },
     this.randomHeadline = function () {
-        let index = self.getRandomIndex(this.laurem.headlines.length);
-        return this.laurem.headlines[index];
+        let index = self.getRandomIndex(this.placeholders.headlines.length);
+        return this.placeholders.headlines[index];
     },
     this.randomParagraph = function () {
-        let index = self.getRandomIndex(this.laurem.paragraphs.length);
-        return this.laurem.paragraphs[index];
+        let index = self.getRandomIndex(this.placeholders.paragraphs.length);
+        return this.placeholders.paragraphs[index];
     },
     this.randomQuote = function () {
-        let index = self.getRandomIndex(this.laurem.quotes.length);
-        return this.laurem.quotes[index];
+        let index = self.getRandomIndex(this.placeholders.quotes.length);
+        return this.placeholders.quotes[index];
     },
     this.randomBrand = function () {
-        let index = self.getRandomIndex(this.laurem.brands.length);
-        return this.laurem.brands[index];
+        let index = self.getRandomIndex(this.placeholders.brands.length);
+        return this.placeholders.brands[index];
     },
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
@@ -223,7 +223,7 @@ const OBEBS4 = function () {
                     column : 'col col-md-6'
                 },
                 content : {
-                    laurem : {
+                    placeholders : {
                         headline : self.randomHeadline(),
                         paragraph : self.randomParagraph()
                     }
@@ -350,11 +350,11 @@ const OBEBS4 = function () {
                 
                 // if nothing was passed, then generate default placeholder content and attach it
                 let column = self.element('div', false, {'class' : extendedSettings.classes.column});
-                let h = self.element('h1', extendedSettings.content.laurem.headline);
+                let h = self.element('h1', extendedSettings.content.placeholders.headline);
                 column.appendChild(h);
-                let p1 = self.element('p', extendedSettings.content.laurem.paragraph);
+                let p1 = self.element('p', extendedSettings.content.placeholders.paragraph);
                 column.appendChild(p1);
-                let p2 = self.element('p', extendedSettings.content.laurem.paragraph);
+                let p2 = self.element('p', extendedSettings.content.placeholders.paragraph);
                 column.appendChild(p2);
                 row.appendChild(column);
     
@@ -387,7 +387,7 @@ const OBEBS4 = function () {
                         collapse : 'navbar-collapse-id'
                     },
                     content : {
-                        laurem : {
+                        placeholders : {
                             brand : self.randomBrand()
                         },
                         aria : {
@@ -459,7 +459,7 @@ const OBEBS4 = function () {
 
                 } else {
                     
-                    let a = self.element('a', extendedSettings.content.laurem.brand, {
+                    let a = self.element('a', extendedSettings.content.placeholders.brand, {
                         'class' : extendedSettings.classes.brand,
                         'href' : '#'
                     });
@@ -550,9 +550,9 @@ const OBEBS4 = function () {
                     // append the collapse btn
                     nav.appendChild(collapse_btn);
                     
-                    // loop through default placeholder laurem.navigation array, and generate + append each as a list item with an anchor child
-                    for (var i = 0; i < self.laurem.navigation.length; i++) {
-                        let a = self.element('a', self.laurem.navigation[i], {
+                    // loop through default placeholders.navigation array, and generate + append each array item as a list item with an anchor child
+                    for (var i = 0; i < self.placeholders.navigation.length; i++) {
+                        let a = self.element('a', self.placeholders.navigation[i], {
                             'class' : extendedSettings.classes.link,
                             'href' : '#'
                         });
@@ -673,7 +673,7 @@ target.appendChild(article_1);
 
 
 
-// Example article section using a customized settings for OBEBS4.content.article() (and random placeholder strings from the laurem sub-object)
+// Example article section using a customized settings for OBEBS4.content.article() (and random placeholder strings from the placeholders sub-object)
 
 let article_2_settings = {
     classes : {
