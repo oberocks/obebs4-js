@@ -1,8 +1,7 @@
-
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.0.1',
+    this.version = '1.0.2',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
