@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.7',
+    this.version = '0.1.8',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -84,6 +84,9 @@ const OBEBS4 = function () {
     this.isElementNode = function (el) {
         // FROM: http://stackoverflow.com/a/36894871/1204556
         return el instanceof Element || el instanceof HTMLDocument;  
+    },
+    this.isObject = function (obj) {
+        return typeof obj === 'object' && obj !== null;  
     },
     this.isString = function (str) {
         return typeof str === 'string' || str instanceof String;  
