@@ -39,7 +39,157 @@
         <!-- Custom/Development JS for this page -->
         <script type="text/javascript">
 
-            // New JavaScript Goes Here...
+            // ---------------------------------
+            // T E S T I N G / E X A M P L E S
+            // ---------------------------------
+
+
+            let obebs4 = new OBEBS4();
+            console.log(obebs4.version);
+
+            const target = document.getElementById('obebs4-app');
+
+
+
+
+            // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON AND OFF BECAUSE OBE DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
+
+            // Example of a default navbar section using OBEBS4.content.navbar.basic()
+            /*
+            let navbar_1 = obebs4.content.navbar.basic();
+            target.appendChild(navbar_1);
+            */
+
+            // Example of a customized navbar section using OBEBS4.content.navbar.basic()
+
+            // settings
+            let navbar_2_settings = {
+                classes : {
+                    navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
+                    toggler : 'navbar-toggler ml-auto',
+                    list : 'navbar-nav ml-auto'
+                }
+            };
+            // brand content
+            let navbar_2_img_size = 30;
+            let navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
+            navbar_2_img.alt = 'Brand Icon Image';
+            navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
+            let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
+            // nav content
+            let link_1 = obebs4.element('a', 'Home', {'class' : 'nav-link', 'href' : '#'});
+            let link_2 = obebs4.element('a', 'About', {'class' : 'nav-link', 'href' : '#'});
+            let link_3 = obebs4.element('a', 'Contact', {'class' : 'nav-link', 'href' : '#'});
+            // generate final parent elem with children and append
+            let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3]);
+            target.appendChild(navbar_2);
+
+
+
+
+            // Example of a manually built section using OBEBS4.element()
+
+            let article_0_h_1 = obebs4.element('h3', 'First Headline', {'class' : 'pt-5'});
+            let article_0_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
+            let article_0_p_1 = obebs4.element('p', 'This is the first sample paragraph.');
+
+            let article_0_h_2 = obebs4.element('h3', 'Second Headline', {'class' : 'pt-5'});
+            let article_0_hr_2 = obebs4.element('hr', '', {'class' : 'border-success'});
+            let article_0_p_2 = obebs4.element('p', 'This is the second sample paragraph.');
+
+            let article_0_column_1 = obebs4.element('div', false, {'class' : 'col-md-6'}, [article_0_h_1, article_0_hr_1, article_0_p_1]);
+            let article_0_column_2 = obebs4.element('div', false, {'class' : 'col-md-6'}, [article_0_h_2, article_0_hr_2, article_0_p_2]);
+
+            let article_0_row = obebs4.element('div', false, {'class' : 'row justify-content-center'}, [article_0_column_1, article_0_column_2]);
+
+            let article_0_container = obebs4.element('div', false, {'class' : 'container'}, article_0_row);
+
+            let article_0_container_fluid = obebs4.element('div', false, {'class' : 'container-fluid bg-primary text-light py-5'}, article_0_container);
+
+            target.appendChild(article_0_container_fluid);
+
+
+
+
+            // Example article section using a default OBEBS4.content.article()
+
+            let article_1 = obebs4.content.article();
+            target.appendChild(article_1);
+
+
+
+
+            // Example article section using a customized settings for OBEBS4.content.article() (and random placeholder strings from the placeholders sub-object)
+
+            let article_2_settings = {
+                classes : {
+                    article : 'container-fluid bg-danger text-white py-5',
+                    row : 'row justify-content-center',
+                    column : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
+                }
+            };
+
+            let article_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+            let article_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
+            let article_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
+            let article_2_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
+            let article_2_p_3 = obebs4.element('p', obebs4.randomParagraph());
+
+            let article_2 = obebs4.content.article(
+                article_2_settings,
+                [
+                    article_2_h_1,
+                    article_2_hr_1,
+                    article_2_p_1,
+                    article_2_p_2,
+                    article_2_p_3
+                ]
+            );
+            target.appendChild(article_2);
+
+
+
+
+            // Example article section using an OBEBS4.content.article() function with custom content
+
+            let article_3_settings = {
+                classes : {
+                    column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
+                }
+            };
+
+            let article_3_col_1_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+            let article_3_col_1_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
+            let article_3_col_1_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+            let article_3_col_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+            let article_3_col_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-danger'});
+            let article_3_col_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+            let article_3_col_3_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
+            let article_3_col_3_hr_1 = obebs4.element('hr', '', {'class' : 'border-cyan'});
+            let article_3_col_3_p_1 = obebs4.element('p', obebs4.randomParagraph());
+
+            let article_3 = obebs4.content.article(
+                article_3_settings,
+                [
+                    [
+                        article_3_col_1_h_1,
+                        article_3_col_1_hr_1,
+                        article_3_col_1_p_1
+                    ],[
+                        article_3_col_2_h_1,
+                        article_3_col_2_hr_1,
+                        article_3_col_2_p_1
+                    ],[
+                        article_3_col_3_h_1,
+                        article_3_col_3_hr_1,
+                        article_3_col_3_p_1
+                    ]
+                ]
+            );
+
+            target.appendChild(article_3);
 
         </script>
 
