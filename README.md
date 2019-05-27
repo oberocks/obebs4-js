@@ -19,7 +19,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 * [OBE:BS4 Utility Methods](#object-utility-methods)
     * [.extend()](#obebs4extend)
     * [.getRandomIndex()](#obebs4getrandomindex)
-    * [.isElement()](#obebs4iselement)
+    * [.isElementNode()](#obebs4iselementnode)
     * [.isString()](#obebs4isstring)
     * [.randomBrand()](#obebs4randombrand)
     * [.randomHeadline()](#obebs4randomheadline)
@@ -452,13 +452,13 @@ let index = obebs4.getRandomIndex(obebs4.laurem.headlines.length);
 console.log(obebs4.laurem.headlines[index]);
 ```
 
-### OBEBS4.isElement()
+### OBEBS4.isElementNode()
 
 _Checks if an element is a JavaScript Element Node Object (generally for use inside the OBEBS4 object, to check for validity before appending an element to another element node.)_
 
 ```javascript
 let div = obebs4.element('div');
-console.log(obebs4.isElement(div)); // returns/logs: true
+console.log(obebs4.isElementNode(div)); // returns/logs: true
 ```
 
 ### OBEBS4.isString()
@@ -466,8 +466,8 @@ console.log(obebs4.isElement(div)); // returns/logs: true
 _Checks if an passed value is a valid string or a JavaScript String Object string._
 
 ```javascript
-let div = obebs4.element('div');
-console.log(obebs4.isElement(div)); // returns/logs: true
+let string = 'Hi! I am a string!';
+console.log(obebs4.isString(string)); // returns/logs: true
 ```
 
 ### OBEBS4.randomBrand()

@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.0',
+    this.version = '0.1.1',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -81,18 +81,18 @@ const OBEBS4 = function () {
         // from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
         return Math.floor(Math.random() * Math.floor(arrayLength));
     },
-    this.isElement = function (el) {
+    this.isElementNode = function (el) {
         // FROM: http://stackoverflow.com/a/36894871/1204556
         return el instanceof Element || el instanceof HTMLDocument;  
     },
     this.isString = function (str) {
         return typeof str === 'string' || str instanceof String;  
     },
-    this.logErrorElement = function () {
-        console.error('A string argument (intended to define a dynamically generated element tag) is required when using the OBEBS4.element() method!');
+    this.logElementError = function () {
+        console.error("OBEBS4 ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the OBEBS4.element() method!");
     },
-    this.logErrorItemNotNode = function (functionName, arrayItemIndex) {
-        console.error("Element array items are required to be element node objects. Please check your " + functionName + " method's array item (at index: " + arrayItemIndex + ") to fix this issue. For now, this array item was skipped! :(");
+    this.logElementNodeError = function (functionName, arrayItemIndex) {
+        console.error("OBEBS4 ERROR: Element array items are required to be element node objects. Please check your " + functionName + " method's array item (at index: " + arrayItemIndex + ") to fix this issue. For now, this array item was skipped! :(");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -123,7 +123,7 @@ const OBEBS4 = function () {
 
         } else {
             
-            self.logErrorElement();
+            self.logElementError();
 
         }
         
@@ -178,7 +178,7 @@ const OBEBS4 = function () {
 
         // return the element
         return elem;
-        
+
     },
     this.content = {
         article : function (settingsObj = false, columnsArrays = false) {
@@ -341,14 +341,34 @@ const OBEBS4 = function () {
                         
                         // if it is an array, then loop through the array
                         for (var i = 0; i < brandElementsArray.length; i++) {
-                            // and attach each element
-                            nav.appendChild(brandElementsArray[i]);
+                            
+                            // check the array item is an element node
+                            if (self.isElementNode(brandElementsArray[i])) {
+                                
+                                // and attach each element
+                                nav.appendChild(brandElementsArray[i]);
+                                
+                            } else {
+
+                                self.logElementNodeError('.content.navbar.basic() [second argument]', i);
+
+                            }
+
                         }
 
                     } else {
                         
-                        // if it's not an array, then just attach the passed element
-                        nav.appendChild(brandElementsArray);
+                        // check that the passed item is an element node
+                        if (self.isElementNode(brandElementsArray)) {
+                                
+                            // if so, then just attach the passed element
+                            nav.appendChild(brandElementsArray);
+                            
+                        } else {
+
+                            self.logElementNodeError('.content.navbar.basic() [second argument]', '0');
+
+                        }
                         
                     }
 
@@ -404,7 +424,7 @@ const OBEBS4 = function () {
                         for (var i = 0; i < navigationLinksArray.length; i++) {
                             
                             // check the array item is an element node
-                            if (self.isElement(navigationLinksArray[i])) {
+                            if (self.isElementNode(navigationLinksArray[i])) {
                                 
                                 // and attach each element
                                 let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray[i]);
@@ -412,7 +432,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logErrorItemNotNode('.content.navbar.basic()', i);
+                                self.logElementNodeError('.content.navbar.basic()', i);
 
                             }
 
@@ -420,9 +440,18 @@ const OBEBS4 = function () {
 
                     } else {
                         
-                        // and attach each element
-                        let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray);
-                        listParent.appendChild(li);
+                        // check that the passed item is an element node
+                        if (self.isElementNode(navigationLinksArray)) {
+                                
+                            // if so, then just attach the passed element
+                            let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray);
+                            listParent.appendChild(li);
+                            
+                        } else {
+
+                            self.logElementNodeError('.content.navbar.basic() [third argument]', '0');
+
+                        }
                         
                     }
 
@@ -455,8 +484,11 @@ const OBEBS4 = function () {
                 return nav;
     
             }
+
         }
+
     }
+
 };
 
 
@@ -627,3 +659,8 @@ let article_3 = obebs4.content.article(
 );
 
 target.appendChild(article_3);
+
+
+
+// TEMP - testing for error-based methods!
+let test1 = obebs4.element();
