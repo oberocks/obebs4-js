@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.0.16',
+    this.version = '0.1.0',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -88,6 +88,12 @@ const OBEBS4 = function () {
     this.isString = function (str) {
         return typeof str === 'string' || str instanceof String;  
     },
+    this.logErrorElement = function () {
+        console.error('A string argument (intended to define a dynamically generated element tag) is required when using the OBEBS4.element() method!');
+    },
+    this.logErrorItemNotNode = function (functionName, arrayItemIndex) {
+        console.error("Element array items are required to be element node objects. Please check your " + functionName + " method's array item (at index: " + arrayItemIndex + ") to fix this issue. For now, this array item was skipped! :(");
+    },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
         return this.laurem.headlines[index];
@@ -111,48 +117,68 @@ const OBEBS4 = function () {
 
         // check for a passed element tag
         if (elemType) {
+            
             // create the element
             elem = document.createElement(elemType);
-        } else { console.log('ERROR: An element (tag) type must be passed as the first argument.') }
+
+        } else {
+            
+            self.logErrorElement();
+
+        }
         
         // check for passed element text
         if (elemText && elemText.length > 0) {
+            
             // if passed, then create a text node and append it to the returned element
             let node = document.createTextNode(elemText);
             elem.appendChild(node);
+
         }
 
         // check for passed object of html attribute key/value pairs
         if (attributes) {
+            
             // check that the argument is an object and is not null
             if (typeof attributes === 'object' && attributes !== null) {
+                
                 // loop through the object
                 for (var attr in attributes) {
+                    
                     if (attributes.hasOwnProperty(attr)) {
                         // set the attribute and value
                         elem.setAttribute(attr, attributes[attr]);
                     }
+
                 }
+
             }
+
         }
         
         // check for passed element array
         if (nestedElem) {
+            
             // check if the passed argument is an array
             if (Array.isArray(nestedElem)) {
+                
                 // loop through the array
                 for (var i = 0; i < nestedElem.length; i++) {
                     // append each as a child element
                     elem.appendChild(nestedElem[i]);
                 }
+
             } else {
+                
                 // if it's not an array (and is just a single element) then append the element
                 elem.appendChild(nestedElem);
+
             }
         }
 
         // return the element
         return elem;
+        
     },
     this.content = {
         article : function (settingsObj = false, columnsArrays = false) {
@@ -384,7 +410,11 @@ const OBEBS4 = function () {
                                 let li = self.element('li', false, {'class' : extendedSettings.classes.item}, navigationLinksArray[i]);
                                 listParent.appendChild(li);
                                 
-                            } else { console.log("ERROR: Expected an element node object. Please check your .content.navbar.basic() method's array item (at index: " + i + ") to fix this issue. For now, this array item was skipped! :(") }
+                            } else {
+
+                                self.logErrorItemNotNode('.content.navbar.basic()', i);
+
+                            }
 
                         }
 
