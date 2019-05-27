@@ -2,7 +2,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '0.1.3',
+    this.version = '0.1.4',
     this.laurem = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -91,8 +91,8 @@ const OBEBS4 = function () {
     this.logElementError = function () {
         console.error("OBEBS4 JS ERROR: A string argument (intended to define a dynamically generated element tag) is required when using the .element() method!");
     },
-    this.logNodeError = function (functionName, arrayItemIndex) {
-        console.error("OBEBS4 JS ERROR: Element array items must be element node objects. Please check your " + functionName + " at index: [" + arrayItemIndex + "] to fix this issue.");
+    this.logNodeError = function (string) {
+        console.error("OBEBS4 JS ERROR: Element array items must be element node objects. Please check your " + functionName + " to fix this issue.");
     },
     this.randomHeadline = function () {
         let index = self.getRandomIndex(this.laurem.headlines.length);
@@ -164,14 +164,34 @@ const OBEBS4 = function () {
                 
                 // loop through the array
                 for (var i = 0; i < nestedElem.length; i++) {
-                    // append each as a child element
-                    elem.appendChild(nestedElem[i]);
+                    
+                    // check the array item is an element node
+                    if (self.isElementNode(nestedElem[i])) {
+                                
+                        // and attach each element
+                        elem.appendChild(nestedElem[i]);
+                        
+                    } else {
+
+                        self.logNodeError('.element() (4th argument) at index: [' + i + ']');
+
+                    }
+
                 }
 
             } else {
                 
-                // if it's not an array (and is just a single element) then append the element
-                elem.appendChild(nestedElem);
+                // check that the passed item is an element node
+                if (self.isElementNode(nestedElem)) {
+                                
+                    // if so, then just attach the passed element
+                    elem.appendChild(nestedElem);
+                    
+                } else {
+
+                    self.logNodeError('.element() (4th argument)');
+
+                }
 
             }
         }
@@ -350,7 +370,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logNodeError('.content.navbar.basic() [second argument]', i);
+                                self.logNodeError('.content.navbar.basic() (2nd argument) at index: [' + i + ']');
 
                             }
 
@@ -366,7 +386,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logNodeError('.content.navbar.basic() [second argument]', '0');
+                            self.logNodeError('.content.navbar.basic() (2nd argument)');
 
                         }
                         
@@ -432,7 +452,7 @@ const OBEBS4 = function () {
                                 
                             } else {
 
-                                self.logNodeError('.content.navbar.basic()', i);
+                                self.logNodeError('.content.navbar.basic() (3rd argument) at index: [' + i + ']');
 
                             }
 
@@ -449,7 +469,7 @@ const OBEBS4 = function () {
                             
                         } else {
 
-                            self.logNodeError('.content.navbar.basic() [third argument]', '0');
+                            self.logNodeError('.content.navbar.basic() (3rd argument)');
 
                         }
                         
