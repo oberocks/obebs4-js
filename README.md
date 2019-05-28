@@ -122,83 +122,6 @@ This system allows for a signifigantly more customizable CMS design premise/exec
 
 But that's not all! This system was also designed with empathy for front end developers. Because with an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans a lot of the code repitition those projects end-up having.
 
-### OBEBS4.dom()
-
-_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
-
->
-> NOTE: All strings passed into this method are **Case Insensitive**, thanks to JS's `.toLowerCase()`!
->
-
-Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
------ | --------- | -------- | -------------------------- | -------------
-1 | Parent Element | YES | `element node` | xxxx
-2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**!
-3 | Child Element | YES | `element node` | xxxx
-4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
-5 | Reference Element | NO | `element node` | xxxx
-
-#### OBEBS4.dom() Semantic Examples (Recommended):
-```javascript
-// Create a parent DOM element to work with
-let domSection = obebs4.element('section', false, { class : 'text-center pb-5' });
-
-// Create the child elements to play with
-let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-light p-2 mb-5' });
-let element_1 = obebs4.element('div', 'Element #1', { class : 'text-secondary' });
-let element_2 = obebs4.element('div', 'Element #2', { class : 'text-primary' });
-let element_3 = obebs4.element('div', 'Element #3', { class : 'text-warning' });
-let element_4 = obebs4.element('div', 'Element #4', { class : 'text-danger' });
-let element_5 = obebs4.element('div', 'Element #5', { class : 'text-info' });
-let element_6 = obebs4.element('div', 'Element #6', { class : 'text-success' });
-let element_7 = obebs4.element('div', 'Element #7', { class : 'text-dark' });
-let element_8 = obebs4.element('div', 'Element #8', { class : 'text-light' });
-
-// .dom() "semantic" examples
-obebs4.dom(domSection, 'append', element_1);
-obebs4.dom(domSection, 'append', element_3);
-obebs4.dom(domSection, 'insert', element_2, 'before', element_3);
-obebs4.dom(domSection, 'append', element_5);
-obebs4.dom(domSection, 'insert', element_4, 'after', element_3);
-obebs4.dom(domSection, 'append', element_6);
-obebs4.dom(domSection, 'append', element_7);
-obebs4.dom(domSection, 'replace', element_7, 'with', element_8);
-obebs4.dom(domSection, 'remove', element_8);
-obebs4.dom(domSection, 'prepend', element_0);
-
-// append our working section to our example element
-obebs4.dom(target, 'append', domSection);
-```
-```html
-<!-- The example above will generate and append this HTML to your target element: -->
-<section class="bg-gradient-white text-center pb-5">
-    <div class="bg-secondary text-white p-2 mb-5">.dom() Method Test Examples</div>
-    <div class="text-secondary">Element #1</div>
-    <div class="text-primary">Element #2</div>
-    <div class="text-warning">Element #3</div>
-    <div class="text-danger">Element #4</div>
-    <div class="text-info">Element #5</div>
-    <div class="text-success">Element #6</div>
-</section>
-```
-
-#### OBEBS4.dom() Alternative Syntaxes:
-```javascript
-obebs4.dom(domSection, 'appendChild', element_1);
-obebs4.dom(domSection, 'appendChild', element_3);
-obebs4.dom(domSection, 'insertBefore', element_2, element_3);
-// ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
-obebs4.dom(domSection, 'appendChild', element_5);
-obebs4.dom(domSection, 'insertAfter', element_4, element_3);
-// ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
-obebs4.dom(domSection, 'appendChild', element_6);
-obebs4.dom(domSection, 'appendChild', element_7);
-obebs4.dom(domSection, 'replaceChild', element_7, element_8);
-// ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
-obebs4.dom(domSection, 'removeChild', element_8);
-obebs4.dom(domSection, 'firstChild', element_0);
-```
-
 ### OBEBS4.element()
 
 _Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
@@ -501,6 +424,83 @@ obebs4.placeholders.navigation = ["Home", "Products", "Services", "Contact"];
 ## Object Utility Methods
 
 The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
+
+### OBEBS4.dom()
+
+_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
+
+>
+> NOTE: All strings passed into this method are **Case Insensitive**, thanks to JS's `.toLowerCase()`!
+>
+
+Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | Parent Element | YES | `element node` | xxxx
+2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**!
+3 | Child Element | YES | `element node` | xxxx
+4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
+5 | Reference Element | NO | `element node` | xxxx
+
+#### OBEBS4.dom() Semantic Examples (Recommended):
+```javascript
+// Create a parent DOM element to work with
+let domSection = obebs4.element('section', false, { class : 'text-center pb-5' });
+
+// Create the child elements to play with
+let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-light p-2 mb-5' });
+let element_1 = obebs4.element('div', 'Element #1', { class : 'text-secondary' });
+let element_2 = obebs4.element('div', 'Element #2', { class : 'text-primary' });
+let element_3 = obebs4.element('div', 'Element #3', { class : 'text-warning' });
+let element_4 = obebs4.element('div', 'Element #4', { class : 'text-danger' });
+let element_5 = obebs4.element('div', 'Element #5', { class : 'text-info' });
+let element_6 = obebs4.element('div', 'Element #6', { class : 'text-success' });
+let element_7 = obebs4.element('div', 'Element #7', { class : 'text-dark' });
+let element_8 = obebs4.element('div', 'Element #8', { class : 'text-light' });
+
+// .dom() "semantic" examples
+obebs4.dom(domSection, 'append', element_1);
+obebs4.dom(domSection, 'append', element_3);
+obebs4.dom(domSection, 'insert', element_2, 'before', element_3);
+obebs4.dom(domSection, 'append', element_5);
+obebs4.dom(domSection, 'insert', element_4, 'after', element_3);
+obebs4.dom(domSection, 'append', element_6);
+obebs4.dom(domSection, 'append', element_7);
+obebs4.dom(domSection, 'replace', element_7, 'with', element_8);
+obebs4.dom(domSection, 'remove', element_8);
+obebs4.dom(domSection, 'prepend', element_0);
+
+// append our working section to our example element
+obebs4.dom(target, 'append', domSection);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<section class="bg-gradient-white text-center pb-5">
+    <div class="bg-secondary text-white p-2 mb-5">.dom() Method Test Examples</div>
+    <div class="text-secondary">Element #1</div>
+    <div class="text-primary">Element #2</div>
+    <div class="text-warning">Element #3</div>
+    <div class="text-danger">Element #4</div>
+    <div class="text-info">Element #5</div>
+    <div class="text-success">Element #6</div>
+</section>
+```
+
+#### OBEBS4.dom() Alternative Syntaxes:
+```javascript
+obebs4.dom(domSection, 'appendChild', element_1);
+obebs4.dom(domSection, 'appendChild', element_3);
+obebs4.dom(domSection, 'insertBefore', element_2, element_3);
+// ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
+obebs4.dom(domSection, 'appendChild', element_5);
+obebs4.dom(domSection, 'insertAfter', element_4, element_3);
+// ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
+obebs4.dom(domSection, 'appendChild', element_6);
+obebs4.dom(domSection, 'appendChild', element_7);
+obebs4.dom(domSection, 'replaceChild', element_7, element_8);
+// ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
+obebs4.dom(domSection, 'removeChild', element_8);
+obebs4.dom(domSection, 'firstChild', element_0);
+```
 
 ### OBEBS4.extend()
 
