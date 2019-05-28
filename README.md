@@ -17,6 +17,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
     * [.content.navbar.basic()](#obebs4contentnavbarbasic)
 * [OBE:BS4 Placeholder Content](#object-placeholder-content)
 * [OBE:BS4 Utility Methods](#object-utility-methods)
+    * [.dom()](#obebs4dom)
     * [.extend()](#obebs4extend)
     * [.getRandomIndex()](#obebs4getrandomindex)
     * [.isElementNode()](#obebs4iselementnode)
@@ -120,6 +121,18 @@ Many of the OBE:BS4 JavaScript Markup Factory methods automatically generate def
 This system allows for a signifigantly more customizable CMS design premise/execution compared to anything that exists in the market today. ;)
 
 But that's not all! This system was also designed with empathy for front end developers. Because with an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans a lot of the code repitition those projects end-up having.
+
+### OBEBS4.dom()
+
+_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` variety!_
+
+Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | Parent Element | YES | `element node` | xxxx
+2 | Method Option | YES | `string` | xxxx
+3 | Child Element | YES | `element node` | xxxx
+4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
+5 | Reference Element | NO | `element node` | xxxx
 
 ### OBEBS4.element()
 

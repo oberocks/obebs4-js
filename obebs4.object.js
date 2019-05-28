@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.0.2',
+    this.version = '1.1.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -32,6 +32,61 @@ const OBEBS4 = function () {
             'Link Two',
             'Link Three'
         ]
+    },
+    this.dom = function (parent, type, el, subType = false, refNode = false) {
+        
+        let t = type.toLowerCase();
+
+        if (t === 'appendchild' || t === 'append') {
+            
+            parent.appendChild(el);
+
+        } else if (t === 'insert') {
+            
+            if (subType === 'after') {
+                
+                parent.insertBefore(el, refNode.nextSibling);
+
+            } else if (subType === 'before' || subType != false) {
+                
+                parent.insertBefore(el, refNode);
+
+            }
+
+        } else if (t === 'insertafter' || t === 'after') {
+            
+            parent.insertBefore(el, subType.nextSibling);
+
+        } else if (t === 'insertbefore' || t === 'before') {
+            
+            parent.insertBefore(el, subType);
+
+        } else if (t === 'replacechild' || t === 'replace') {
+            
+            if (subType === 'with' || self.isString(subType)) {
+                
+                let ref = refNode ? refNode : undefined;
+                if (ref) {
+                    parent.replaceChild(ref, el);
+                }
+
+            } else if (self.isElementNode(subType)) {
+                
+                parent.replaceChild(subType, el);
+
+            }
+
+        } else if (t === 'removechild' || t === 'remove') {
+            
+            parent.removeChild(el);
+
+        } else if (t === 'prepend' || t === 'firstchild') {
+            
+            let firstChild = parent.firstChild;
+            parent.insertBefore(el, firstChild);
+
+        }
+
     },
     this.extend = function () {
 
@@ -568,6 +623,12 @@ const OBEBS4 = function () {
                 return nav;
     
             }
+        }
+    },
+    this.forms = {
+        groups : {
+            inputs : {},
+            textareas : {}
         }
     }
 };
