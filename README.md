@@ -124,7 +124,7 @@ But that's not all! This system was also designed with empathy for front end dev
 
 ### OBEBS4.dom()
 
-_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` variety!_
+_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
