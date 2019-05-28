@@ -153,12 +153,12 @@ let element_8 = obebs4.element('div', 'Element #8', { class : 'text-light' });
 // .dom() "semantic" examples
 obebs4.dom(domSection, 'append', element_1);
 obebs4.dom(domSection, 'append', element_3);
-obebs4.dom(domSection, 'insert', element_2, 'before', element_3); // ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
+obebs4.dom(domSection, 'insert', element_2, 'before', element_3);
 obebs4.dom(domSection, 'append', element_5);
-obebs4.dom(domSection, 'insert', element_4, 'after', element_3); // ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
+obebs4.dom(domSection, 'insert', element_4, 'after', element_3);
 obebs4.dom(domSection, 'append', element_6);
 obebs4.dom(domSection, 'append', element_7);
-obebs4.dom(domSection, 'replace', element_7, 'with', element_8); // ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
+obebs4.dom(domSection, 'replace', element_7, 'with', element_8);
 obebs4.dom(domSection, 'remove', element_8);
 obebs4.dom(domSection, 'prepend', element_0);
 
