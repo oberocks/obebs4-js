@@ -134,6 +134,39 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
 5 | Reference Element | NO | `element node` | xxxx
 
+#### OBEBS4.dom() Semantic Examples (Recommended):
+```javascript
+// Create a parent DOM element to work with
+let domSection = obebs4.element('section', false, { class : 'bg-gradient-white text-center pb-5' });
+
+// Create the child elements to play with
+let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-white p-2 mb-5' });
+let element_1 = obebs4.element('div', 'Element #1', { class : 'text-secondary' });
+let element_2 = obebs4.element('div', 'Element #2', { class : 'text-primary' });
+let element_3 = obebs4.element('div', 'Element #3', { class : 'text-warning' });
+let element_4 = obebs4.element('div', 'Element #4', { class : 'text-danger' });
+let element_5 = obebs4.element('div', 'Element #5', { class : 'text-info' });
+let element_6 = obebs4.element('div', 'Element #6', { class : 'text-success' });
+let element_7 = obebs4.element('div', 'Element #7', { class : 'text-dark' });
+let element_8 = obebs4.element('div', 'Element #8', { class : 'text-light' });
+
+// .dom() "semantic" examples
+obebs4.dom(domSection, 'append', element_1);
+obebs4.dom(domSection, 'append', element_3);
+obebs4.dom(domSection, 'insert', element_2, 'before', element_3); // ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
+obebs4.dom(domSection, 'append', element_5);
+obebs4.dom(domSection, 'insert', element_4, 'after', element_3); // ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
+obebs4.dom(domSection, 'append', element_6);
+obebs4.dom(domSection, 'append', element_7);
+obebs4.dom(domSection, 'replace', element_7, 'with', element_8); // ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
+obebs4.dom(domSection, 'remove', element_8);
+obebs4.dom(domSection, 'prepend', element_0);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<span>This is the text for my span!</span>
+```
+
 ### OBEBS4.element()
 
 _Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
