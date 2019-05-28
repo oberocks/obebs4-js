@@ -126,10 +126,14 @@ But that's not all! This system was also designed with empathy for front end dev
 
 _A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
 
+>
+> NOTE: All strings passed into this method are **Case Insensitive**, thanks to JS's `.toLowerCase()`!
+>
+
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Parent Element | YES | `element node` | xxxx
-2 | Method Option | YES | `string` | xxxx
+2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**!
 3 | Child Element | YES | `element node` | xxxx
 4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
 5 | Reference Element | NO | `element node` | xxxx
@@ -176,6 +180,20 @@ obebs4.dom(target, 'append', domSection);
     <div class="text-info">Element #5</div>
     <div class="text-success">Element #6</div>
 </section>
+```
+
+#### OBEBS4.dom() Alternative Syntaxes:
+```javascript
+obebs4.dom(domSection, 'appendChild', element_1);
+obebs4.dom(domSection, 'appendChild', element_3);
+obebs4.dom(domSection, 'insertBefore', element_2, element_3); // ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
+obebs4.dom(domSection, 'appendChild', element_5);
+obebs4.dom(domSection, 'insertAfter', element_4, element_3); // ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
+obebs4.dom(domSection, 'appendChild', element_6);
+obebs4.dom(domSection, 'appendChild', element_7);
+obebs4.dom(domSection, 'replaceChild', element_7, element_8); // ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
+obebs4.dom(domSection, 'removeChild', element_8);
+obebs4.dom(domSection, 'firstChild', element_0);
 ```
 
 ### OBEBS4.element()
