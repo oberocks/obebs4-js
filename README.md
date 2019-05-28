@@ -427,7 +427,7 @@ The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your
 
 ### OBEBS4.dom()
 
-_A helper method that makes DOM element position manipulations very semantically accurate and easy. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
+_A helper method that makes DOM element position manipulations more semantically accurate and easier for laypeople to understand. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
 
 >
 > NOTE: All strings passed into this method are **Case Insensitive**, thanks to JS's `.toLowerCase()`!
