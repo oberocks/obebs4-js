@@ -447,7 +447,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 let domSection = obebs4.element('section', false, { class : 'text-center pb-5' });
 
 // Create the child elements to play with
-let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-light p-2 mb-5' });
+let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-light p-2 mb-5' });
 let element_1 = obebs4.element('div', 'Element #1', { class : 'text-secondary' });
 let element_2 = obebs4.element('div', 'Element #2', { class : 'text-primary' });
 let element_3 = obebs4.element('div', 'Element #3', { class : 'text-warning' });
