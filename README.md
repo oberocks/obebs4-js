@@ -137,10 +137,10 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 #### OBEBS4.dom() Semantic Examples (Recommended):
 ```javascript
 // Create a parent DOM element to work with
-let domSection = obebs4.element('section', false, { class : 'bg-gradient-white text-center pb-5' });
+let domSection = obebs4.element('section', false, { class : 'text-center pb-5' });
 
 // Create the child elements to play with
-let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-white p-2 mb-5' });
+let element_0 = obebs4.element('div', '.dom() Method Test Examples', { class : 'bg-secondary text-light p-2 mb-5' });
 let element_1 = obebs4.element('div', 'Element #1', { class : 'text-secondary' });
 let element_2 = obebs4.element('div', 'Element #2', { class : 'text-primary' });
 let element_3 = obebs4.element('div', 'Element #3', { class : 'text-warning' });
@@ -167,7 +167,15 @@ obebs4.dom(target, 'append', domSection);
 ```
 ```html
 <!-- The example above will generate and append this HTML to your target element: -->
-<span>This is the text for my span!</span>
+<section class="bg-gradient-white text-center pb-5">
+    <div class="bg-secondary text-white p-2 mb-5">.dom() Method Test Examples</div>
+    <div class="text-secondary">Element #1</div>
+    <div class="text-primary">Element #2</div>
+    <div class="text-warning">Element #3</div>
+    <div class="text-danger">Element #4</div>
+    <div class="text-info">Element #5</div>
+    <div class="text-success">Element #6</div>
+</section>
 ```
 
 ### OBEBS4.element()
