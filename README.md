@@ -186,12 +186,15 @@ obebs4.dom(target, 'append', domSection);
 ```javascript
 obebs4.dom(domSection, 'appendChild', element_1);
 obebs4.dom(domSection, 'appendChild', element_3);
-obebs4.dom(domSection, 'insertBefore', element_2, element_3); // ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
+obebs4.dom(domSection, 'insertBefore', element_2, element_3);
+// ALT VERSION: obebs4.dom(domSection, 'before', element_2, element_3);
 obebs4.dom(domSection, 'appendChild', element_5);
-obebs4.dom(domSection, 'insertAfter', element_4, element_3); // ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
+obebs4.dom(domSection, 'insertAfter', element_4, element_3);
+// ALT VERSION:  obebs4.dom(domSection, 'after', element_4, element_3);
 obebs4.dom(domSection, 'appendChild', element_6);
 obebs4.dom(domSection, 'appendChild', element_7);
-obebs4.dom(domSection, 'replaceChild', element_7, element_8); // ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
+obebs4.dom(domSection, 'replaceChild', element_7, element_8);
+// ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
 obebs4.dom(domSection, 'removeChild', element_8);
 obebs4.dom(domSection, 'firstChild', element_0);
 ```
