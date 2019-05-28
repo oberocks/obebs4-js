@@ -161,6 +161,9 @@ obebs4.dom(domSection, 'append', element_7);
 obebs4.dom(domSection, 'replace', element_7, 'with', element_8); // ALT VERSION:  obebs4.dom(domSection, 'replace', element_7, element_8);
 obebs4.dom(domSection, 'remove', element_8);
 obebs4.dom(domSection, 'prepend', element_0);
+
+// append our working section to our example element
+obebs4.dom(target, 'append', domSection);
 ```
 ```html
 <!-- The example above will generate and append this HTML to your target element: -->
