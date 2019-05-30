@@ -136,6 +136,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 #### OBEBS4.element() `<span>` Tag Example:
 ```javascript
 let span = obebs4.element('span', 'This is the text for my span!');
+
 target.appendChild(span);
 ```
 ```html
@@ -147,6 +148,7 @@ target.appendChild(span);
 ```javascript
 let child = obebs4.element('div', 'This is the child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, child);
+
 target.appendChild(parent);
 ```
 ```html
@@ -161,6 +163,7 @@ target.appendChild(parent);
 let child_1 = obebs4.element('div', 'This is the 1st child element!');
 let child_2 = obebs4.element('div', 'This is the 2nd child element!');
 let parent = obebs4.element('div', false, { 'class' : 'p-3' }, [child_1, child_2]);
+
 target.appendChild(parent);
 ```
 ```html
@@ -177,9 +180,11 @@ let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
 let lead = obebs4.element('p', "This is my new section's lead paragraph!", { 'class' : 'lead' });
 let placeholder_paragraph = obebs4.element('p', obebs4.placeholders.paragraphs[obebs4.getRandomIndex(obebs4.placeholders.paragraphs.length)]);
+
 let column = obebs4.element('div', false, { 'class' : 'col-md-9 col-lg-6' }, [headline, hr, lead, placeholder_paragraph]);
 let row = obebs4.element('div', false, { 'class' : 'row justify-content-center' }, [column]);
 let section = obebs4.element('section', false, { 'class' : 'container py-5' }, row);
+
 target.appendChild(section);
 ```
 ```html
