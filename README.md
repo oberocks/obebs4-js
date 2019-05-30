@@ -171,7 +171,7 @@ target.appendChild(parent);
 </div>
 ```
 
-#### OBEBS4.element() Parent & Multiple Child `<div>` Tags (With Advanced Syntactic Sugar) Example:
+#### OBEBS4.element() Parent & Multiple Child Elements (With Advanced Syntactic Sugar) Example:
 ```javascript
 let headline = obebs4.element('h1', 'My Section Headline');
 let hr = obebs4.element('hr', false, { 'class' : 'border-primary' });
@@ -194,6 +194,20 @@ target.appendChild(section);
         </div>
     </div>
 </section>
+```
+
+#### OBEBS4.element() Alternative Text Array & Nodes Argument Example:
+```javascript
+let ctAnchor = obebs4.element('a', 'Anchor Tag', { class : 'text-primary', href : '#' });
+let ctSpan = obebs4.element('span', 'Span', { class : 'font-weight-bold' });
+
+let complexText = obebs4.element('p', ['This is the beginning text of a paragraph. Next, there is an ', ctAnchor, ' folled by the rest of the string. And finally, a second ', ctSpan, ' tag is included to show multiple examples in one paragraph.'], { class : 'lead text-center' });
+
+target.appendChild(complexText);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<p class="lead text-center">This is the beginning text of a paragraph. Next, there is an <a class="text-primary" href="#">Anchor Tag</a> folled by the rest of the string. And finally, a second <span class="font-weight-bold">Span</span> tag is included to show multiple examples in one paragraph.</p>
 ```
 
 ### OBEBS4.content.article()
