@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://library.mattmct.com/css/obebs4.production.bundle.css">
+
+        <!-- FontAwesome (v5.6.3) SVG JS -->
+        <script src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" data-auto-replace-svg="nest"></script>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Cousine|Montserrat:300,400,700|Oswald:300,400,700" rel="stylesheet">
+
+        <title>OBE:BS4.JS PERFORMANCE TESTS</title>
+        <meta name="description" content="An awesome page for my new app/website!">
+
+        <!-- Custom/Development CSS for this page -->
+        <style>
+
+            /* New/Experimental Page-level CSS Goes Here... */
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="py-5 text-center">
+            <h1>Please check the console!</h1>
+        </div>
+
+        <div id="performance-tests-output" class="bg-dark text-chartreuse p-5"></div>
+
+        <!-- JavaScript -->
+        <script src="https://library.mattmct.com/js/obebs4.production.bundle.js"></script>
+        <script src="obebs4.object.js"></script>
+
+        <!-- Custom/Development JS for this page -->
+        <script type="text/javascript">
+
+            // -----------------------
+            //   U N I T  T E S T S
+            // -----------------------
+
+
+            let obebs4 = new OBEBS4();
+            console.log(obebs4.version);
+
+            const target = document.getElementById('performance-tests-output');
+
+            const sampleText = 'Fusce vel odio ultrices, semper nisl consequat, pretium urna. Vivamus hendrerit, turpis pellentesque ultrices varius, purus dui viverra leo, ut tempus leo lorem vitae dolor. Pellentesque at suscipit arcu, non suscipit lectus. Cras quis ligula mi. Sed accumsan justo vel iaculis vulputate. Cras euismod felis vitae urna gravida tristique sed sit amet sapien. Aenean eget orci in risus laoreet volutpat in et lorem. Nullam egestas lectus ac elit malesuada semper sit amet sagittis augue. Mauris porta quis purus ut condimentum. Quisque at eros id mauris rhoncus accumsan. Nullam augue tortor, luctus et lacinia eget, cursus sed leo. Suspendisse aliquet ex ac suscipit ultrices. Ut hendrerit tempus sem sed semper. Donec ut risus nisl. Morbi nunc libero, vestibulum vitae elementum id, rutrum eget nisi. Pellentesque feugiat erat in tempor tempus.';
+
+            let tName;
+
+            // START JS TEST 1
+            //
+                tName = "Standard JS Create Element";
+                console.time(tName);
+                
+                let test_1_div = document.createElement('div');
+                test_1_div.className = 'text-center p-3';
+                let test_1_div_text = document.createTextNode(sampleText);
+                test_1_div.appendChild(test_1_div_text);
+                target.appendChild(test_1_div);
+                
+                console.timeEnd(tName);
+            //
+            // END JS TEST 1
+
+            // START OBEBS4.JS TEST 1
+            //
+                tName = "OBEBS4.JS Create Element";
+                console.time(tName);
+                
+                obebs4.dom( target, 'append', obebs4.element('div', sampleText, {class : 'text-center p-3'}) );
+                
+                console.timeEnd(tName);
+            //
+            // END OBEBS4.JS TEST 1
+
+        </script>
+
+    </body>
+
+</html>
