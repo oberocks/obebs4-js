@@ -201,7 +201,7 @@ target.appendChild(section);
 let ctAnchor = obebs4.element('a', 'Anchor Tag', { class : 'text-primary', href : '#' });
 let ctSpan = obebs4.element('span', 'Span', { class : 'font-weight-bold' });
 
-let complexText = obebs4.element('p', ['This is the beginning text of a paragraph. Next, there is an ', ctAnchor, ' folled by the rest of the string. And finally, a second ', ctSpan, ' tag is included to show multiple examples in one paragraph.'], { class : 'lead text-center' });
+let complexText = obebs4.element('p', ['This is the beginning text of a paragraph. Next, there is an ', ctAnchor, ' folled by the rest of the string. And finally, a second ', ctSpan, ' tag is included to show multiple examples in one paragraph.'], { class : 'lead text-center pt-3' });
 
 target.appendChild(complexText);
 ```
