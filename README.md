@@ -221,7 +221,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Settings | NO | `object` (structured) | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { placeholders : { headline : '...', paragraph : '...' } } };`
+1 | Settings | NO | `object` (structured) or `boolean` | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { placeholders : { headline : '...', paragraph : '...' } } };`. If you intend on using the 2nd argument to pass in child nodes, you are REQUIRED to express this argument as either a boolean `false` value.
 2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
 
 ```javascript
