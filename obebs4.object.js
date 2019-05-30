@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.1.0',
+    this.version = '1.2.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -148,6 +148,9 @@ const OBEBS4 = function () {
     this.logElementError = function () {
         console.error("OBEBS4.JS ERROR: The .element() method requires a valid string argument to define a dynamically generated element tag!");
     },
+    this.logTextArrayError = function () {
+        console.error("OBEBS4.JS ERROR: The .element() method's optional 2nd argument must be a string or an array of exclusively strings and/or element nodes!");
+    },
     this.logNodeError = function (string) {
         console.error("OBEBS4.JS ERROR: Element array items must be element node objects. Please update your " + string + ".");
     },
@@ -170,16 +173,19 @@ const OBEBS4 = function () {
         let index = self.getRandomIndex(this.placeholders.brands.length);
         return this.placeholders.brands[index];
     },
+    this.textNode = function (str) {
+        return document.createTextNode(str);
+    },
     this.element = function (elemType, elemText = false, attributes = false, nestedElem = false) {
         
         // initialize the returned element as a var
-        let elem;
+        let el;
 
         // check for a passed element tag
         if (elemType) {
             
             // create the element
-            elem = document.createElement(elemType);
+            el = document.createElement(elemType);
 
         } else {
             
@@ -187,14 +193,50 @@ const OBEBS4 = function () {
 
         }
         
-        // check for passed element text
-        if (elemText && elemText.length > 0) {
-            
-            // if passed, then create a text node and append it to the returned element
-            let node = document.createTextNode(elemText);
-            elem.appendChild(node);
+        // check for passed elemText
+        if (elemText) {
 
+            // check if value is a string and has length
+            if (self.isString(elemText) && elemText.length > 0) {
+                
+                // if it's a string then create a text node and append it to the returned element
+                el.appendChild(self.textNode(elemText));
+
+            } 
+            // if the value is an array
+            else if (Array.isArray(elemText) && elemText.length > 0) 
+            {
+                
+                // loop through the array
+                for (var i = 0; i < elemText.length; i++) {
+                    
+                    // if it's a string then create a text node and append it to the returned element
+                    if (self.isString(elemText[i])) {
+                        
+                        el.appendChild(self.textNode(elemText[i]));
+
+                    }
+                    // if it's an element node then append it to the returned element
+                    else if (self.isElementNode(elemText[i])) {
+                        
+                        el.appendChild(elemText[i]);
+
+                    } else {
+
+                        self.logTextArrayError();
+
+                    }
+
+                }
+
+            } else {
+
+                self.logTextArrayError();
+
+            }
+            
         }
+            
 
         // check for passed object of html attribute key/value pairs
         if (attributes) {
@@ -208,7 +250,7 @@ const OBEBS4 = function () {
                     if (attributes.hasOwnProperty(attr)) {
                         
                         // set the attribute and value
-                        elem.setAttribute(attr, attributes[attr]);
+                        el.setAttribute(attr, attributes[attr]);
 
                     }
 
@@ -235,7 +277,7 @@ const OBEBS4 = function () {
                     if (self.isElementNode(nestedElem[i])) {
                                 
                         // and attach each element
-                        elem.appendChild(nestedElem[i]);
+                        el.appendChild(nestedElem[i]);
                         
                     } else {
 
@@ -251,7 +293,7 @@ const OBEBS4 = function () {
                 if (self.isElementNode(nestedElem)) {
                                 
                     // if so, then just attach the passed element
-                    elem.appendChild(nestedElem);
+                    el.appendChild(nestedElem);
                     
                 } else {
 
@@ -263,7 +305,7 @@ const OBEBS4 = function () {
         }
 
         // return the element
-        return elem;
+        return el;
 
     },
     this.content = {
