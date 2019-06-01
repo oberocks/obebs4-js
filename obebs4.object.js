@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.2.0',
+    this.version = '1.3.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -464,7 +464,8 @@ const OBEBS4 = function () {
             return article;
     
         },
-        // nav : {},
+        footer : {},
+        nav : {},
         navbar : {
             basic : function (settingsObj = false, brandElementsArray = false, navigationLinksArray = false) {
                 
@@ -667,10 +668,196 @@ const OBEBS4 = function () {
             }
         }
     },
-    this.forms = {
-        groups : {
-            inputs : {},
-            textareas : {}
+    this.form = {
+        group : {
+            input : {},
+            textarea : {}
         }
+    },
+    this.layout = function (passedSettings = false) {
+        
+        let defaults = [
+            /*
+                OBJECT SCHEMA:
+                tag : A REQUIRED property that expects a String value, which will be used to generate a HTML tag using that exact string value
+                attributes : An OPTIONAL property that expects an Object value, where the key/value pairs of the object will be used to add attributes and their associated values to the generated HTML tag (key="value"). The values of all object keys, should always be Strings!
+                children : An OPTIONAL property that expects an Array of Objects with each object item having at least a tag property (and can include an attribute and/or children properties with values according to the above schema).
+            */
+            {
+                tag : 'article',
+                attributes : {
+                    class : 'container-fluid py-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'row justify-content-center'
+                                },
+                                children : [
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+    
+        let settings = defaults;
+        if (passedSettings) {
+            
+            // check that the argument is an object and is not null
+            if (self.isObject(passedSettings)) {
+                
+                // merge the two settings objects
+                settings = self.extend(true, defaults, passedSettings);
+
+            } else {
+                
+                self.logSettingsError(".layouts()'s 1st argument");
+
+            }
+
+        }
+
+        // initialize the output variable
+        let output = document.createDocumentFragment();
+
+        
+        
+        // utility function to check for attributes
+        let layoutAttributes = function (parentEl, obj) {
+            if (obj) {
+                for (var attr in obj) {
+                    if (obj.hasOwnProperty(attr)) {
+                        parentEl.setAttribute(attr, obj[attr]);
+                    }
+                }
+            }
+        };
+
+        // utility function to check for text
+        let layoutText = function (parentEl, array) {
+            if (Array.isArray(array)) {
+                for (var i = 0; i < array.length; i++) {
+                    if (self.isString(array[i])) {
+                        let node = document.createTextNode(array[i]);
+                        parentEl.appendChild(node);
+                    } else if (self.isElementNode(array[i])) {
+                        parentEl.appendChild(array[i]);
+                    }
+                }
+            } else if (self.isString(array)) {
+                let node = document.createTextNode(array);
+                parentEl.appendChild(node);
+            }
+        };
+
+        // recursive utility function to check for children (and attributes and text)
+        let layoutChildren = function (parentEl, array) {
+            if (Array.isArray(array)) {
+                for (var j = 0; j < array.length; j++) {
+                    if (array[j].tag) {
+                        let child = document.createElement(array[j].tag);
+                        // check for attributes
+                        layoutAttributes(child, array[j].attributes);
+                        // check for text
+                        layoutText(child, array[j].text);  
+                        // check for children (recursively)
+                        layoutChildren(child, array[j].children);
+                        parentEl.appendChild(child);
+                    }
+                }
+            }
+        };
+
+        for (var i = 0; i < settings.length; i++) {
+            
+            if (self.isObject(settings[i])) {
+                
+                if (settings[i].tag) {
+                    
+                    let parent = document.createElement(settings[i].tag);
+
+                    if (settings[i].attributes) {
+                        layoutAttributes(parent, settings[i].attributes);
+                    }
+
+                    if (settings[i].text) {
+                        layoutText(parent, settings[i].text);
+                    }
+
+                    if (settings[i].children) {
+                        layoutChildren(parent, settings[i].children);
+                    }
+
+                    output.appendChild(parent);
+
+                } else { console.error("OBE:BS4 Error: The array of objects you passed (at index " + i + ") did not have a 'tag' property. This property's String value is REQUIRED to properly generate your markup!") }
+
+            } else { console.error("OBE:BS4 Error: The .layout() method requires that you pass an array of objects to properly generate your markup!") }
+
+        }
+
+        return output;
+
     }
 };
