@@ -249,8 +249,58 @@
 
             // demo code for .layout() method
 
+            // default example
             let layout = obebs4.layout();
             target.appendChild(layout);
+
+            // complex example
+            let sectionSettings = [
+                {
+                    tag : 'section',
+                    attributes : {
+                        class : 'container-fluid py-5 bg-primary text-white'
+                    },
+                    children : [
+                        {
+                            tag : 'div',
+                            attributes : {
+                                class : 'row justify-content-center'
+                            },
+                            children : [
+                                {
+                                    tag : 'div',
+                                    attributes : {
+                                        class : 'col-sm-11 col-md-9 col-lg-7 col-xl-6'
+                                    },
+                                    children : [
+                                        {
+                                            tag : 'h1',
+                                            text : obebs4.randomHeadline()
+                                        },
+                                        {
+                                            tag : 'p',
+                                            text : obebs4.randomParagraph()
+                                        },
+                                        {
+                                            tag : 'p',
+                                            attributes : {
+                                                class : 'lead'
+                                            },
+                                            text : obebs4.randomQuote()
+                                        },
+                                        {
+                                            tag : 'p',
+                                            text : obebs4.randomParagraph()
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+            let sectionLayout = obebs4.layout(sectionSettings)
+            target.appendChild(sectionLayout);
 
         </script>
 

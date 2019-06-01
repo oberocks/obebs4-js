@@ -218,7 +218,7 @@ target.appendChild(complexText);
 
 ### OBEBS4.layout()
 
-_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with nested container element, a row element, and two column elements. Each column contains a `h1`, `hr`, and two `p` elements - all with placeholder content._
+_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with a nested container element, then a row element, and then two column elements. Each column contains a `h1`, `hr`, and two `p` elements - all with placeholder content._
 
 Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
@@ -226,9 +226,10 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 
 Settings Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | 'tag' | YES | `string` | This is a REQUIRED property who's value will be the HTML tag value you declare
-2 | 'attributes' | NO | `object` | xxxx
-3 | 'children' | NO | `array` of objects | xxxx
+1 | 'tag' | YES | `string` | This is a REQUIRED property where the value will become a HTML tag value.
+2 | 'attributes' | NO | `object` | An object of key/value pairs where the key is the name of the HTML attribute and it's value is a string of what will become the exact value of that attribute.
+3 | 'text' | NO | `string` or `array` of strings and/or element nodes | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line element (such as `anchor` and `span` tags) in-between different strings of content).
+4 | 'children' | NO | `array` of objects | An array of objects, where each object follows the '', '', and '' Settings Properties found in this table! (It's a recursive method under the hood!)
 
 #### OBEBS4.layout() Default Example:
 ```javascript
@@ -255,6 +256,70 @@ target.appendChild(layout);
         </div>
     </div>
 </article>
+```
+
+#### OBEBS4.layout() Custom Example:
+```javascript
+let sectionSettings = [
+    {
+        tag : 'section',
+        attributes : {
+            class : 'container-fluid py-5 bg-primary text-white'
+        },
+        children : [
+            {
+                tag : 'div',
+                attributes : {
+                    class : 'row justify-content-center'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'col-sm-11 col-md-9 col-lg-7 col-xl-6'
+                        },
+                        children : [
+                            {
+                                tag : 'h1',
+                                text : obebs4.randomHeadline()
+                            },
+                            {
+                                tag : 'p',
+                                text : obebs4.randomParagraph()
+                            },
+                            {
+                                tag : 'p',
+                                attributes : {
+                                    class : 'lead'
+                                },
+                                text : obebs4.randomQuote()
+                            },
+                            {
+                                tag : 'p',
+                                text : obebs4.randomParagraph()
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
+let sectionLayout = obebs4.layout(sectionSettings)
+target.appendChild(sectionLayout);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<section class="container-fluid py-5 bg-primary text-white">
+    <div class="row justify-content-center">
+        <div class="col-sm-11 col-md-9 col-lg-7 col-xl-6">
+            <h1>Lorem Ipsum Dolor Sit</h1>
+            <p>Quisque feugiat hendrerit ornare. Ut in magna mi. Donec pellentesque viverra lorem, id vestibulum nibh. Pellentesque egestas sit amet ante sed malesuada. Suspendisse commodo facilisis nulla, a malesuada ante accumsan convallis. Sed maximus tellus eu justo ornare, varius ullamcorper nibh scelerisque. Nulla facilisi. Quisque sed eros ex. In fringilla justo odio.</p>
+            <p class="lead">Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.</p>
+        </div>
+    </div>
+</section>
 ```
 
 ### OBEBS4.content.article()
