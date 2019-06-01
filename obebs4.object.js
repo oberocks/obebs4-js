@@ -768,10 +768,8 @@ const OBEBS4 = function () {
             settings = defaults;
         }
 
-        // initialize the output variable
+        // initialize the output variable as a fragment
         let output = document.createDocumentFragment();
-
-        
         
         // utility function to check for attributes
         let layoutAttributes = function (parentEl, obj) {
@@ -801,7 +799,7 @@ const OBEBS4 = function () {
             }
         };
 
-        // recursive utility function to check for children (and attributes and text)
+        // recursive utility function to check for children (and their attributes, text, & children)
         let layoutChildren = function (parentEl, array) {
             if (Array.isArray(array)) {
                 for (var j = 0; j < array.length; j++) {
