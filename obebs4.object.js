@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.3.0',
+    this.version = '1.3.1',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -761,21 +761,11 @@ const OBEBS4 = function () {
             }
         ];
     
-        let settings = defaults;
+        let settings;
         if (passedSettings) {
-            
-            // check that the argument is an object and is not null
-            if (self.isObject(passedSettings)) {
-                
-                // merge the two settings objects
-                settings = self.extend(true, defaults, passedSettings);
-
-            } else {
-                
-                self.logSettingsError(".layouts()'s 1st argument");
-
-            }
-
+            settings = passedSettings;
+        } else {
+            settings = defaults;
         }
 
         // initialize the output variable
