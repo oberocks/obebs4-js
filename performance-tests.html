@@ -83,6 +83,53 @@
             //
             // END OBEBS4.JS TEST 1
 
+
+            /*    
+            //
+            // Standard JavaScript Syntax
+            //
+            
+            let test = document.createElement('div');
+            test.className = 'text-center p-3';
+            let test_text = document.createTextNode(sampleText);
+            test.appendChild(test_text);
+            target.appendChild(test);
+
+            //
+            // Google's Angular Syntax
+            //
+
+            var app = angular.module('my-app', []);
+
+            function MyCtrl(){}
+
+            MyCtrl.prototype = {
+                addElement:function(){
+                    var test = angular.element("<div class='text-center p-3'></div>");
+                    var target = document.getElementById('performance-tests-output');
+                    angular.element(target).append(test);
+                }
+            };
+
+            app.controller('myCtrl', MyCtrl);
+
+            //
+            // Facebook's React Syntax
+            //
+
+            var test = React.createElement( 'div', { className: 'text-center p-3' }, sampleText);
+            ReactDOM.render(test, target);
+            
+            //
+            // OBEBS4.JS Syntax
+            //
+            
+            obebs4.dom( target, 'append', obebs4.element('div', sampleText, {class : 'text-center p-3'}) );
+            */
+
+
+
+
         </script>
 
     </body>
