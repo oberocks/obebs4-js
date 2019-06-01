@@ -13,6 +13,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 * [Getting Started](#getting-started)
 * [OBE:BS4 Content Methods](#object-content-methods)
     * [.element()](#obebs4element)
+    * [.layout()](#obebs4layout)
     * [.content.article()](#obebs4contentarticle)
     * [.content.navbar.basic()](#obebs4contentnavbarbasic)
 * [OBE:BS4 Placeholder Content](#object-placeholder-content)
@@ -213,6 +214,47 @@ target.appendChild(complexText);
 ```html
 <!-- The example above will generate and append this HTML to your target element: -->
 <p class="lead text-center">This is the beginning text of a paragraph. Next, there is an <a class="text-primary" href="#">Anchor Tag</a> folled by the rest of the string. And finally, a second <span class="font-weight-bold">Span</span> tag is included to show multiple examples in one paragraph.</p>
+```
+
+### OBEBS4.layout()
+
+_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with nested container element, a row element, and two column elements. Each column contains a `h1`, `hr`, and two `p` elements - all with placeholder content._
+
+Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | Settings | NO | `array` of objects | Please refer to the next table (below) to see the requirements for each object in this array!
+
+Settings Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
+----- | --------- | -------- | -------------------------- | -------------
+1 | 'tag' | YES | `string` | This is a REQUIRED property who's value will be the HTML tag value you declare
+2 | 'attributes' | NO | `object` | xxxx
+3 | 'children' | NO | `array` of objects | xxxx
+
+#### OBEBS4.layout() Default Example:
+```javascript
+let layout = obebs4.layout()
+target.appendChild(layout);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<article class="container-fluid py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1>Quisque Feugiat Hendrerit</h1>
+                <hr class="border-primary">
+                <p>Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.</p>
+                <p>Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.</p>
+            </div>
+            <div class="col-md-6">
+                <h1>Mauris Ut Nulla Id Libero</h1>
+                <hr class="border-primary">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.</p>
+                <p>Mauris ut nulla id libero viverra lobortis. Phasellus ut elit eu diam feugiat scelerisque. Vivamus semper nibh id turpis pharetra bibendum. In eget felis risus. Nullam at tincidunt tellus, non fermentum enim. Mauris varius suscipit lectus ac feugiat. Pellentesque pulvinar semper tempor. Vivamus ac ipsum bibendum, malesuada magna id, viverra erat. Ut aliquet neque nec hendrerit tristique.</p>
+            </div>
+        </div>
+    </div>
+</article>
 ```
 
 ### OBEBS4.content.article()
