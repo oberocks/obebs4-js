@@ -340,6 +340,7 @@ target.appendChild(sectionLayout);
 
 (Coming Soon!)
 
+<!---
 ### OBEBS4.content.article()
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
@@ -381,7 +382,6 @@ let article = obebs4.content.article();
 target.appendChild(article);
 ```
 ```html
-<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -427,7 +427,6 @@ let article = obebs4.content.article(
 target.appendChild(article);
 ```
 ```html
-<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid bg-primary text-white py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -487,7 +486,6 @@ let article = obebs4.content.article(
 target.appendChild(article);
 ```
 ```html
-<!-- The example above will generate and append this HTML to your target element: -->
 <article class="container-fluid py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -510,12 +508,14 @@ target.appendChild(article);
     </div>
 </article>
 ```
-
+--->
+<!---
 ### OBEBS4.content.navbar.basic()
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
 
 (Examples Coming Soon!)
+-->
 
 ## OBEBS4.js Components Methods
 
