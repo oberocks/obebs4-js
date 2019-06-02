@@ -309,7 +309,6 @@ const OBEBS4 = function () {
 
     },
     this.component = {
-        
         navbar : function (passedSettings = false) {
             
             let collapseID = 'nl-navbar';
@@ -407,7 +406,6 @@ const OBEBS4 = function () {
             return navbar;
 
         }
-        
     },
     this.content = {
         article : function (settingsObj = false, columnsArrays = false) {

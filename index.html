@@ -54,42 +54,107 @@
 
             // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON AND OFF BECAUSE OBE DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
-            // Example of a default navbar section using OBEBS4.content.navbar.basic()
-            /*
-            let navbar_1 = obebs4.content.navbar.basic();
-            target.appendChild(navbar_1);
-            */
+            // Example of a default navbar using .component.navbar()
 
-            // Example of a customized navbar section using OBEBS4.content.navbar.basic()
+            //let defaultNavbar = obebs4.component.navbar();
+            //target.appendChild(defaultNavbar);
 
-            // settings
-            /*
-            let navbar_2_settings = {
-                classes : {
-                    navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
-                    toggler : 'navbar-toggler ml-auto',
-                    list : 'navbar-nav ml-auto'
+
+            // Example of a custom navbar using .component.navbar()
+
+            let customNavbarImgSize = '30';
+            let customNavCollapseId = 'custom-navbar-id';
+            let customNavbarSettings = [
+                {
+                    tag : 'nav',
+                    attributes : {
+                        class : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
+                    },
+                    children : [
+                        {
+                            tag : 'img',
+                            attributes : {
+                                src : 'https://via.placeholder.com/' + customNavbarImgSize,
+                                alt : 'Navbar Image Alt Text',
+                                style : 'width:' + customNavbarImgSize + 'px; height:' + customNavbarImgSize + 'px;',
+                                class : ''
+                            }
+                        },
+                        {
+                            tag : 'a',
+                            attributes : {
+                                class : 'navbar-brand ml-3',
+                                href : '#'
+                            },
+                            text : 'Brand Name'
+                        },
+                        {
+                            tag : 'button',
+                            attributes : {
+                                class : 'navbar-toggler ml-auto',
+                                type : 'button',
+                                'data-toggle' : 'collapse',
+                                'data-target' : '#' + customNavCollapseId,
+                                'aria-controls' : customNavCollapseId,
+                                'aria-expanded' : 'false',
+                                'aria-label' : 'Toggle navigation'
+                            },
+                            children : [
+                                {
+                                    tag : 'span',
+                                    attributes : {
+                                        class : 'navbar-toggler-icon'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            tag : 'div',
+                            attributes : {
+                                class : 'collapse navbar-collapse',
+                                id : customNavCollapseId
+                            },
+                            children : [
+                                {
+                                    tag : 'div',
+                                    attributes : {
+                                        class : 'navbar-nav ml-auto'
+                                    },
+                                    children : [
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link active',
+                                                href : '#'
+                                            },
+                                            text : 'Home'
+                                        },
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link',
+                                                href : '#'
+                                            },
+                                            text : 'Shop'
+                                        },
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link',
+                                                href : '#'
+                                            },
+                                            text : 'Blog'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
-            };
-            // brand content
-            let navbar_2_img_size = 30;
-            let navbar_2_img = new Image(navbar_2_img_size, navbar_2_img_size);
-            navbar_2_img.alt = 'Brand Icon Image';
-            navbar_2_img.src = 'https://via.placeholder.com/' + navbar_2_img_size;
-            let navbar_2_brand_anchor = obebs4.element('a', 'Brand Name', {'class' : 'navbar-brand ml-3', 'href' : '#'});
-            // nav content
-            let link_1 = obebs4.element('a', 'Home', {'class' : 'nav-link', 'href' : '#'});
-            let link_2 = obebs4.element('a', 'About', {'class' : 'nav-link', 'href' : '#'});
-            let link_3 = obebs4.element('a', 'Contact', {'class' : 'nav-link', 'href' : '#'});
-            // generate final parent elem with children and append
-            let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3]);
-            target.appendChild(navbar_2);
-            */
+            ];
 
-            // Example of a default .component.navbar()
-
-            let defaultNavbar = obebs4.component.navbar();
-            target.appendChild(defaultNavbar);
+            let customNavbar = obebs4.component.navbar(customNavbarSettings);
+            target.appendChild(customNavbar);
 
 
 
