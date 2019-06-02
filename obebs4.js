@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.3.2',
+    this.version = '1.3.3',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -308,90 +308,169 @@ const OBEBS4 = function () {
         return el;
 
     },
+    this.defaults = {
+        navbar : [
+            {
+                tag : 'nav',
+                attributes : {
+                    class : 'navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
+                },
+                children : [
+                    {
+                        tag : 'a',
+                        attributes : {
+                            class : 'navbar-brand',
+                            href : '#'
+                        },
+                        text : 'Brand Name'
+                    },
+                    {
+                        tag : 'button',
+                        attributes : {
+                            class : 'navbar-toggler',
+                            type : 'button',
+                            'data-toggle' : 'collapse',
+                            'data-target' : '#components-navbar-id',
+                            'aria-controls' : 'components-navbar-id',
+                            'aria-expanded' : 'false',
+                            'aria-label' : 'Toggle navigation'
+                        },
+                        children : [
+                            {
+                                tag : 'span',
+                                attributes : {
+                                    class : 'navbar-toggler-icon'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'collapse navbar-collapse',
+                            id : 'components-navbar-id'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'navbar-nav'
+                                },
+                                children : [
+                                    {
+                                        tag : 'a',
+                                        attributes : {
+                                            class : 'nav-item nav-link',
+                                            href : '#'
+                                        },
+                                        text : 'Home'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        attributes : {
+                                            class : 'nav-item nav-link',
+                                            href : '#'
+                                        },
+                                        text : 'Shop'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        attributes : {
+                                            class : 'nav-item nav-link',
+                                            href : '#'
+                                        },
+                                        text : 'Blog'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        layout : [
+            {
+                tag : 'article',
+                attributes : {
+                    class : 'container-fluid py-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'row justify-content-center'
+                                },
+                                children : [
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     this.components = {
         navbar : function (passedSettings = false) {
             
-            let collapseID = 'nl-navbar';
-            
-            let defaults = [
-                {
-                    tag : 'nav',
-                    attributes : {
-                        class : 'navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
-                    },
-                    children : [
-                        {
-                            tag : 'a',
-                            attributes : {
-                                class : 'navbar-brand',
-                                href : '#'
-                            },
-                            text : 'Brand Name'
-                        },
-                        {
-                            tag : 'button',
-                            attributes : {
-                                class : 'navbar-toggler',
-                                type : 'button',
-                                'data-toggle' : 'collapse',
-                                'data-target' : '#' + collapseID,
-                                'aria-controls' : collapseID,
-                                'aria-expanded' : 'false',
-                                'aria-label' : 'Toggle navigation'
-                            },
-                            children : [
-                                {
-                                    tag : 'span',
-                                    attributes : {
-                                        class : 'navbar-toggler-icon'
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            tag : 'div',
-                            attributes : {
-                                class : 'collapse navbar-collapse',
-                                id : collapseID
-                            },
-                            children : [
-                                {
-                                    tag : 'div',
-                                    attributes : {
-                                        class : 'navbar-nav'
-                                    },
-                                    children : [
-                                        {
-                                            tag : 'a',
-                                            attributes : {
-                                                class : 'nav-item nav-link',
-                                                href : '#'
-                                            },
-                                            text : 'Home'
-                                        },
-                                        {
-                                            tag : 'a',
-                                            attributes : {
-                                                class : 'nav-item nav-link',
-                                                href : '#'
-                                            },
-                                            text : 'Shop'
-                                        },
-                                        {
-                                            tag : 'a',
-                                            attributes : {
-                                                class : 'nav-item nav-link',
-                                                href : '#'
-                                            },
-                                            text : 'Blog'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ];
+            let defaults = self.defaults.navbar;
     
             // set user submitted settings or defaults
             let settings;
@@ -775,90 +854,7 @@ const OBEBS4 = function () {
     },
     this.layout = function (passedSettings = false) {
         
-        let defaults = [
-            /*
-                OBJECT SCHEMA:
-                tag : A REQUIRED property that expects a String value, which will be used to generate a HTML tag using that exact string value
-                attributes : An OPTIONAL property that expects an Object value, where the key/value pairs of the object will be used to add attributes and their associated values to the generated HTML tag (key="value"). The values of all object keys, should always be Strings!
-                children : An OPTIONAL property that expects an Array of Objects with each object item having at least a tag property (and can include an attribute and/or children properties with values according to the above schema).
-            */
-            {
-                tag : 'article',
-                attributes : {
-                    class : 'container-fluid py-5'
-                },
-                children : [
-                    {
-                        tag : 'div',
-                        attributes : {
-                            class : 'container'
-                        },
-                        children : [
-                            {
-                                tag : 'div',
-                                attributes : {
-                                    class : 'row justify-content-center'
-                                },
-                                children : [
-                                    {
-                                        tag : 'div',
-                                        attributes : {
-                                            class : 'col-md-6'
-                                        },
-                                        children : [
-                                            {
-                                                tag : 'h1',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
-                                                attributes : {
-                                                    class : 'border-primary'
-                                                }
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        tag : 'div',
-                                        attributes : {
-                                            class : 'col-md-6'
-                                        },
-                                        children : [
-                                            {
-                                                tag : 'h1',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
-                                                attributes : {
-                                                    class : 'border-primary'
-                                                }
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ];
+        let defaults = self.defaults.layout;
     
         let settings;
         if (passedSettings) {
