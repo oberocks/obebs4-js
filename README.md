@@ -38,12 +38,12 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
 
 To start working with the OBEBS4.js Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
 1. Download this project as a .zip file, and unzip the file.
-1. Add the file `obebs4.js` to your local/live site directory as needed.
+1. Add the file `obebs4.js` (or `obebs4.min.js`) to your local/live site directory as needed.
 1. Include the file on your page or page template, as you would any other external JS file.
 
 ## The Global Object
 
-This script exposes a global constant to work with, which lets you establish your own namespace for the factory and the methods. The global constant is `OBEBS4`.
+This script exposes a global constant to work with, which lets you establish your own namespace for the factory methods. The global constant is `OBEBS4`.
 
 ## Initialization
 
