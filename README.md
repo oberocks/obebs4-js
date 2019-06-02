@@ -16,7 +16,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.layout()](#obebs4layout)
     * [.content.article()](#obebs4contentarticle)
     * [.content.navbar.basic()](#obebs4contentnavbarbasic)
-* [OBEBS4.js Component Methods](#obebs4js-component-methods)
+* [OBEBS4.js Components Methods](#obebs4js-components-methods)
     * [.components.navbar()](#obebs4componentsnavbar)
 * [OBEBS4.js Placeholder Content](#object-placeholder-content)
 * [OBEBS4.js Utility Methods](#object-utility-methods)
@@ -501,7 +501,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 (Examples Coming Soon!)
 
-## OBEBS4.js Component Methods
+## OBEBS4.js Components Methods
 
 (Coming Soon!)
 
