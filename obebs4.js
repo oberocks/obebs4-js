@@ -334,7 +334,7 @@ const OBEBS4 = function () {
                                     {
                                         tag : 'div',
                                         attributes : {
-                                            class : 'col-md-4 pb-4'
+                                            class : 'col-lg-4 pb-4'
                                         },
                                         children : [
                                             {
@@ -356,7 +356,7 @@ const OBEBS4 = function () {
                                     {
                                         tag : 'div',
                                         attributes : {
-                                            class : 'col-md-4 pb-4'
+                                            class : 'col-lg-4 pb-4'
                                         },
                                         children : [
                                             {
@@ -378,7 +378,7 @@ const OBEBS4 = function () {
                                     {
                                         tag : 'div',
                                         attributes : {
-                                            class : 'col-md-4 pb-4'
+                                            class : 'col-lg-4 pb-4'
                                         },
                                         children : [
                                             {
