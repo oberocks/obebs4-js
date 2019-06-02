@@ -230,8 +230,8 @@ Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | 'tag' | YES | `string` | This is a REQUIRED property where the value will become a HTML tag value.
 2 | 'attributes' | NO | `object` | An object of key/value pairs where the key is the name of the HTML attribute and it's value is a string of what will become the exact value of that attribute.
-3 | 'text' | NO | `string` or `array` of strings and/or element nodes | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line element (such as `anchor` and `span` tags) in-between different strings of content).
-4 | 'children' | NO | `array` of objects and/or element nodes | An array of `object` and/or `element node` items, where any object array items follow the 'tag', 'attributes', 'text', and 'children' Properties found in this table! (It's a recursive method under the hood!)
+3 | 'text' | NO | `string` or `array` (of `string` and/or `element node` items) | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line element (such as `anchor` and `span` tags) in-between different strings of content).
+4 | 'children' | NO | `array` (of `object` and/or `element node` items) | An array of `object` and/or `element node` items, where any object array items follow the 'tag', 'attributes', 'text', and 'children' Properties found in this table! (It's a recursive method under the hood!)
 
 #### OBEBS4.layout() Default Example:
 ```javascript
