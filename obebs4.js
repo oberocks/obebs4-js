@@ -309,6 +309,84 @@ const OBEBS4 = function () {
 
     },
     this.defaults = {
+        layout : [
+            {
+                tag : 'article',
+                attributes : {
+                    class : 'container-fluid py-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'row justify-content-center'
+                                },
+                                children : [
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-primary'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         navbar : [
             {
                 tag : 'nav',
@@ -380,84 +458,6 @@ const OBEBS4 = function () {
                                             href : '#'
                                         },
                                         text : 'Blog'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        layout : [
-            {
-                tag : 'article',
-                attributes : {
-                    class : 'container-fluid py-5'
-                },
-                children : [
-                    {
-                        tag : 'div',
-                        attributes : {
-                            class : 'container'
-                        },
-                        children : [
-                            {
-                                tag : 'div',
-                                attributes : {
-                                    class : 'row justify-content-center'
-                                },
-                                children : [
-                                    {
-                                        tag : 'div',
-                                        attributes : {
-                                            class : 'col-md-6'
-                                        },
-                                        children : [
-                                            {
-                                                tag : 'h1',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
-                                                attributes : {
-                                                    class : 'border-primary'
-                                                }
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        tag : 'div',
-                                        attributes : {
-                                            class : 'col-md-6'
-                                        },
-                                        children : [
-                                            {
-                                                tag : 'h1',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
-                                                attributes : {
-                                                    class : 'border-primary'
-                                                }
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            }
-                                        ]
                                     }
                                 ]
                             }
