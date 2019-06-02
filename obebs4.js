@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.3.3',
+    this.version = '1.4.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -868,7 +868,7 @@ const OBEBS4 = function () {
         
         // utility function to check for attributes
         let layoutAttributes = function (parentEl, obj) {
-            if (obj) {
+            if (self.isObject(obj)) {
                 for (var attr in obj) {
                     if (obj.hasOwnProperty(attr)) {
                         parentEl.setAttribute(attr, obj[attr]);
@@ -907,6 +907,8 @@ const OBEBS4 = function () {
                         // check for children (recursively)
                         layoutChildren(child, array[j].children);
                         parentEl.appendChild(child);
+                    } else if (self.isElementNode(array[j])) {
+                        parentEl.appendChild(array[j]);
                     }
                 }
             }
