@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '2.2.2',
+    this.version = '2.2.3',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -316,7 +316,7 @@ const OBEBS4 = function () {
             {
                 tag : 'footer',
                 attributes : {
-                    class : 'container-fluid bg-black text-light-gray pt-5 px-sm-3 px-md-4 px-lg-5'
+                    class : 'container-fluid bg-black text-light-gray pt-5 px-sm-5'
                 },
                 children : [
                     {
@@ -328,7 +328,7 @@ const OBEBS4 = function () {
                             {
                                 tag : 'div',
                                 attributes : {
-                                    class : 'col-md-6 col-lg-3 pb-4'
+                                    class : 'col-lg-4 pb-5'
                                 },
                                 children : [
                                     {
@@ -476,7 +476,7 @@ const OBEBS4 = function () {
                             {
                                 tag : 'div',
                                 attributes : {
-                                    class : 'col-md-6 col-lg-3 pb-4'
+                                    class : 'col-lg-3 pb-5'
                                 },
                                 children : [
                                     {
@@ -549,7 +549,7 @@ const OBEBS4 = function () {
                             {
                                 tag : 'div',
                                 attributes : {
-                                    class : 'col-md-6 col-lg-6 pb-4'
+                                    class : 'col-lg-5 pb-5'
                                 },
                                 children : [
                                     {
