@@ -218,17 +218,17 @@ target.appendChild(complexText);
 
 ### OBEBS4.layout()
 
-_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with a nested `.container` element, with a nested `.row` element, and then with two nested `.col` (column) elements. Each column contains a `h1`, `hr`, and two `p` elements - all with random placeholder content._
+_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with a nested `.container` element, with a nested `.row` element, and two nested `.col` (column) elements. Each column contains a `h1`, `hr`, and two `p` elements - all with random placeholder content._
 
 ##### OBEBS4.layout()'s Single Argument
 
-_The OBEBS4.layout() method accepts a single argument, which should always be an array of objects. Each object item passed in through this array argument should follow the Key Name schema in the OBEBS4.layout()'s Object Schema table._
+_The OBEBS4.layout() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the OBEBS4.layout()'s Object Schema Table._
 
 Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Settings | NO | `array` (of `object` items) | Please refer to the next table (below) to see the requirements for each object in this array!
 
-##### OBEBS4.layout()'s Object Schema
+##### OBEBS4.layout()'s Object Schema Table
 
 _The OBEBS4.layout() method's single array argument, expects array items that are all objects. These object items need to use specific/exact keys to work as expected._
 
@@ -236,12 +236,12 @@ Properties | Key Name | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | 'tag' | YES | `string` | This is a REQUIRED property where the value will become a HTML tag value.
 2 | 'attributes' | NO | `object` | An object of key/value pairs where the key is the name of the HTML attribute and it's value is a string of what will become the exact value of that attribute.
-3 | 'text' | NO | `string` or `array` (of `string` and/or `element node` items) | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line element (such as `anchor` and `span` tags) in-between different strings of content).
-4 | 'children' | NO | `array` (of `object` and/or `element node` items) | An array of `object` and/or `element node` items, where any object array items follow the 'tag', 'attributes', 'text', and 'children' Properties found in this table! (It's a recursive method under the hood!)
+3 | 'text' | NO | `string` or `array` (of `string` and/or `element node` items) | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line elements (such as `anchor` and `span` tags) in-between different strings of content).
+4 | 'children' | NO | `array` (of `object` and/or `element node` items) | An array of `object` and/or `element node` items, where any object items follow the 'tag', 'attributes', 'text', and 'children' Properties found in this table! (It's a recursive method under the hood!)
 
-> **OBEBS4.layout() Tip**
+> **OBEBS4.layout() TIP**:
 > 
-> Remember: In JavaScript, any object property (or 'key') that has a dash/hyphen in it's string MUST be wrapped in quotes! For example, when defining a data attribute for a generated element `data-value : "some value"` won't work! Instead this must be written/passed as `"data-value" : "some value"`!
+> Remember: In JavaScript, any object property (or 'key') that has a dash/hyphen in it's string MUST be wrapped in quotes! For example, when defining a data attribute for a generated element `data-value : "some value"` won't work! Instead this must be written/expressed as `"data-value" : "some value"`!
 
 #### OBEBS4.layout() Default Example:
 ```javascript
@@ -517,11 +517,153 @@ _Returns a parent element (with child elements), according to the options that a
 
 ## OBEBS4.js Components Methods
 
-(Coming Soon!)
+The OBEBS4.js Markup Factory & Methods includes a collection of component methods to allow your code to be both semantic and expressive. Each of these methods uses the OBEBS4.layout() method under the hood.
 
-### OBEBS4.components.navbar()
+Additionally, each of these methods have associated default arrays of object items which are used to generate the default markup for each component. You can access them using the `OBEBS4.defaults` object. These defaults are available to you at all times, for both reference and quick prototyping. Here are examples of how to view/copy component default settings using console.log() calls and `JSON.stringify()`:
 
-(Coming Soon!)
+```javascript
+console.log(JSON.stringify(obebs4.defaults.layout, null, '\t')); // Logs defaults for OBEBS4.layout()
+console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t')); // Logs defaults for OBEBS4.components.navbar()
+};
+```
+
+### OBEBS4.components.navbar() Default Example
+
+```javascript
+let defaultNavbar = obebs4.components.navbar();
+target.appendChild(defaultNavbar);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm">
+    <a class="navbar-brand" href="#">Brand Name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#components-navbar-id" aria-controls="components-navbar-id" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="components-navbar-id">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Shop</a>
+            <a class="nav-item nav-link" href="#">Blog</a>
+        </div>
+    </div>
+</nav>
+```
+
+### OBEBS4.components.navbar() with Custom Settings Example
+
+```javascript
+let customNavbarImgSize = '30';
+let customNavCollapseId = 'custom-navbar-id';
+let customNavbarSettings = [
+    {
+        tag : 'nav',
+        attributes : {
+            class : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
+        },
+        children : [
+            {
+                tag : 'img',
+                attributes : {
+                    src : 'https://via.placeholder.com/' + customNavbarImgSize,
+                    alt : 'Navbar Image Alt Text',
+                    style : 'width:' + customNavbarImgSize + 'px; height:' + customNavbarImgSize + 'px;',
+                    class : ''
+                }
+            },
+            {
+                tag : 'a',
+                attributes : {
+                    class : 'navbar-brand ml-3',
+                    href : '#'
+                },
+                text : 'Brand Name'
+            },
+            {
+                tag : 'button',
+                attributes : {
+                    class : 'navbar-toggler ml-auto',
+                    type : 'button',
+                    'data-toggle' : 'collapse',
+                    'data-target' : '#' + customNavCollapseId,
+                    'aria-controls' : customNavCollapseId,
+                    'aria-expanded' : 'false',
+                    'aria-label' : 'Toggle navigation'
+                },
+                children : [
+                    {
+                        tag : 'span',
+                        attributes : {
+                            class : 'navbar-toggler-icon'
+                        }
+                    }
+                ]
+            },
+            {
+                tag : 'div',
+                attributes : {
+                    class : 'collapse navbar-collapse',
+                    id : customNavCollapseId
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'navbar-nav ml-auto'
+                        },
+                        children : [
+                            {
+                                tag : 'a',
+                                attributes : {
+                                    class : 'nav-item nav-link active',
+                                    href : '#'
+                                },
+                                text : 'Home'
+                            },
+                            {
+                                tag : 'a',
+                                attributes : {
+                                    class : 'nav-item nav-link',
+                                    href : '#'
+                                },
+                                text : 'Shop'
+                            },
+                            {
+                                tag : 'a',
+                                attributes : {
+                                    class : 'nav-item nav-link',
+                                    href : '#'
+                                },
+                                text : 'Blog'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
+
+let customNavbar = obebs4.components.navbar(customNavbarSettings);
+target.appendChild(customNavbar);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<nav class="navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm">
+    <img src="https://via.placeholder.com/30" alt="Navbar Image Alt Text" style="width:30px; height:30px;" class="">
+    <a class="navbar-brand ml-3" href="#">Brand Name</a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#custom-navbar-id" aria-controls="custom-navbar-id" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="custom-navbar-id">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Shop</a>
+            <a class="nav-item nav-link" href="#">Blog</a>
+        </div>
+    </div>
+</nav>
+```
 
 ## Object Placeholder Content
 
