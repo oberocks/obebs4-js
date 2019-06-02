@@ -39,17 +39,17 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
 ## Installation
 
 To start working with the OBEBS4.js Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
-1. Download this project as a .zip file, and unzip the file
-1. Add the file `obebs4.js` to your local/live site directory as needed
-1. Include the file on your page(s) as you would any other external JS file
+1. Download this project as a .zip file, and unzip the file.
+1. Add the file `obebs4.js` to your local/live site directory as needed.
+1. Include the file on your page or page template, as you would any other external JS file.
 
 ## The Global Object
 
-This script exposes a global object to work with, which establishes a namespace for all of the object methods. The global constant is `OBEBS4`.
+This script exposes a global constant to work with, which lets you establish your own namespace for the factory and the methods. The global constant is `OBEBS4`.
 
 ## Initialization
 
-To initialize the `OBEBS4` global constant, you'll want to use JavaScript's `new` keyword:
+To work with the `OBEBS4` global constant, you'll need to use JavaScript's `new` keyword to assign the OBEBS4.js Markup Factory & Methods to a variable of your choice:
 
 ```javascript
 // initialize factory
@@ -66,7 +66,7 @@ console.log(obebs4.version);
 
 The OBEBS4.js Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
 
-When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBEBS4.js Markup Factory & Methods becomes a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a super-lean base library for a Single Page App (SPA) without any shadow DOM requirements.
+When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBEBS4.js Markup Factory & Methods become an extremely powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a super-lean base library for a Single Page App (SPA) functionality without any shadow DOM requirements.
 
 For sake of brevity and before digging in, let's assume the following boilerplate HTML is being used:
 
@@ -102,14 +102,14 @@ For sake of brevity and before digging in, let's assume the following boilerplat
 </html>
 ```
 
-Keeping the boilerplate markup above in mind, we want to focus on our content output element:
+Keeping the boilerplate markup above in mind, we want to focus on our content output element for all of our examples:
 
 ```html
 <!-- Content Output Element -->
 <div id="obebs4-app"></div>
 ```
 
-In order to be 100% ready to create, next we'll assign our content output element to a variable for script access:
+In order to be 100% ready to create, we'll want to assign our content output element to a variable for script access:
 
 ```javascript
 const target = document.getElementById('obebs4-app');
@@ -117,19 +117,17 @@ const target = document.getElementById('obebs4-app');
 
 ## OBEBS4.js Content Methods
 
-The core goal for the OBEBS4.js Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
+The core goal for the OBEBS4.js Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale, ideally from inside a browser itself. These content methods are engineered specifically for this goal.
 
-Many of the OBEBS4.js Markup Factory & Methods automatically generate default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
+Many of the OBEBS4.js Markup Factory & Methods automatically generate default (and fully accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel" for how layout decisions are impacted by varying content.
 
-This system allows for a signifigantly more customizable CMS design premise/execution compared to anything that exists in the market today. ;)
-
-But that's not all! This system was also designed with empathy for front end developers. Because with an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans a lot of the code repitition those projects end-up having.
+But that's not all! This system was also designed with empathy for front end developers. With an FED skill set, the same factory methods can be used for infinately complex multi-element and multi-component structures... sans almost all of the code repitition those projects end-up having.
 
 ### OBEBS4.element()
 
-_Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
+_Returns a singleton element or a singleton parent element (with child elements), according to the options that are passed into the method. PLEASE NOTE: This method DOES NOT produce a default element NOR any placeholder copy. Any OBEBS4.element() call needs specify at least a HTML tag value to avoid throwing an error._
 
-Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | HTML Tag | YES | `string` | This does not have to be a valid HTML5 value!
 2 | Text Node Content | NO | `string` or `boolean` or `array` of strings and/or element nodes | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value. Additionally, you can pass an `array` of items each of which can be either a `string` or an `element node`.
@@ -220,18 +218,30 @@ target.appendChild(complexText);
 
 ### OBEBS4.layout()
 
-_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with a nested container element, then a row element, and then two column elements. Each column contains a `h1`, `hr`, and two `p` elements - all with placeholder content._
+_Returns an infinately complex chunk of markup based on the information/settings passed into the method. If nothing is passed into this method, it will generate a default content section, which is made up of an `article` element with a nested `.container` element, with a nested `.row` element, and then with two nested `.col` (column) elements. Each column contains a `h1`, `hr`, and two `p` elements - all with random placeholder content._
 
-Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+##### OBEBS4.layout()'s Single Argument
+
+_The OBEBS4.layout() method accepts a single argument, which should always be an array of objects. Each object item passed in through this array argument should follow the Key Name schema in the OBEBS4.layout()'s Object Schema table._
+
+Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Settings | NO | `array` of objects | Please refer to the next table (below) to see the requirements for each object in this array!
 
-Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
+##### OBEBS4.layout()'s Object Schema
+
+_The OBEBS4.layout() method's single array argument, expects array items that are all objects. These object items need to use specific/exact keys to work as expected._
+
+Properties | Key Name | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | 'tag' | YES | `string` | This is a REQUIRED property where the value will become a HTML tag value.
 2 | 'attributes' | NO | `object` | An object of key/value pairs where the key is the name of the HTML attribute and it's value is a string of what will become the exact value of that attribute.
 3 | 'text' | NO | `string` or `array` (of `string` and/or `element node` items) | If a string is passed as a value to this property, then that string will be inserted into a text node. If an array of strings and/or element nodes is passed, each `string` will be inserted into a text node, and each `element node` will be inserted as itself. This allows you to specify precise in-line element (such as `anchor` and `span` tags) in-between different strings of content).
 4 | 'children' | NO | `array` (of `object` and/or `element node` items) | An array of `object` and/or `element node` items, where any object array items follow the 'tag', 'attributes', 'text', and 'children' Properties found in this table! (It's a recursive method under the hood!)
+
+> **OBEBS4.layout() Tip**
+> 
+> Remember: In JavaScript, any object property (or 'key') that has a dash/hyphen in it's string MUST be wrapped in quotes! For example, when defining a data attribute for a generated element `data-value : "some value"` won't work! Instead this must be written/passed as `"data-value" : "some value"`!
 
 #### OBEBS4.layout() Default Example:
 ```javascript
@@ -332,7 +342,7 @@ target.appendChild(sectionLayout);
 
 _Returns a parent element (with child elements), according to the options that are passed into the method._
 
-Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Settings | NO | `object` (structured) or `boolean` | Structure: `let mySettings = { classes : { article : '...', container : '...', row : '...', column : '...'}, content : { placeholders : { headline : '...', paragraph : '...' } } };`. If you intend on using the 2nd argument to pass in child nodes, you are REQUIRED to express this argument as either a boolean `false` value.
 2 | Array(s) of Child Node(s) | NO | `element node`, `array` (of element nodes), or `array` (of arrays of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, or an array of arrays of element nodes. In the first two scenarios, a parent `<article>` element will be returned, with a single columm containing the node or array of nodes. In the latter scenario, each sub-array of child nodes will be applied to a column for each sub-array of element nodes.
@@ -515,13 +525,13 @@ _Returns a parent element (with child elements), according to the options that a
 
 ## Object Placeholder Content
 
-The OBEBS4.js Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Lorem Ipsum strings to use when iterating.
+The OBEBS4.js Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you dynamic access to placeholder content strings to use when iterating.
 
-This means you can get content design ideas on a page incredibly quickly, while also having different placeholder strings showing up each time you reload the page, since each string is randomly determined at run time. This was done to allow anyone to "see" how content layout decisions are impacted by different content string lengths, specifically for responsive design content issues.
+This means you can get content design ideas on a page incredibly quickly, while also having different placeholder strings within your design each time you reload the page. Each placeholder string is randomly determined at run time. This was done to allow all project stakeholders the ability to "see" how content layout decisions are impacted by different content string lengths, specifically for responsive design content issues.
 
-But... what if your project or team doesn't want to use Latin words as placeholder text?!
+But... what if your project or team doesn't want to use Latin words for your placeholder text?!
 
-In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.placeholders` object. This object has several properties, all of which should be an array of unique string values. Here's a list of the `OBEBS4.placeholders` object's properties:
+In this situation, you can easily update the default content using your `new` object's instance! All default placeholder text is found in the `OBEBS4.placeholders` object. This object has several properties, all of which should have values that are an `array` of unique `string` values. Here's a list of the `OBEBS4.placeholders` object's properties for reference:
 
 ```javascript
 const OBEBS4 = function () {
@@ -563,17 +573,17 @@ obebs4.placeholders.navigation = ["Home", "Products", "Services", "Contact"];
 
 ## Object Utility Methods
 
-The methods exposed by the OBEBS4.js Markup Factory & Methods can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
+The methods exposed by the OBEBS4.js Markup Factory & Methods can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example above:
 
 ### OBEBS4.dom()
 
-_A helper method that makes DOM element position manipulations more semantically accurate and easier for laypeople to understand. This method includes a flexible argument structure, allowing it to provide access to standard DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
+_A helper method that makes DOM element position manipulations more semantically readable and easier for non-specialists to understand. This method includes a flexible argument structure that provides access to standard JS DOM manipulation methods like: `.appendChild()`, `.insertBefore()`, `.replaceChild()` & `.removeChild()`. Additionally, there's a couple of jQuery inspired deritives of these standard JS methods, which are of the `.insertAfter()` & `.prepend()` varieties!_
 
 >
 > NOTE: All strings passed into this method are **Case Insensitive**, thanks to JS's `.toLowerCase()`!
 >
 
-Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
+Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Parent Element | YES | `element node` | xxxx
 2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**!
