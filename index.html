@@ -63,6 +63,7 @@
             // Example of a customized navbar section using OBEBS4.content.navbar.basic()
 
             // settings
+            /*
             let navbar_2_settings = {
                 classes : {
                     navbar : 'navbar justify-content-start fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm',
@@ -83,6 +84,12 @@
             // generate final parent elem with children and append
             let navbar_2 = obebs4.content.navbar.basic(navbar_2_settings, [navbar_2_img, navbar_2_brand_anchor], [link_1, link_2, link_3]);
             target.appendChild(navbar_2);
+            */
+
+            // Example of a default .component.navbar()
+
+            let defaultNavbar = obebs4.component.navbar();
+            target.appendChild(defaultNavbar);
 
 
 

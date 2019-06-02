@@ -308,6 +308,107 @@ const OBEBS4 = function () {
         return el;
 
     },
+    this.component = {
+        
+        navbar : function (passedSettings = false) {
+            
+            let collapseID = 'nl-navbar';
+            
+            let defaults = [
+                {
+                    tag : 'nav',
+                    attributes : {
+                        class : 'navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm'
+                    },
+                    children : [
+                        {
+                            tag : 'a',
+                            attributes : {
+                                class : 'navbar-brand',
+                                href : '#'
+                            },
+                            text : 'Brand Name'
+                        },
+                        {
+                            tag : 'button',
+                            attributes : {
+                                class : 'navbar-toggler',
+                                type : 'button',
+                                'data-toggle' : 'collapse',
+                                'data-target' : '#' + collapseID,
+                                'aria-controls' : collapseID,
+                                'aria-expanded' : 'false',
+                                'aria-label' : 'Toggle navigation'
+                            },
+                            children : [
+                                {
+                                    tag : 'span',
+                                    attributes : {
+                                        class : 'navbar-toggler-icon'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            tag : 'div',
+                            attributes : {
+                                class : 'collapse navbar-collapse',
+                                id : collapseID
+                            },
+                            children : [
+                                {
+                                    tag : 'div',
+                                    attributes : {
+                                        class : 'navbar-nav'
+                                    },
+                                    children : [
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link',
+                                                href : '#'
+                                            },
+                                            text : 'Home'
+                                        },
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link',
+                                                href : '#'
+                                            },
+                                            text : 'Shop'
+                                        },
+                                        {
+                                            tag : 'a',
+                                            attributes : {
+                                                class : 'nav-item nav-link',
+                                                href : '#'
+                                            },
+                                            text : 'Blog'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+    
+            // set user submitted settings or defaults
+            let settings;
+            if (passedSettings) {
+                settings = passedSettings;
+            } else {
+                settings = defaults;
+            }
+
+            // generate the navbar markup and return it
+            let navbar = self.layout(settings);
+            return navbar;
+
+        }
+        
+    },
     this.content = {
         article : function (settingsObj = false, columnsArrays = false) {
                 
