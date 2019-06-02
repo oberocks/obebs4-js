@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.4.0',
+    this.version = '2.0.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -486,6 +486,7 @@ const OBEBS4 = function () {
 
         }
     },
+    /*
     this.content = {
         article : function (settingsObj = false, columnsArrays = false) {
                 
@@ -846,12 +847,13 @@ const OBEBS4 = function () {
             }
         }
     },
-    this.form = {
+    this.forms = {
         group : {
             input : {},
             textarea : {}
         }
     },
+    */
     this.layout = function (passedSettings = false) {
         
         let defaults = self.defaults.layout;

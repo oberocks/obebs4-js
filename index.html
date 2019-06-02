@@ -50,8 +50,6 @@
             const target = document.getElementById('obebs4-app');
 
 
-
-
             // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON/OFF BECAUSE OBE'S DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
             // Example of a default navbar using .components.navbar()
@@ -183,89 +181,7 @@
 
 
 
-
-            // Example article section using a default OBEBS4.content.article()
-
-            let article_1 = obebs4.content.article();
-            target.appendChild(article_1);
-
-
-
-
-            // Example article section using a customized settings for OBEBS4.content.article() (and random placeholder strings from the placeholders sub-object)
-
-            let article_2_settings = {
-                classes : {
-                    article : 'container-fluid bg-danger text-white py-5',
-                    row : 'row justify-content-center',
-                    column : 'col col-sm-10 col-md-9 col-lg-8 col-xl-7'
-                }
-            };
-
-            let article_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
-            let article_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
-            let article_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
-            let article_2_p_2 = obebs4.element('p', obebs4.randomQuote(), {'class' : 'lead p-3 border-left border-yellow border-width-5'});
-            let article_2_p_3 = obebs4.element('p', obebs4.randomParagraph());
-
-            let article_2 = obebs4.content.article(
-                article_2_settings,
-                [
-                    article_2_h_1,
-                    article_2_hr_1,
-                    article_2_p_1,
-                    article_2_p_2,
-                    article_2_p_3
-                ]
-            );
-            target.appendChild(article_2);
-
-
-
-
-            // Example article section using an OBEBS4.content.article() function with custom content
-
-            let article_3_settings = {
-                classes : {
-                    column : ['col col-md-3', 'col col-md-6', 'col col-md-3']
-                }
-            };
-
-            let article_3_col_1_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
-            let article_3_col_1_hr_1 = obebs4.element('hr', '', {'class' : 'border-success'});
-            let article_3_col_1_p_1 = obebs4.element('p', obebs4.randomParagraph());
-
-            let article_3_col_2_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
-            let article_3_col_2_hr_1 = obebs4.element('hr', '', {'class' : 'border-danger'});
-            let article_3_col_2_p_1 = obebs4.element('p', obebs4.randomParagraph());
-
-            let article_3_col_3_h_1 = obebs4.element('h3', obebs4.randomHeadline(), {'class' : 'text-shadow'});
-            let article_3_col_3_hr_1 = obebs4.element('hr', '', {'class' : 'border-cyan'});
-            let article_3_col_3_p_1 = obebs4.element('p', obebs4.randomParagraph());
-
-            let article_3 = obebs4.content.article(
-                article_3_settings,
-                [
-                    [
-                        article_3_col_1_h_1,
-                        article_3_col_1_hr_1,
-                        article_3_col_1_p_1
-                    ],[
-                        article_3_col_2_h_1,
-                        article_3_col_2_hr_1,
-                        article_3_col_2_p_1
-                    ],[
-                        article_3_col_3_h_1,
-                        article_3_col_3_hr_1,
-                        article_3_col_3_p_1
-                    ]
-                ]
-            );
-
-            target.appendChild(article_3);
-
-
-            // testing for new .dom method!
+            // Examples of OBEBS4.dom() method syntax for all of the use cases
 
             let domSection = obebs4.element('section', false, { class : 'bg-gradient-white text-center pb-5' });
             
@@ -309,7 +225,7 @@
             obebs4.dom(target, 'append', domSection);
 
 
-            // demonstrating a mixed content element with an element inserted in with textNode strings (for inline elements within text strings)
+            // Example of a mixed content text argument when using OBEBS4.element()
 
             let ctAnchor = obebs4.element('a', 'Anchor Tag', { class : 'text-primary', href : '#' });
             let ctSpan = obebs4.element('span', 'Span', { class : 'font-weight-bold' });
@@ -373,18 +289,13 @@
             ];
             let sectionLayout = obebs4.layout(sectionSettings)
             target.appendChild(sectionLayout);
-
-
             
             
-            
+            // Example of grabbing .defaults.navbar data
+            //console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t'));
             
             // Examples of grabbing .defaults.layout data
-            let layoutDefaults = obebs4.defaults.layout;
-            console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t'));
-            
-            // Examples of grabbing .defaults.navbar data
-            console.log(JSON.stringify(obebs4.defaults.layout, null, '\t'));
+            //console.log(JSON.stringify(obebs4.defaults.layout, null, '\t'));
 
 
 
