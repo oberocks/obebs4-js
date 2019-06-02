@@ -1,5 +1,5 @@
-# OBE:BS4 JavaScript Markup Factory & Methods
-OBEBS4.js is a JavaScript library to compliment any OBE:BS4 project with either dynamically generated markup requirements, or a need for rapid prototyping.
+# OBEBS4.js Markup Factory & Methods
+OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System project with either dynamically generated markup requirements, or a need for rapid prototyping.
 
 
 ---
@@ -11,13 +11,13 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 project with either 
 * [The Global Object](#the-global-object)
 * [Initialization](#initialization)
 * [Getting Started](#getting-started)
-* [OBE:BS4 Content Methods](#object-content-methods)
+* [OBEBS4.js Content Methods](#object-content-methods)
     * [.element()](#obebs4element)
     * [.layout()](#obebs4layout)
     * [.content.article()](#obebs4contentarticle)
     * [.content.navbar.basic()](#obebs4contentnavbarbasic)
-* [OBE:BS4 Placeholder Content](#object-placeholder-content)
-* [OBE:BS4 Utility Methods](#object-utility-methods)
+* [OBEBS4.js Placeholder Content](#object-placeholder-content)
+* [OBEBS4.js Utility Methods](#object-utility-methods)
     * [.dom()](#obebs4dom)
     * [.extend()](#obebs4extend)
     * [.getRandomIndex()](#obebs4getrandomindex)
@@ -36,7 +36,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 project with either 
 
 ## Installation
 
-To start working with the OBE:BS4 JavaScript Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
+To start working with the OBEBS4.js Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
 1. Download this project as a .zip file, and unzip the file
 1. Add the file `obebs4.js` to your local/live site directory as needed
 1. Include the file on your page(s) as you would any other external JS file
@@ -62,9 +62,9 @@ console.log(obebs4.version);
 
 ## Getting Started
 
-The OBE:BS4 JavaScript Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
+The OBEBS4.js Markup Factory & Methods were designed to render single elements, default content sections (with randomized placeholder text content), and complex nested content - all with standard JavaScript.
 
-When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBE:BS4 JavaScript Markup Factory & Methods becomes a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a super-lean base library for a Single Page App (SPA) without any shadow DOM requirements.
+When coupled with the OBE:BS4 Design System's massive collection of Bootstrap 4 derived atomic CSS classes, the OBEBS4.js Markup Factory & Methods becomes a powerful rapid prototyping tool, a performant AJAX response DOM library for dynamic production sites, and a super-lean base library for a Single Page App (SPA) without any shadow DOM requirements.
 
 For sake of brevity and before digging in, let's assume the following boilerplate HTML is being used:
 
@@ -81,7 +81,7 @@ For sake of brevity and before digging in, let's assume the following boilerplat
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://library.mattmct.com/css/obebs4.production.bundle.css">
 
-        <title>OBE:BS4 JS Markup Factory Tool</title>
+        <title>OBEBS4.js Markup Factory & Methods</title>
         <meta name="description" content="An awesome page for my new app/website!">
 
     </head>
@@ -115,9 +115,9 @@ const target = document.getElementById('obebs4-app');
 
 ## Object Content Methods
 
-The core goal for the OBE:BS4 JavaScript Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
+The core goal for the OBEBS4.js Markup Factory & Methods, is to facilitate "exprssive" design and development decision making for web projects at any scale. These content methods are engineered specifically for this goal.
 
-Many of the OBE:BS4 JavaScript Markup Factory methods automatically generate default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
+Many of the OBEBS4.js Markup Factory & Methods automatically generate default (and fully structured/accessible) markup when called without any passed arugments. Additionally, upon page load, any placeholder copy will be re-generated with newly randomiozed placeholder content, so all stakeholders can "see" and "get a feel for" how layout decisions are impacted by varying content.
 
 This system allows for a signifigantly more customizable CMS design premise/execution compared to anything that exists in the market today. ;)
 
@@ -501,7 +501,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 ## Object Placeholder Content
 
-The OBE:BS4 JavaScript Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Lorem Ipsum strings to use when iterating.
+The OBEBS4.js Markup Factory & Methods were designed to allow for a very "expressive" web design and iteration experience. A simple but powerful built-in feature, gives you access to different Lorem Ipsum strings to use when iterating.
 
 This means you can get content design ideas on a page incredibly quickly, while also having different placeholder strings showing up each time you reload the page, since each string is randomly determined at run time. This was done to allow anyone to "see" how content layout decisions are impacted by different content string lengths, specifically for responsive design content issues.
 
@@ -549,7 +549,7 @@ obebs4.placeholders.navigation = ["Home", "Products", "Services", "Contact"];
 
 ## Object Utility Methods
 
-The methods exposed by the OBE:BS4 JavaScript Markup Factory can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
+The methods exposed by the OBEBS4.js Markup Factory & Methods can be used in your custom work much like they're used by the OBEBS4 object internally. Here's an example of each method, again using our initialized example:
 
 ### OBEBS4.dom()
 
@@ -727,7 +727,7 @@ console.log(quote);
 
 ### Console Errors
 
-The OBE:BS4 JavaScript Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
+The OBEBS4.js Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
 
 All of the errors use a standard `console.error()` method to log the issue to your browser's console. In cases where arrays of items were passed as arguments, the error will let you know the specific index where the problem can be found. Otherwise, the error will let you know the method name and the argument that triggered the error.
 
