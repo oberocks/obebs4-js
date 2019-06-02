@@ -517,7 +517,7 @@ _Returns a parent element (with child elements), according to the options that a
 
 ## OBEBS4.js Components Methods
 
-The OBEBS4.js Markup Factory & Methods include a collection of component methods to allow your code to be both more semantic and more expressive. Each of these methods uses the `OBEBS4.layout()` method under the hood.
+The OBEBS4.js Markup Factory & Methods include a collection of component methods to allow your code to be both more semantic and more expressive. Each of these methods use the `OBEBS4.layout()` method under the hood.
 
 Additionally, each of these methods have associated default arrays of object items which are used to generate the default markup for each component. You can access them using the `OBEBS4.defaults` object. These defaults are available to you at all times, for both reference and quick prototyping. Here are examples of how to view/copy component default settings using `console.log()`, your browser console, and `JSON.stringify()`:
 
