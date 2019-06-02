@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '2.2.1',
+    this.version = '2.2.2',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -382,7 +382,7 @@ const OBEBS4 = function () {
                                                     {
                                                         tag : 'button',
                                                         attributes : {
-                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            class : 'btn btn-primary btn-xl fab-lg rounded-0',
                                                             type : 'button'
                                                         },
                                                         children : [
@@ -406,7 +406,7 @@ const OBEBS4 = function () {
                                                     {
                                                         tag : 'button',
                                                         attributes : {
-                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            class : 'btn btn-primary btn-xl fab-lg rounded-0',
                                                             type : 'button'
                                                         },
                                                         children : [
@@ -430,7 +430,7 @@ const OBEBS4 = function () {
                                                     {
                                                         tag : 'button',
                                                         attributes : {
-                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            class : 'btn btn-primary btn-xl fab-lg rounded-0',
                                                             type : 'button'
                                                         },
                                                         children : [
@@ -454,7 +454,7 @@ const OBEBS4 = function () {
                                                     {
                                                         tag : 'button',
                                                         attributes : {
-                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            class : 'btn btn-primary btn-xl fab-lg rounded-0',
                                                             type : 'button'
                                                         },
                                                         children : [
