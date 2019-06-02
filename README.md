@@ -363,24 +363,63 @@ target.appendChild(defaultFooter);
 ```
 ```html
 <!-- The example above will generate and append this HTML to your target element: -->
-<footer class="container-fluid bg-black text-light pt-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 pb-4">
-                <h3>Sed Bibendum Nisi A Est Semper</h3>
-                <hr class="border-gray">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.</p>
+<footer class="container-fluid bg-black text-light-gray pt-5 px-sm-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 pb-5">
+            <h5 class="text-light">Contact</h5>
+            <hr class="border-gray">
+            <address>
+                <strong class="text-light">Business Name</strong><br>
+                1234 Main St, Suite 9000<br>
+                Anywhere, AZ 12345<br>
+                <abbr title="Phone Number">P:</abbr> (123) 456-7890<br>
+                <abbr title="Email Address">E:</abbr> dept@company.com
+            </address>
+            <div class="font-weight-bold text-light py-2">Connect With Us</div>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <button class="btn btn-primary btn-xl fab-lg rounded-0" type="button">
+                        <i class="fab fa-facebook" title="Connect with us on Facebook!"></i>
+                    </button>
+                </li>
+                <li class="list-inline-item">
+                    <button class="btn btn-primary btn-xl fab-lg rounded-0" type="button">
+                        <i class="fab fa-twitter" title="Connect with us on Twitter!"></i>
+                    </button>
+                </li>
+                <li class="list-inline-item">
+                    <button class="btn btn-primary btn-xl fab-lg rounded-0" type="button">
+                        <i class="fas fa-linkedin" title="Connect with us on LinkedIn!"></i>
+                    </button>
+                </li>
+                <li class="list-inline-item">
+                    <button class="btn btn-primary btn-xl fab-lg rounded-0" type="button">
+                        <i class="fab fa-youtube" title="Connect with us on YouTube!"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3 pb-5">
+            <h5 class="text-light">Links</h5>
+            <hr class="border-gray">
+            <a class="text-light" href="#">Home</a><br>
+            <a class="text-light" href="#">Shop</a><br>
+            <a class="text-light" href="#">Blog</a><br>
+            <a class="text-light" href="#">Our Story</a><br>
+            <a class="text-light" href="#">Careers</a>
+        </div>
+        <div class="col-lg-5 pb-5">
+            <h5 class="text-light">Our Story</h5>
+            <hr class="border-gray">
+            <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.<a class="text-light ml-3">Read More...</a></p>
+            <label for="post-btn-input" class="font-weight-bold pt-2 text-light">Newsletter Signup:</label>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control border-light-gray rounded-0" placeholder="Enter Email" id="post-btn-input" name="post-btn-input" aria-describedby="post-btn-input-help">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-light-gray rounded-0" type="button">SUBMIT</button>
+                </div>
             </div>
-            <div class="col-lg-4 pb-4">
-                <h3>Mauris Ut Nulla Id Libero</h3>
-                <hr class="border-gray">
-                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
-            </div>
-            <div class="col-lg-4 pb-4">
-                <h3>Quisque Feugiat Hendrerit</h3>
-                <hr class="border-gray">
-                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
-            </div>
+            <small id="post-btn-input-help" class="form-text text-gray">A valid email address is required.</small>
         </div>
     </div>
 </footer>
