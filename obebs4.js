@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '2.1.0',
+    this.version = '2.2.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -32,6 +32,9 @@ const OBEBS4 = function () {
             'Link Two',
             'Link Three'
         ]
+    },
+    this.year = function () {
+        return new Date().getFullYear();
     },
     this.dom = function (parent, type, el, subType = false, refNode = false) {
         
@@ -309,6 +312,105 @@ const OBEBS4 = function () {
 
     },
     this.defaults = {
+        footer : [
+            {
+                tag : 'footer',
+                attributes : {
+                    class : 'container-fluid bg-black text-light pt-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'row justify-content-center'
+                                },
+                                children : [
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-4 pb-4'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h3',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-gray'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-4 pb-4'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h3',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-gray'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-4 pb-4'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h3',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'hr',
+                                                attributes : {
+                                                    class : 'border-gray'
+                                                }
+                                            },
+                                            {
+                                                tag : 'p',
+                                                text : self.randomParagraph()
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                tag : 'small',
+                attributes : {
+                    class : 'd-block bg-black text-gray text-center p-2'
+                },
+                text : '© ' + self.year() + ' | All Rights Reserved'
+            }
+        ],
         layout : [
             {
                 tag : 'article',
@@ -468,6 +570,23 @@ const OBEBS4 = function () {
         ]
     },
     this.components = {
+        footer : function (passedSettings = false) {
+            
+            let defaults = self.defaults.footer;
+    
+            // set user submitted settings or defaults
+            let settings;
+            if (passedSettings) {
+                settings = passedSettings;
+            } else {
+                settings = defaults;
+            }
+
+            // generate the navbar markup and return it
+            let footer = self.layout(settings);
+            return footer;
+
+        },
         navbar : function (passedSettings = false) {
             
             let defaults = self.defaults.navbar;

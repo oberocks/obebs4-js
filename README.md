@@ -15,6 +15,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.element()](#obebs4element)
     * [.layout()](#obebs4layout)
 * [OBEBS4.js Components Methods](#obebs4js-components-methods)
+    * [.components.footer()](#obebs4componentsfooter)
     * [.components.navbar()](#obebs4componentsnavbar)
 * [OBEBS4.js Placeholder Content](#object-placeholder-content)
 * [OBEBS4.js Utility Methods](#object-utility-methods)
@@ -28,6 +29,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.randomHeadline()](#obebs4randomheadline)
     * [.randomParagraph()](#obebs4randomparagraph)
     * [.randomQuote()](#obebs4randomquote)
+    * [.year()](#obebs4year)
 * [Console Errors](#console-errors)
 
 
@@ -347,6 +349,41 @@ Additionally, each of these methods have associated default array of object item
 ```javascript
 console.log(JSON.stringify(obebs4.defaults.layout, null, '\t')); // Logs defaults for OBEBS4.layout()
 console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t')); // Logs defaults for OBEBS4.components.navbar()
+```
+
+### OBEBS4.components.footer()
+
+_The OBEBS4.components.footer() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
+
+#### OBEBS4.components.footer() Default Example
+
+```javascript
+let defaultFooter = obebs4.components.footer();
+target.appendChild(defaultFooter);
+```
+```html
+<!-- The example above will generate and append this HTML to your target element: -->
+<footer class="container-fluid bg-black text-light pt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 pb-4">
+                <h3>Sed Bibendum Nisi A Est Semper</h3>
+                <hr class="border-gray">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis bibendum augue, in facilisis lorem euismod fermentum. Maecenas non auctor magna, et tempor purus. Morbi et ex iaculis nunc tincidunt semper a eget dui. Nulla ac turpis id arcu cursus condimentum eget vel ante. Quisque vel malesuada sapien. Etiam non urna vitae urna iaculis rutrum non non sem.</p>
+            </div>
+            <div class="col-lg-4 pb-4">
+                <h3>Mauris Ut Nulla Id Libero</h3>
+                <hr class="border-gray">
+                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
+            </div>
+            <div class="col-lg-4 pb-4">
+                <h3>Quisque Feugiat Hendrerit</h3>
+                <hr class="border-gray">
+                <p>Sed bibendum nisi a est semper consequat. Aliquam mi neque, blandit lobortis justo sit amet, commodo consectetur sem. Donec sagittis erat quis venenatis dignissim. Duis ac iaculis leo, viverra fringilla lacus. In hac habitasse platea dictumst. Vestibulum euismod purus et tellus congue accumsan. Sed ligula libero, finibus non neque sed, semper consectetur est. Ut tincidunt, sapien aliquam varius fermentum, diam sem consequat risus, eget molestie erat ante quis erat.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 ```
 
 ### OBEBS4.components.navbar()
@@ -715,6 +752,15 @@ _Returns a "random" quote string from the `OBEBS4.placeholders.quotes` array._
 ```javascript
 let quote = obebs4.randomQuote();
 console.log(quote);
+```
+
+### OBEBS4.year()
+
+_Returns the current full year (YYYY)._
+
+```javascript
+let year = obebs4.year();
+console.log(year);
 ```
 
 ### Console Errors
