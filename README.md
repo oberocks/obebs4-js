@@ -224,7 +224,7 @@ Order | Parameter | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | Settings | NO | `array` of objects | Please refer to the next table (below) to see the requirements for each object in this array!
 
-Settings Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
+Properties | Key Name | Required | Expected Primitive Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | 'tag' | YES | `string` | This is a REQUIRED property where the value will become a HTML tag value.
 2 | 'attributes' | NO | `object` | An object of key/value pairs where the key is the name of the HTML attribute and it's value is a string of what will become the exact value of that attribute.
