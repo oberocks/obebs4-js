@@ -130,9 +130,9 @@ _Returns a singleton element or a singleton parent element (with child elements)
 Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
 1 | HTML Tag | YES | `string` | This does not have to be a valid HTML5 value!
-2 | Text Node Content | NO | `string` or `boolean` or `array` of strings and/or element nodes | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value. Additionally, you can pass an `array` of items each of which can be either a `string` or an `element node`.
-3 | Element Attributes | NO | `object` or `boolean` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
-4 | Child Element(s) | NO | `element node` or `array` (of element nodes) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
+2 | Text Node Content | NO | `string` or `false` or `array` (of `string` and/or `element node` items) | This parameter IS REQUIRED if using any Element Attributes or Child Element(s) params! In those cases, you can express this parameter as either a boolean `false` value or an empty string (`''` or `""`) value. Additionally, you can pass an `array` of items each of which can be either a `string` or an `element node`.
+3 | Element Attributes | NO | `object` or `false` | This parameter IS REQUIRED if using the next Child Element(s) param! In those cases, you can express this parameter as either a boolean `false` value or an empty object (`{}`) value.
+4 | Child Element(s) | NO | `element node` or `array` (of `element node` items) | This final optional paramater allows you to pass an element node or an array of element nodes, which will be returned as children of the parent HTML Tag you've specified. If using an array of element nodes, it should be a 1-dimentional array of exclusively element nodes.
 
 #### OBEBS4.element() `<span>` Tag Example:
 ```javascript
@@ -226,7 +226,7 @@ _The OBEBS4.layout() method accepts a single argument, which should always be an
 
 Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Settings | NO | `array` of objects | Please refer to the next table (below) to see the requirements for each object in this array!
+1 | Settings | NO | `array` (of `object` items) | Please refer to the next table (below) to see the requirements for each object in this array!
 
 ##### OBEBS4.layout()'s Object Schema
 
@@ -585,11 +585,11 @@ _A helper method that makes DOM element position manipulations more semantically
 
 Order | Parameter | Required | Expected Value Type(s) | Details/Notes
 ----- | --------- | -------- | -------------------------- | -------------
-1 | Parent Element | YES | `element node` | xxxx
-2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**!
-3 | Child Element | YES | `element node` | xxxx
-4 | Method Sub-Option or Child Element | NO | `string` or `element node` | xxxx
-5 | Reference Element | NO | `element node` | xxxx
+1 | Parent Element | YES | `element node` | This should be a valid JavaScript Element Node.
+2 | Method Option | YES | `string` | Passed strings are **Case Insensitive**! Expects one of these specific strings: `'append'`, `'insert'`, `'replace'`, `'remove'`, or `'prepend'`.
+3 | Child Element | YES | `element node` | This should be a valid JavaScript Element Node.
+4 | Method Sub-Option or Child Element | NO | `string` or `element node` | Depending on your choice for a 2nd parameter, this argument can be either a `string` or an `element node`. If you are using `'insert'` or `'replace'` for your second argument, then this 4th argument options are `'before'` or `'after'` for `.insertBefore()` or `.insertAfter()` functionality. If the 2nd argument is `'replace'`, then the 4th argument can be any string (even an empty string) and it will work. That said, it's recommended to use the string `'with'` as a 4th argument for `'replace'`, because it's super easy to read afterwards. This argument is REQUIRED when the 2nd argument is `'insert'` or `'replace'`! Don't forget, all passed strings are **Case Insensitive**!
+5 | Reference Element | NO | `element node` | This should be a valid JavaScript Element Node. This argument is REQUIRED whenever using `'insert'` (both `'before'` & `'after'` variations) along with the `'replace'`/`'with'` variation.
 
 #### OBEBS4.dom() Semantic Examples (Recommended):
 ```javascript
