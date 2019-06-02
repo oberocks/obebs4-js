@@ -316,86 +316,312 @@ const OBEBS4 = function () {
             {
                 tag : 'footer',
                 attributes : {
-                    class : 'container-fluid bg-black text-light pt-5'
+                    class : 'container-fluid bg-black text-light-gray pt-5 px-sm-3 px-md-4 px-lg-5'
                 },
                 children : [
                     {
                         tag : 'div',
                         attributes : {
-                            class : 'container'
+                            class : 'row justify-content-center'
                         },
                         children : [
                             {
                                 tag : 'div',
                                 attributes : {
-                                    class : 'row justify-content-center'
+                                    class : 'col-md-6 col-lg-3 pb-4'
                                 },
                                 children : [
                                     {
-                                        tag : 'div',
+                                        tag : 'h5',
+                                        text : 'Contact',
                                         attributes : {
-                                            class : 'col-lg-4 pb-4'
-                                        },
-                                        children : [
-                                            {
-                                                tag : 'h3',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
-                                                attributes : {
-                                                    class : 'border-gray'
-                                                }
-                                            },
-                                            {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
-                                            }
+                                            class : 'text-light'
+                                        }
+                                    },
+                                    {
+                                        tag : 'hr',
+                                        attributes : {
+                                            class : 'border-gray'
+                                        }
+                                    },
+                                    {
+                                        tag : 'address',
+                                        text : [
+                                            self.element('strong', 'Business Name', { class : 'text-light' }),
+                                            self.element('br'),
+                                            '1234 Main St, Suite 9000',
+                                            self.element('br'),
+                                            'Anywhere, AZ 12345',
+                                            self.element('br'),
+                                            self.element('abbr', 'P:', { title : 'Phone Number' }),
+                                            ' (123) 456-7890',
+                                            self.element('br'),
+                                            self.element('abbr', 'E:', { title : 'Email Address' }),
+                                            ' dept@company.com',
                                         ]
                                     },
                                     {
                                         tag : 'div',
+                                        text : 'Connect With Us',
                                         attributes : {
-                                            class : 'col-lg-4 pb-4'
+                                            class : 'font-weight-bold text-light py-2'
+                                        }
+                                    },
+                                    {
+                                        tag : 'ul',
+                                        attributes : {
+                                            class : 'list-inline'
                                         },
                                         children : [
                                             {
-                                                tag : 'h3',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
+                                                tag : 'li',
                                                 attributes : {
-                                                    class : 'border-gray'
-                                                }
+                                                    class : 'list-inline-item'
+                                                },
+                                                children : [
+                                                    {
+                                                        tag : 'button',
+                                                        attributes : {
+                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            type : 'button'
+                                                        },
+                                                        children : [
+                                                            {
+                                                                tag : 'i',
+                                                                attributes : {
+                                                                    class : 'fab fa-facebook',
+                                                                    title : 'Connect with us on Facebook!'
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
                                             },
                                             {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
+                                                tag : 'li',
+                                                attributes : {
+                                                    class : 'list-inline-item'
+                                                },
+                                                children : [
+                                                    {
+                                                        tag : 'button',
+                                                        attributes : {
+                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            type : 'button'
+                                                        },
+                                                        children : [
+                                                            {
+                                                                tag : 'i',
+                                                                attributes : {
+                                                                    class : 'fab fa-twitter',
+                                                                    title : 'Connect with us on Twitter!'
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                tag : 'li',
+                                                attributes : {
+                                                    class : 'list-inline-item'
+                                                },
+                                                children : [
+                                                    {
+                                                        tag : 'button',
+                                                        attributes : {
+                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            type : 'button'
+                                                        },
+                                                        children : [
+                                                            {
+                                                                tag : 'i',
+                                                                attributes : {
+                                                                    class : 'fab fa-linkedin',
+                                                                    title : 'Connect with us on LinkedIn!'
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                tag : 'li',
+                                                attributes : {
+                                                    class : 'list-inline-item'
+                                                },
+                                                children : [
+                                                    {
+                                                        tag : 'button',
+                                                        attributes : {
+                                                            class : 'btn btn-primary btn-xl fab-xl rounded-0',
+                                                            type : 'button'
+                                                        },
+                                                        children : [
+                                                            {
+                                                                tag : 'i',
+                                                                attributes : {
+                                                                    class : 'fab fa-youtube',
+                                                                    title : 'Connect with us on YouTube!'
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         ]
+                                    }
+                                ]
+                            },
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'col-md-6 col-lg-3 pb-4'
+                                },
+                                children : [
+                                    {
+                                        tag : 'h5',
+                                        text : 'Links',
+                                        attributes : {
+                                            class : 'text-light'
+                                        }
+                                    },
+                                    {
+                                        tag : 'hr',
+                                        attributes : {
+                                            class : 'border-gray'
+                                        }
+                                    },
+                                    {
+                                        tag : 'a',
+                                        text : 'Home',
+                                        attributes : {
+                                            class : 'text-light',
+                                            href : '#'
+                                        }
+                                    },
+                                    {
+                                        tag : 'br'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        text : 'Shop',
+                                        attributes : {
+                                            class : 'text-light',
+                                            href : '#'
+                                        }
+                                    },
+                                    {
+                                        tag : 'br'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        text : 'Blog',
+                                        attributes : {
+                                            class : 'text-light',
+                                            href : '#'
+                                        }
+                                    },
+                                    {
+                                        tag : 'br'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        text : 'Our Story',
+                                        attributes : {
+                                            class : 'text-light',
+                                            href : '#'
+                                        }
+                                    },
+                                    {
+                                        tag : 'br'
+                                    },
+                                    {
+                                        tag : 'a',
+                                        text : 'Careers',
+                                        attributes : {
+                                            class : 'text-light',
+                                            href : '#'
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'col-md-6 col-lg-6 pb-4'
+                                },
+                                children : [
+                                    {
+                                        tag : 'h5',
+                                        text : 'Our Story',
+                                        attributes : {
+                                            class : 'text-light'
+                                        }
+                                    },
+                                    {
+                                        tag : 'hr',
+                                        attributes : {
+                                            class : 'border-gray'
+                                        }
+                                    },
+                                    {
+                                        tag : 'p',
+                                        text : [
+                                            self.randomParagraph(),
+                                            self.element('a', 'Read More...', { class : 'text-light ml-3' })
+                                        ]
+                                    },
+                                    {
+                                        tag : 'label',
+                                        attributes : {
+                                            for : 'post-btn-input',
+                                            class : 'font-weight-bold pt-2 text-light'
+                                        },
+                                        text : 'Newsletter Signup:'
                                     },
                                     {
                                         tag : 'div',
                                         attributes : {
-                                            class : 'col-lg-4 pb-4'
+                                            class : 'input-group input-group-lg'
                                         },
                                         children : [
                                             {
-                                                tag : 'h3',
-                                                text : self.randomHeadline()
-                                            },
-                                            {
-                                                tag : 'hr',
+                                                tag : 'input',
                                                 attributes : {
-                                                    class : 'border-gray'
+                                                    type : 'text',
+                                                    class : 'form-control border-light-gray rounded-0',
+                                                    placeholder : 'Enter Email',
+                                                    id : 'post-btn-input',
+                                                    name : 'post-btn-input',
+                                                    'aria-describedby' : 'post-btn-input-help'
                                                 }
                                             },
                                             {
-                                                tag : 'p',
-                                                text : self.randomParagraph()
+                                                tag : 'div',
+                                                attributes : {
+                                                    class : 'input-group-append'
+                                                },
+                                                children : [
+                                                    {
+                                                        tag : 'button',
+                                                        attributes : {
+                                                            class : 'btn btn-outline-light-gray rounded-0',
+                                                            type : 'button'
+                                                        },
+                                                        text : 'SUBMIT'
+                                                    }
+                                                ]
                                             }
                                         ]
+                                    },
+                                    {
+                                        tag : 'small',
+                                        attributes : {
+                                            id : 'post-btn-input-help',
+                                            class : 'form-text text-gray'
+                                        },
+                                        text : 'A valid email address is required.'
                                     }
                                 ]
                             }
