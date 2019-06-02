@@ -527,7 +527,11 @@ console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t')); // Logs default
 };
 ```
 
-### OBEBS4.components.navbar() Default Example
+### OBEBS4.components.navbar()
+
+_The OBEBS4.components.navbar()() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
+
+#### OBEBS4.components.navbar() Default Example
 
 ```javascript
 let defaultNavbar = obebs4.components.navbar();
@@ -550,7 +554,7 @@ target.appendChild(defaultNavbar);
 </nav>
 ```
 
-### OBEBS4.components.navbar() with Custom Settings Example
+#### OBEBS4.components.navbar() with Custom Settings Example
 
 ```javascript
 let customNavbarImgSize = '30';
