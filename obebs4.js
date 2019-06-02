@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '1.3.1',
+    this.version = '1.3.2',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -308,7 +308,7 @@ const OBEBS4 = function () {
         return el;
 
     },
-    this.component = {
+    this.components = {
         navbar : function (passedSettings = false) {
             
             let collapseID = 'nl-navbar';
