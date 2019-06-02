@@ -16,6 +16,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.layout()](#obebs4layout)
     * [.content.article()](#obebs4contentarticle)
     * [.content.navbar.basic()](#obebs4contentnavbarbasic)
+* [OBEBS4.js Content Method Defaults](#obebs4js-content-method-defaults)
 * [OBEBS4.js Placeholder Content](#object-placeholder-content)
 * [OBEBS4.js Utility Methods](#object-utility-methods)
     * [.dom()](#obebs4dom)
