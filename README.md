@@ -1,5 +1,5 @@
 # OBE:BS4 JavaScript Markup Factory & Methods
-A JavaScript library to compliment any OBE:BS4 project with either dynamically generated markup requirements, or a need for rapid prototyping.
+OBEBS4.js is a JavaScript library to compliment any OBE:BS4 project with either dynamically generated markup requirements, or a need for rapid prototyping.
 
 
 ---
@@ -38,7 +38,7 @@ A JavaScript library to compliment any OBE:BS4 project with either dynamically g
 
 To start working with the OBE:BS4 JavaScript Markup Factory & Methods (for now and while this project is in an Alpha phase), you'll want to:
 1. Download this project as a .zip file, and unzip the file
-1. Add the file `obebs4.object.js` to your local/live site directory as needed
+1. Add the file `obebs4.js` to your local/live site directory as needed
 1. Include the file on your page(s) as you would any other external JS file
 
 ## The Global Object
@@ -93,7 +93,7 @@ For sake of brevity and before digging in, let's assume the following boilerplat
 
         <!-- JavaScript -->
         <script src="https://library.mattmct.com/obebs4.production.bundle.js"></script>
-        <script src="obebs4.object.js"></script>
+        <script src="obebs4.js"></script>
 
     </body>
 
