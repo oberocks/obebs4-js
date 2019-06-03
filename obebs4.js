@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '3.1.0',
+    this.version = '3.2.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -312,6 +312,66 @@ const OBEBS4 = function () {
 
     },
     this.defaults = {
+        aside : [
+            {
+                tag : 'aside',
+                attributes : {
+                    class : 'container-fluid bg-danger text-white text-shadow py-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'row justify-content-center align-items-center'
+                                },
+                                children : [
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6 pb-5 pb-md-0 text-center text-md-left'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'h1',
+                                                text : self.randomHeadline()
+                                            },
+                                            {
+                                                tag : 'p',
+                                                attributes : {
+                                                    class : 'mb-0'
+                                                },
+                                                text : self.randomQuote()
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        tag : 'div',
+                                        attributes : {
+                                            class : 'col-md-6 pb-3 pb-md-0 text-center'
+                                        },
+                                        children : [
+                                            {
+                                                tag : 'button',
+                                                attributes : {
+                                                    class : 'btn btn-lg btn-white text-danger rounded-0'
+                                                },
+                                                text : 'BUY NOW'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         footer : [
             {
                 tag : 'footer',
@@ -641,19 +701,19 @@ const OBEBS4 = function () {
             {
                 tag : 'article',
                 attributes : {
-                    class : 'container-fluid bg-primary text-white py-5 mt-5 text-center'
+                    class : 'container-fluid bg-primary text-white py-5 text-center'
                 },
                 children : [
                     {
                         tag : 'div',
                         attributes : {
-                            class : 'container'
+                            class : 'container pt-5'
                         },
                         children : [
                             {
                                 tag : 'h1',
                                 attributes : {
-                                    class : 'text-shadow'
+                                    class : 'text-shadow pt-2'
                                 },
                                 text : self.randomHeadline()
                             },
@@ -667,7 +727,7 @@ const OBEBS4 = function () {
                             {
                                 tag : 'a',
                                 attributes : {
-                                    class : 'btn btn-lg btn-outline-white rounded-0',
+                                    class : 'btn btn-lg btn-white text-primary rounded-0 mt-2 mb-4',
                                     role : 'button'
                                 },
                                 text : 'LEARN MORE'
@@ -930,6 +990,21 @@ const OBEBS4 = function () {
 
     },
     this.layouts = {
+        aside : function (passedSettings = false) {
+
+            // get the default settings
+            let defaults = self.defaults.aside;
+    
+            // set user submitted settings if provided, otherwise use defaults
+            let settings = passedSettings ? passedSettings : defaults;
+
+            // generate the navbar markup
+            let aside = self.layout(settings);
+            
+            // return the markup
+            return aside;
+
+        },
         footer : function (passedSettings = false) {
 
             // get the default settings
