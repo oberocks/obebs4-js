@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '3.2.0',
+    this.version = '3.2.1',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -759,7 +759,7 @@ const OBEBS4 = function () {
                                     {
                                         tag : 'div',
                                         attributes : {
-                                            class : 'col-md-6'
+                                            class : 'col-md-6 pb-5 pb-md-0'
                                         },
                                         children : [
                                             {
