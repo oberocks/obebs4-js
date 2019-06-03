@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '2.2.3',
+    this.version = '3.0.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -637,6 +637,11 @@ const OBEBS4 = function () {
                 text : '© ' + self.year() + ' | All Rights Reserved'
             }
         ],
+        hero : [
+            {
+                tag : 'article'
+            }
+        ],
         layout : [
             {
                 tag : 'article',
@@ -736,8 +741,8 @@ const OBEBS4 = function () {
                             class : 'navbar-toggler',
                             type : 'button',
                             'data-toggle' : 'collapse',
-                            'data-target' : '#components-navbar-id',
-                            'aria-controls' : 'components-navbar-id',
+                            'data-target' : '#layouts-navbar-id',
+                            'aria-controls' : 'layouts-navbar-id',
                             'aria-expanded' : 'false',
                             'aria-label' : 'Toggle navigation'
                         },
@@ -754,7 +759,7 @@ const OBEBS4 = function () {
                         tag : 'div',
                         attributes : {
                             class : 'collapse navbar-collapse',
-                            id : 'components-navbar-id'
+                            id : 'layouts-navbar-id'
                         },
                         children : [
                             {
@@ -795,42 +800,7 @@ const OBEBS4 = function () {
             }
         ]
     },
-    this.components = {
-        footer : function (passedSettings = false) {
-            
-            let defaults = self.defaults.footer;
-    
-            // set user submitted settings or defaults
-            let settings;
-            if (passedSettings) {
-                settings = passedSettings;
-            } else {
-                settings = defaults;
-            }
-
-            // generate the navbar markup and return it
-            let footer = self.layout(settings);
-            return footer;
-
-        },
-        navbar : function (passedSettings = false) {
-            
-            let defaults = self.defaults.navbar;
-    
-            // set user submitted settings or defaults
-            let settings;
-            if (passedSettings) {
-                settings = passedSettings;
-            } else {
-                settings = defaults;
-            }
-
-            // generate the navbar markup and return it
-            let navbar = self.layout(settings);
-            return navbar;
-
-        }
-    },
+    this.components = {},
     this.layout = function (passedSettings = false) {
         
         let defaults = self.defaults.layout;
@@ -923,5 +893,52 @@ const OBEBS4 = function () {
 
         return output;
 
+    },
+    this.layouts = {
+        footer : function (passedSettings = false) {
+
+            // get the default settings
+            let defaults = self.defaults.footer;
+    
+            // set user submitted settings if provided, otherwise use defaults
+            let settings = passedSettings ? passedSettings : defaults;
+
+            // generate the navbar markup
+            let footer = self.layout(settings);
+            
+            // return the markup
+            return footer;
+
+        },
+        hero : function (passedSettings = false) {
+            
+            // get the default settings
+            let defaults = self.defaults.hero;
+    
+            // set user submitted settings if provided, otherwise use defaults
+            let settings = passedSettings ? passedSettings : defaults;
+
+            // generate the navbar markup
+            let hero = self.layout(settings);
+            
+            // return the markup
+            return hero;
+
+        },
+        navbar : function (passedSettings = false) {
+            
+            // get the default settings
+            let defaults = self.defaults.navbar;
+    
+            // set user submitted settings if provided, otherwise use defaults
+            let settings = passedSettings ? passedSettings : defaults;
+
+            // generate the navbar markup
+            let navbar = self.layout(settings);
+            
+            // return the markup
+            return navbar;
+
+        }
     }
 };

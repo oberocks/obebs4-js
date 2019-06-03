@@ -45,20 +45,20 @@
 
 
             let obebs4 = new OBEBS4();
-            console.log(obebs4.version);
+            console.log('OBEBS4.js v' + obebs4.version);
 
             const target = document.getElementById('obebs4-app');
 
 
             // NAVBAR EXAMPLES (MUST BE MANUALLY TOGGLED ON/OFF BECAUSE OBE'S DEFAULT NAVBAR BEHAVIOR IS FIXED TOP)
 
-            // Example of a default navbar using .components.navbar()
+            // Example of a default navbar using .layouts.navbar()
             /*
-            let defaultNavbar = obebs4.components.navbar();
+            let defaultNavbar = obebs4.layouts.navbar();
             target.appendChild(defaultNavbar);
             */
 
-            // Example of a custom navbar using .components.navbar()
+            // Example of a custom navbar using .layouts.navbar()
             
             let customNavbarImgSize = '30';
             let customNavCollapseId = 'custom-navbar-id';
@@ -151,13 +151,20 @@
                 }
             ];
 
-            let customNavbar = obebs4.components.navbar(customNavbarSettings);
+            let customNavbar = obebs4.layouts.navbar(customNavbarSettings);
             target.appendChild(customNavbar);
+
+
+
+            // Example of a default hero using .layouts.hero()
+            
+            let defaultHero = obebs4.layouts.hero();
+            target.appendChild(defaultHero);
             
 
 
 
-
+            
             // Example of a manually built section using OBEBS4.element()
 
             let article_0_h_1 = obebs4.element('h3', 'First Headline', {'class' : 'pt-5'});
@@ -207,6 +214,7 @@
             obebs4.dom(domSection, 'replace', element_7, 'with', element_8);
             obebs4.dom(domSection, 'remove', element_8);
             obebs4.dom(domSection, 'prepend', element_0);
+            
             
             /*
             obebs4.dom(domSection, 'appendChild', element_1);
@@ -297,9 +305,9 @@
             // Examples of grabbing .defaults.layout data
             //console.log(JSON.stringify(obebs4.defaults.layout, null, '\t'));
 
-            // Example of a default navbar using .components.navbar()
+            // Example of a default navbar using .layouts.navbar()
             
-            let defaultFooter = obebs4.components.footer();
+            let defaultFooter = obebs4.layouts.footer();
             target.appendChild(defaultFooter);
             
 

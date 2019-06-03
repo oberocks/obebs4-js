@@ -14,9 +14,9 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
 * [OBEBS4.js Content Methods](#obebs4js-content-methods)
     * [.element()](#obebs4element)
     * [.layout()](#obebs4layout)
-* [OBEBS4.js Components Methods](#obebs4js-components-methods)
-    * [.components.footer()](#obebs4componentsfooter)
-    * [.components.navbar()](#obebs4componentsnavbar)
+* [OBEBS4.js Layouts Methods](#obebs4js-layouts-methods)
+    * [.layouts.footer()](#obebs4layoutsfooter)
+    * [.layouts.navbar()](#obebs4layoutsnavbar)
 * [OBEBS4.js Placeholder Content](#object-placeholder-content)
 * [OBEBS4.js Utility Methods](#object-utility-methods)
     * [.dom()](#obebs4dom)
@@ -340,7 +340,7 @@ target.appendChild(sectionLayout);
 
 (Coming Soon!)
 
-## OBEBS4.js Components Methods
+## OBEBS4.js Layouts Methods
 
 The OBEBS4.js Markup Factory & Methods include a collection of component methods to allow your code to be both more semantic and more expressive. Each of these methods use the `OBEBS4.layout()` method under the hood.
 
@@ -348,17 +348,17 @@ Additionally, each of these methods have associated default array of object item
 
 ```javascript
 console.log(JSON.stringify(obebs4.defaults.layout, null, '\t')); // Logs defaults for OBEBS4.layout()
-console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t')); // Logs defaults for OBEBS4.components.navbar()
+console.log(JSON.stringify(obebs4.defaults.navbar, null, '\t')); // Logs defaults for OBEBS4.layouts.navbar()
 ```
 
-### OBEBS4.components.footer()
+### OBEBS4.layouts.footer()
 
-_The OBEBS4.components.footer() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
+_The OBEBS4.layouts.footer() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
 
-#### OBEBS4.components.footer() Default Example
+#### OBEBS4.layouts.footer() Default Example
 
 ```javascript
-let defaultFooter = obebs4.components.footer();
+let defaultFooter = obebs4.layouts.footer();
 target.appendChild(defaultFooter);
 ```
 ```html
@@ -425,24 +425,24 @@ target.appendChild(defaultFooter);
 </footer>
 ```
 
-### OBEBS4.components.navbar()
+### OBEBS4.layouts.navbar()
 
-_The OBEBS4.components.navbar() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
+_The OBEBS4.layouts.navbar() method accepts a single argument, which should always be an `array` of `object` items. Each object item passed in through this array argument should follow the Key Name schema in the [OBEBS4.layout()'s Object Schema Table](#obebs4layouts-object-schema-table)._
 
-#### OBEBS4.components.navbar() Default Example
+#### OBEBS4.layouts.navbar() Default Example
 
 ```javascript
-let defaultNavbar = obebs4.components.navbar();
+let defaultNavbar = obebs4.layouts.navbar();
 target.appendChild(defaultNavbar);
 ```
 ```html
 <!-- The example above will generate and append this HTML to your target element: -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark box-shadow-sm">
     <a class="navbar-brand" href="#">Brand Name</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#components-navbar-id" aria-controls="components-navbar-id" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#layouts-navbar-id" aria-controls="layouts-navbar-id" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="components-navbar-id">
+    <div class="collapse navbar-collapse" id="layouts-navbar-id">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="#">Home</a>
             <a class="nav-item nav-link" href="#">Shop</a>
@@ -452,7 +452,7 @@ target.appendChild(defaultNavbar);
 </nav>
 ```
 
-#### OBEBS4.components.navbar() with Custom Settings Example
+#### OBEBS4.layouts.navbar() with Custom Settings Example
 
 ```javascript
 let customNavbarImgSize = '30';
@@ -546,7 +546,7 @@ let customNavbarSettings = [
     }
 ];
 
-let customNavbar = obebs4.components.navbar(customNavbarSettings);
+let customNavbar = obebs4.layouts.navbar(customNavbarSettings);
 target.appendChild(customNavbar);
 ```
 ```html
