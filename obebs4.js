@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '3.0.0',
+    this.version = '3.1.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -639,7 +639,42 @@ const OBEBS4 = function () {
         ],
         hero : [
             {
-                tag : 'article'
+                tag : 'article',
+                attributes : {
+                    class : 'container-fluid bg-primary text-white py-5 mt-5 text-center'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'container'
+                        },
+                        children : [
+                            {
+                                tag : 'h1',
+                                attributes : {
+                                    class : 'text-shadow'
+                                },
+                                text : self.randomHeadline()
+                            },
+                            {
+                                tag : 'p',
+                                attributes : {
+                                    class : 'lead mb-5'
+                                },
+                                text : self.randomQuote()
+                            },
+                            {
+                                tag : 'a',
+                                attributes : {
+                                    class : 'btn btn-lg btn-outline-white rounded-0',
+                                    role : 'button'
+                                },
+                                text : 'LEARN MORE'
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         layout : [
