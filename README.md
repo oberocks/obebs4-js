@@ -30,7 +30,10 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.randomParagraph()](#obebs4randomparagraph)
     * [.randomQuote()](#obebs4randomquote)
     * [.year()](#obebs4year)
+* [Extending OBEBS4.js Layouts and Defaults](#extendingobebs4jslayoutsanddefaults)
+<!---
 * [Console Errors](#console-errors)
+--->
 
 
 ---
@@ -802,6 +805,105 @@ let year = obebs4.year();
 console.log(year);
 ```
 
+## Extending OBEBS4.js Layouts and Defaults
+
+If you and/or your team are using the [OBE:BS4 Design System](https://github.com/oberocks/obebs4) in conjunction with OBEBS4.js, you'll find that you have a nearly infinite amount of options available to sculpt the presentation of your content. Extending the OBEBS4.js Layouts (`OBEBS4.layouts{}`) and Defaults (`OBEBS4.defaults{}`) becomes a natural progression as you use the Design System and the Library together.
+
+The OBEBS4.js `.layouts` and `.defaults` objects are de-coupled from each other purposefully. This architecture was meant to allow users of all skill levels, to access/reference/use any existing .defaults to quickly come up with new markup schemas. However due to this de-coupling, you will generally want to take a 2 step approach to adding a new Layout.
+
+### Adding a New Layout
+
+_The 1st step is to add the necessary layout code to process any default settings, user settings, and to return your desired markup._
+
+The OBEBS4.layouts object can be extended like this:
+
+```javascript
+obebs4.layouts.myNewLayout = function (passedSettings = false) {
+
+    // get the default settings
+    let defaults = obebs4.defaults.myNewLayout;
+
+    // set user submitted settings if provided, otherwise use defaults
+    let settings = passedSettings ? passedSettings : defaults;
+
+    // generate the navbar markup
+    let myNewLayout = obebs4.layout(settings);
+    
+    // return the markup
+    return myNewLayout;
+
+};
+```
+
+And your accompanying OBEBS4.defaults object can be extended like this:
+
+```javascript
+obebs4.defaults.myNewLayout = [
+    {
+        tag : 'section',
+        attributes : {
+            class : 'container-fluid bg-light py-5'
+        },
+        children : [
+            {
+                tag : 'div',
+                attributes : {
+                    class : 'container pt-5'
+                },
+                children : [
+                    {
+                        tag : 'div',
+                        attributes : {
+                            class : 'row justify-content-center'
+                        },
+                        children : [
+                            {
+                                tag : 'div',
+                                attributes : {
+                                    class : 'col-md-8'
+                                },
+                                children : [
+                                    {
+                                        tag : 'h1',
+                                        attributes : {
+                                            class : 'text-shadow pt-2'
+                                        },
+                                        text : obebs4.randomHeadline()
+                                    },
+                                    {
+                                        tag : 'p',
+                                        attributes : {
+                                            class : 'lead mb-5'
+                                        },
+                                        text : obebs4.randomQuote()
+                                    },
+                                    {
+                                        tag : 'a',
+                                        attributes : {
+                                            class : 'btn btn-lg btn-white text-primary rounded-0 mt-2 mb-4',
+                                            role : 'button'
+                                        },
+                                        text : 'LEARN MORE'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
+```
+
+With both your new layout and new defaults added to your OBEBS4,js instance, you can call your new layout like this:
+
+```javascript
+let myNewLayout = obebs4.layouts.myNewLayout();
+target.appendChild(myNewLayout);
+```
+
+<!---
 ### Console Errors
 
 The OBEBS4.js Markup Factory & Methods have built-in custom error reporting to help users to quickly and efficiently correct errors. In most cases, these error methods are implemented so they fail quietly, thus allowing your code to continue to generate as many elements as possible. This design decision was made to keep iterations and ideas flowing, especially when rapidly protyping.
@@ -815,3 +917,4 @@ Console Errors have been tested in Chrome (74.0.3729.169), Firefox (65.0.1), Ope
 >
 >**DON'T FORGET**: All JavaScript array indexes start at `[0]`!
 >
+--->

@@ -325,6 +325,83 @@
             target.appendChild(defaultFooter);
 
             
+            // Example of custom defaults for a custom layout
+
+            obebs4.defaults['myNewLayout'] = [
+                {
+                    tag : 'section',
+                    attributes : {
+                        class : 'container-fluid bg-light py-5'
+                    },
+                    children : [
+                        {
+                            tag : 'div',
+                            attributes : {
+                                class : 'container pt-5'
+                            },
+                            children : [
+                                {
+                                    tag : 'div',
+                                    attributes : {
+                                        class : 'row justify-content-center'
+                                    },
+                                    children : [
+                                        {
+                                            tag : 'div',
+                                            attributes : {
+                                                class : 'col-md-8'
+                                            },
+                                            children : [
+                                                {
+                                                    tag : 'h1',
+                                                    attributes : {
+                                                        class : 'text-shadow pt-2'
+                                                    },
+                                                    text : obebs4.randomHeadline()
+                                                },
+                                                {
+                                                    tag : 'p',
+                                                    attributes : {
+                                                        class : 'lead mb-5'
+                                                    },
+                                                    text : obebs4.randomQuote()
+                                                },
+                                                {
+                                                    tag : 'a',
+                                                    attributes : {
+                                                        class : 'btn btn-lg btn-white text-primary rounded-0 mt-2 mb-4',
+                                                        role : 'button'
+                                                    },
+                                                    text : 'LEARN MORE'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            obebs4.layouts.myNewLayout = function (passedSettings = false) {
+
+                // get the default settings
+                let defaults = obebs4.defaults.myNewLayout;
+
+                // set user submitted settings if provided, otherwise use defaults
+                let settings = passedSettings ? passedSettings : defaults;
+
+                // generate the navbar markup
+                let myNewLayout = obebs4.layout(settings);
+                
+                // return the markup
+                return myNewLayout;
+
+            };
+
+            let myNewLayout = obebs4.layouts.myNewLayout();
+            target.appendChild(myNewLayout);
 
 
         </script>
