@@ -809,33 +809,13 @@ console.log(year);
 
 If you and/or your team are using the [OBE:BS4 Design System](https://github.com/oberocks/obebs4) in conjunction with OBEBS4.js, you'll find that you have a nearly infinite amount of options available to sculpt the presentation of your content. Extending the OBEBS4.js Layouts (`OBEBS4.layouts{}`) and Defaults (`OBEBS4.defaults{}`) becomes a natural progression as you use the Design System and the Library together.
 
-The OBEBS4.js `.layouts` and `.defaults` objects are de-coupled from each other purposefully. This architecture was meant to allow users of all skill levels, to access/reference/use any existing .defaults to quickly come up with new markup schemas. However due to this de-coupling, you will generally want to take a 2 step approach to adding a new Layout.
+The OBEBS4.js `.layouts` and `.defaults` objects are de-coupled from each other purposefully. This architecture was meant to allow users of all skill levels, to access/reference/use any existing .defaults to quickly come up with new markup schemas. However due to this de-coupling, you will generally want to take a 2 step approach to adding a new Layout with default settings.
 
-### Adding a New Layout
+### Extending the Defaults Object
 
-_The 1st step is to add the necessary layout code to process any default settings, user settings, and to return your desired markup._
+_The 1st step is to add the necessary defaults settings that will be used whenever your new layout method is called without any passed settings._
 
-The OBEBS4.layouts object can be extended like this:
-
-```javascript
-obebs4.layouts.myNewLayout = function (passedSettings = false) {
-
-    // get the default settings
-    let defaults = obebs4.defaults.myNewLayout;
-
-    // set user submitted settings if provided, otherwise use defaults
-    let settings = passedSettings ? passedSettings : defaults;
-
-    // generate the navbar markup
-    let myNewLayout = obebs4.layout(settings);
-    
-    // return the markup
-    return myNewLayout;
-
-};
-```
-
-And your accompanying OBEBS4.defaults object can be extended like this:
+For example, you can extend the OBEBS4.defaults object like this:
 
 ```javascript
 obebs4.defaults.myNewLayout = [
@@ -894,6 +874,30 @@ obebs4.defaults.myNewLayout = [
         ]
     }
 ];
+```
+
+### Extending the Defaults Object
+
+_The 2nd step is to add the necessary layout code to process your new default settings or any future (passed) user settings, and then return the specified markup for each scenario._
+
+The OBEBS4.layouts object can be extended like this:
+
+```javascript
+obebs4.layouts.myNewLayout = function (passedSettings = false) {
+
+    // get the default settings
+    let defaults = obebs4.defaults.myNewLayout;
+
+    // set user submitted settings if provided, otherwise use defaults
+    let settings = passedSettings ? passedSettings : defaults;
+
+    // generate the navbar markup
+    let myNewLayout = obebs4.layout(settings);
+    
+    // return the markup
+    return myNewLayout;
+
+};
 ```
 
 With both your new layout and new defaults added to your OBEBS4,js instance, you can call your new layout like this:
