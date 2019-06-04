@@ -31,6 +31,8 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.randomQuote()](#obebs4randomquote)
     * [.year()](#obebs4year)
 * [Extending OBEBS4.js Layouts and Defaults](#extending-obebs4js-layouts-and-defaults)
+    * [Extending the Defaults Object](#extending-the-defaults-object)
+    * [Extending the Layouts Object](#extending-the-layouts-object)
 <!---
 * [Console Errors](#console-errors)
 --->
@@ -876,7 +878,7 @@ obebs4.defaults.myNewLayout = [
 ];
 ```
 
-### Extending the Defaults Object
+### Extending the Layouts Object
 
 _The 2nd step is to add the necessary layout code to process your new default settings or any future (passed) user settings, and then return the specified markup for each scenario._
 
