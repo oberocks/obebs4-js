@@ -30,7 +30,7 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
     * [.randomParagraph()](#obebs4randomparagraph)
     * [.randomQuote()](#obebs4randomquote)
     * [.year()](#obebs4year)
-* [Extending OBEBS4.js Layouts and Defaults](#extendingobebs4jslayoutsanddefaults)
+* [Extending OBEBS4.js Layouts and Defaults](#extending-obebs4js-layouts-and-defaults)
 <!---
 * [Console Errors](#console-errors)
 --->
