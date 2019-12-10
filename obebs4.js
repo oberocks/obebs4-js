@@ -1,7 +1,7 @@
 const OBEBS4 = function () {
     'use strict';
     let self = this;
-    this.version = '3.2.2',
+    this.version = '3.3.0',
     this.placeholders = {
         headlines : [
             'Lorem Ipsum Dolor Sit',
@@ -50,7 +50,7 @@ const OBEBS4 = function () {
                 
                 parent.insertBefore(el, refNode.nextSibling);
 
-            } else if (subType === 'before' || subType != false) {
+            } else if (subType === 'before' || subType !== false) {
                 
                 parent.insertBefore(el, refNode);
 
@@ -1050,5 +1050,114 @@ const OBEBS4 = function () {
             return navbar;
 
         }
+    },
+    this.nodeDepth = function(nodes, currentDepth = 1){
+    
+        let depth = currentDepth;
+    
+        if (nodes.hasChildNodes())
+        {
+            // assign the child nodes to a variable
+            let kids = nodes.childNodes;
+            
+            // loop through the child nodes to determine the depth of the children
+            for (var i = 0; i < kids.length; i++)
+            {
+                // check if the node is an element node
+                if (kids[i].nodeType === Node.ELEMENT_NODE)
+                {
+                    // if so, increment the depth
+                    depth++;
+                    // run the function again recursively, and return the final incremented depth
+                    return self.nodeDepth(kids[i], depth);
+                }
+            }
+    
+            return depth;
+        }
+        else
+        {
+            return depth;
+        }
+    
+    },
+    this.generateConstruct = function(nodes){
+    
+        // initialize an object to output
+        let obj = {};
+        
+        // assign the tag name of the 
+        obj.tag = nodes.tagName.toLowerCase();
+        
+        // check if the node has any attributes
+        if (nodes.hasAttributes())
+        {
+            // if so create an empty attributes object
+            let attributes = {};
+            
+            // assign the attributes to a variable
+            let attrs = nodes.attributes;
+            
+            // loop through the attributes
+            for (var i = 0; i < attrs.length; i++)
+            {
+                // assign each key/value pair to the attributes object
+                attributes[attrs[i].name] = attrs[i].value;
+            }
+            
+            // assign the attributes to the output object
+            obj.attributes = attributes;
+        }
+    
+        if (nodes.hasChildNodes())
+        {
+            // if so create an empty children array
+            let children = [];
+            
+            // assign the child nodes to a variable
+            let kids = nodes.childNodes;
+    
+            // get the depth of the nodes
+            let depth = self.nodeDepth(nodes);
+            
+            // loop through the child nodes
+            for (var i = 0; i < kids.length; i++)
+            {
+                if (kids[i].firstChild != null || kids[i].nodeType === Node.ELEMENT_NODE)
+                {
+                    // run this function recursively and add the returned object to the children array
+                    children.push(self.generateConstruct(kids[i]));
+                }
+                else
+                {
+                    if (depth != kids.length)
+                    {
+                        // create an empty object
+                        let node = {};
+                        // assign a tag property
+                        node.tag = 'span';
+                        // assign the passed string
+                        node.text = [kids[i].textContent];
+                        // add the object to the passed array
+                        children.push(node);
+                    }
+                    else
+                    {
+                        obj.text = [kids[i].textContent];
+                    }
+                    
+                }
+                
+            }
+    
+            if (children.length > 0)
+            {
+                obj.children = children;
+            }
+    
+        }
+    
+        return obj;
+    
     }
 };

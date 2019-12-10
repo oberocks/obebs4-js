@@ -404,6 +404,19 @@
             target.appendChild(myNewLayout);
 
 
+
+
+
+
+            // tests for new generate construct functionality
+            let renderedNav = target.querySelector('nav');
+            let renderedNav_construct = [
+                JSON.stringify(obebs4.generateConstruct(renderedNav), null, 4)
+            ];
+            let renderedNav_el = obebs4.element('pre', renderedNav_construct, {class:'p-5 bg-dark text-light'});
+            target.appendChild(renderedNav_el);
+
+
         </script>
 
     </body>
