@@ -21,10 +21,12 @@ OBEBS4.js is a JavaScript library to compliment any OBE:BS4 Design System projec
 * [OBEBS4.js Utility Methods](#object-utility-methods)
     * [.dom()](#obebs4dom)
     * [.extend()](#obebs4extend)
+    * [.generateConstruct()](#obebs4generateconstruct)
     * [.getRandomIndex()](#obebs4getrandomindex)
     * [.isElementNode()](#obebs4iselementnode)
     * [.isObject()](#obebs4isobject)
     * [.isString()](#obebs4isstring)
+    * [.nodeDepth()](#obebs4nodedepth)
     * [.randomBrand()](#obebs4randombrand)
     * [.randomHeadline()](#obebs4randomheadline)
     * [.randomParagraph()](#obebs4randomparagraph)
@@ -722,6 +724,33 @@ let merged = obebs4.extend(true, defaults, myDefaults);
 console.log(merged);
 ```
 
+### OBEBS4.generateConstruct()
+
+_Returns a JavaScript object notated with the markup tags, attributes, text, and child structure(s) for a single passed DOM node list object._
+
+```javascript
+let nav = document.querySelector('nav');
+let nav_construct = obebs4.generateConstruct(nav);
+console.log(nav_construct);
+```
+
+_The object returned by `.generateConstruct()` can be used in conjunction with the `.layout()` method to re-create the exact markup from the construct. To do this, you'll want to pack any generated constructs into an array to pass them into the layout function. **NOTE: The array is required in all cases (even to pass in a single construct) when using the .layout() function!**_
+
+```javascript
+let nav = document.querySelector('nav');
+let nav_construct = obebs4.generateConstruct(nav);
+
+let section = document.querySelector('section');
+let section_construct = obebs4.generateConstruct(section);
+
+let new_layout = obebs4.layout([nav_construct, section_construct]);
+target.appendChild(new_layout);
+```
+
+>
+> NOTE: The `.generateConstruct()` method will modify certain text node values by wrapping them in span tags, whenever an inline element is found that is flanked by text node content! This is done to reduce the complixity of the conditionals under the hood, because it has no visual impact of the rendered text in the browser. If the text content is just text though (without any element siblings), it will show up as a value for the element's text object property.
+>
+
 ### OBEBS4.getRandomIndex()
 
 _Returns a "random" interger between 0 and a passed array `.length` value._
@@ -760,6 +789,15 @@ _Checks if an passed value is a valid string or a JavaScript String Object strin
 ```javascript
 let string = 'Hi! I am a string!';
 console.log(obebs4.isString(string)); // returns/logs: true
+```
+
+### OBEBS4.nodeDepth()
+
+_Returns an interger that is 1 or more, representing the depth of child (grand-child, great grand-child, etc.) elements in a parent element's node list object._
+
+```javascript
+let navdepth = obebs4.nodeDepth(document.querySelector('nav'));
+console.log('The nav depth is: ' + navdepth);
 ```
 
 ### OBEBS4.randomBrand()
